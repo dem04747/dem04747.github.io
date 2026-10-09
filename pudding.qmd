@@ -1,0 +1,123 @@
+---
+title: "The Pudding"
+subtitle: "Data from TidyTuesday"
+author: "Daniel Martínez Scavino"
+format: html
+execute: 
+  warning: false
+  message: false
+---
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(openintro)
+```
+
+---
+```{r}
+pudding <- read_csv(
+  "https://raw.githubusercontent.com/the-pudding/data/master/dearabby/raw_da_qs.csv"
+)
+view(pudding)
+
+glimpse(pudding)
+```
+
+
+```{r}
+library(dplyr)
+library(stringr)
+library(tidyr)
+
+words <- c("church", "gay", "sex", "marriage", "cheat")
+pattern <- str_c(r"(\b)", str_c(words, collapse = r"(\b|\b)"), r"(\b)")
+pattern 
+pudding |>
+  # Extract ALL matching words from each row as a list
+  mutate(match = str_extract_all(question_only, regex(pattern, ignore_case = TRUE))) |>
+  # Expand list elements into individual rows
+  unnest(match) |>
+  # Convert to lowercase so "Hello" and "hello" count together
+  mutate(match = str_to_lower(match)) |>
+  # Count occurrences per word
+  count(match, name = "count")
+
+match
+```
+
+## Word clould
+The code below willl generate a word cloud using ggplot2. The code was generate by Google Gemini. 
+```{r}
+# Install and load packages
+install.packages(c("ggplot2", "ggwordcloud", "dplyr", "tidytext"))
+library(ggplot2)
+library(ggwordcloud)
+library(dplyr)
+library(tidytext)
+
+# Sample text data processing using tidytext
+text_data <- tibble(text = c("R is great for data science.", 
+                             "Word clouds visualize word frequencies in text data.",
+                             "ggplot2 and ggwordcloud make beautiful plots in R."))
+
+# Tokenize and count frequencies
+words_df <- text_data %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words) %>%
+  count(word, sort = TRUE)
+
+# Generate Word Cloud
+set.seed(42) # For reproducible placement
+ggplot(words_df, aes(label = word, size = n, color = n)) +
+  geom_text_wordcloud() +
+  scale_size_area(max_size = 20) + # Controls maximum font size
+  scale_color_gradient(low = "skyblue", high = "darkblue") +
+  theme_minimal()
+```
+
+The code below also generates a word cloud and it was also provided by AI (Google Gemini)
+
+```{r}
+install.packages("wordcloud2")
+library(wordcloud2)
+
+# Input requires a 2-column data frame (word, freq)
+df <- data.frame(
+  word = c("R", "Data", "Science", "Visualization", "Ggplot", "Code", "Analysis"),
+  freq = c(50, 40, 35, 30, 25, 20, 15)
+)
+
+# Render interactive HTML cloud
+wordcloud2(data = df, size = 0.7, shape = 'circle', color = 'random-dark')
+```
+
+# Where do people go for advice?
+
+Seeking advice from friends is not always easy. Not everyone is a good confident and some times our secrets are too embarrasing or to delicate to reveal outloud. For centuries, individuals bound by a vow of secrecy, priest for example, became the truthwordy confidents of people with power but I very much doubt that a peasent had access to members of the clergy. 
+
+
+```{r}
+
+
+# 2. Tokenize, remove standard stop words, and count frequencies
+words_df <- pudding %>%
+  select(question_only) %>%
+  drop_na(question_only) %>%
+  unnest_tokens(word, question_only) %>%
+  anti_join(stop_words, by = "word") %>%
+  # Filter out numbers or non-alphabetical tokens if desired
+  filter(str_detect(word, "^[a-z]+$")) %>%
+  count(word, sort = TRUE) %>%
+  # Keep top 100 most frequent words for readability
+  slice_max(n, n = 100)
+
+# 3. Generate the Word Cloud
+set.seed(42) # Ensures consistent word placement across runs
+ggplot(words_df, aes(label = word, size = n, color = n)) +
+  geom_text_wordcloud(grid_size = 1, max_grid_size = 32) +
+  scale_size_area(max_size = 15) +
+  scale_color_gradient(low = "skyblue3", high = "midnightblue") +
+  theme_minimal()
+
+```

@@ -15,7 +15,8 @@ website:
            href: palmtrees.qmd
          - text: "Orcas"
            href: orcas.qmd
-
+        - text: "Dear Abby"
+          href: pudding.qmd
 format:
   html:
     theme: cosmo
