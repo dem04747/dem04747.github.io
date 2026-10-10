@@ -3,6 +3,7 @@ title: "Dear Abby"
 subtitle: "People seeking advice"
 author: "Daniel Martínez Scavino"
 format: html
+code-fold: true
 execute: 
   warning: false
   message: false
