@@ -110,7 +110,7 @@ The *Señora Francis* of the USA is *Dear Abby*, a column that has been runnng c
 
 In the The Putting article, [30 Years of American Anxietis](https://pudding.cool/2018/11/dearabby/#histogram__category--religion), authors Ilia Blinderman, Caitlyn Ralph, and Russell Samora (with illustrations by Thoka Maer) identify *the most debated topics* by Dear Abby readers:  sex, religion, and LGBTQ issues.
 
-Here, I try to look at the do my own analysis of the letters, which can be found in the [The Pudding Github site](https://github.com/the-pudding/data/tree/master/dearabby). 
+Here, I do my own analysis of the letters, which can be found in the [The Pudding Github site](https://github.com/the-pudding/data/tree/master/dearabby). 
 
 
 ```{r}
