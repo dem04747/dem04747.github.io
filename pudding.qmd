@@ -30,6 +30,7 @@ pudding <- read_csv(
 ```
 
 ```{r}
+#| echo: false
 letters_year <- pudding |>
   select(year) |>
   group_by(year) |>
@@ -37,6 +38,7 @@ letters_year <- pudding |>
 ```
 
 ```{r}
+#| echo: false
 total_letters <- summarize(letters_year, sum(count))
 ```
 
