@@ -1,5 +1,5 @@
 ---
-title: "The Pudding"
+title: "Dear Abby versus AI"
 subtitle: "Data from TidyTuesday"
 author: "Daniel Martínez Scavino"
 format: html
@@ -106,10 +106,11 @@ Seeking advice from friends is not always easy. Not everyone is a good confident
 
 In Spain for example most famous radio advice show, *El Consultorio de Elena Francis* run continuously from 1947 to 1984. For nearly four decades, millions of Spanish women tuned in or wrote letters to *Señora Francis* seeking guidance on personal issues, relationship struggles, family drama, and domestic problems. Interestingly, the show became the moral watchdog of the Franco regime.  The responses broadcasted reflected the conservative, patriarchal, and Catholic values endorsed by the Francoist regime. Advice frequently encouraged women to endure infidelity, domestic hardship, or mistreatment, emphasizing patience, devotion, and submission to preserve the family structure.  
 
-The *Señora Francis* of the USA was *Dear Abby*, a column that has been runnng countiously since 1956 and has been sindycated in more than 1,200 newspapers. 
+The *Señora Francis* of the USA is *Dear Abby*, a column that has been runnng countiously since 1956 and has been sindycated in more than 1,200 newspapers. The letters sent to Dear Abby have been compilated by **The Pudding**, an award-winning digital publication that creates visual essays and interactive data visualizations to explain culturally debated topics and complex ideas. 
 
+In the The Putting article, [30 Years of American Anxietis](https://pudding.cool/2018/11/dearabby/#histogram__category--religion), authors Ilia Blinderman, Caitlyn Ralph, and Russell Samora (with illustrations by Thoka Maer) identify *the most debated topics* by Dear Abby readers:  sex, religion, and LGBTQ issues.
 
-
+Here, I try to look at the do my own analysis of the letters, which can be found in the [The Pudding Github site](https://github.com/the-pudding/data/tree/master/dearabby). 
 
 
 ```{r}
