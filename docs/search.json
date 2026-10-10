@@ -96,5 +96,54 @@
     "title": "Dear Abby",
     "section": "Search for a Term",
     "text": "Search for a Term\n// 1. This is its own standalone OJS block viewof searchWord = Inputs.text({ label: “Type a word to search:”, value: “apple” })"
+  },
+  {
+    "objectID": "pudding.html#if-wife-then-1985",
+    "href": "pudding.html#if-wife-then-1985",
+    "title": "Dear Abby",
+    "section": "If wife then … (1985)",
+    "text": "If wife then … (1985)"
+  },
+  {
+    "objectID": "pudding.html#if-husband-then-1995-1",
+    "href": "pudding.html#if-husband-then-1995-1",
+    "title": "Dear Abby",
+    "section": "If husband then … (1995)",
+    "text": "If husband then … (1995)"
+  },
+  {
+    "objectID": "pudding.html#if-wife-then-1995",
+    "href": "pudding.html#if-wife-then-1995",
+    "title": "Dear Abby",
+    "section": "If wife then … (1995)",
+    "text": "If wife then … (1995)"
+  },
+  {
+    "objectID": "pudding.html#if-my-husband-then-1985",
+    "href": "pudding.html#if-my-husband-then-1985",
+    "title": "Dear Abby",
+    "section": "If my husband then … (1985)",
+    "text": "If my husband then … (1985)"
+  },
+  {
+    "objectID": "pudding.html#if-my-husband-then-1995",
+    "href": "pudding.html#if-my-husband-then-1995",
+    "title": "Dear Abby",
+    "section": "If my husband then … (1995)",
+    "text": "If my husband then … (1995)"
+  },
+  {
+    "objectID": "pudding.html#if-my-wife-then-1985",
+    "href": "pudding.html#if-my-wife-then-1985",
+    "title": "Dear Abby",
+    "section": "If my wife then … (1985)",
+    "text": "If my wife then … (1985)"
+  },
+  {
+    "objectID": "pudding.html#if-my-wife-then-1995",
+    "href": "pudding.html#if-my-wife-then-1995",
+    "title": "Dear Abby",
+    "section": "If my wife then … (1995)",
+    "text": "If my wife then … (1995)"
   }
 ]
