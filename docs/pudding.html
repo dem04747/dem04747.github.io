@@ -27,6 +27,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -139,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#where-do-you-get-advice" id="toc-where-do-you-get-advice" class="nav-link active" data-scroll-target="#where-do-you-get-advice">Where do you get advice?</a></li>
+  <li><a href="#where-do-you-get-intimate-advice" id="toc-where-do-you-get-intimate-advice" class="nav-link active" data-scroll-target="#where-do-you-get-intimate-advice">Where do you get intimate advice?</a></li>
   </ul>
 </nav>
     </div>
@@ -173,18 +208,28 @@ ul.task-list li input[type="checkbox"] {
 
 
 <hr>
-<section id="where-do-you-get-advice" class="level1">
-<h1>Where do you get advice?</h1>
-<p>Seeking advice from friends is not always easy. Not everyone is a good confident and some times our secrets are too embarrasing or too delicate to reveal outloud. For centuries, the truthwordy confidents of people with power were individuals bound by a vow of secrecy, priest for example. With the development of the printed press and later the radio, people found a chance to anonimously shared their stories and ask for advice.</p>
-<p>In Spain for example most famous radio advice show, <em>El Consultorio de Elena Francis</em> run continuously from 1947 to 1984. For nearly four decades, millions of Spanish women tuned in or wrote letters to <em>Señora Francis</em> seeking guidance on personal issues, relationship struggles, family drama, and domestic problems. Interestingly, the show became the moral watchdog of the Franco regime. The responses broadcasted reflected the conservative, patriarchal, and Catholic values endorsed by the Francoist regime. Advice frequently encouraged women to endure infidelity, domestic hardship, or mistreatment, emphasizing patience, devotion, and submission to preserve the family structure.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>letters_year <span class="ot">&lt;-</span> pudding <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">|&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>total_letters <span class="ot">&lt;-</span> <span class="fu">summarize</span>(letters_year, <span class="fu">sum</span>(count))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="where-do-you-get-intimate-advice" class="level1">
+<h1>Where do you get intimate advice?</h1>
+<p>Seeking advice from friends is not always easy. Not everyone is a good confidant and some times our secrets are too embarrasing or too delicate to reveal outloud. For centuries, the truthwordy confidants of people with power were individuals bound by a vow of secrecy, priest for example. With the development of the printed press and later the radio, people found a chance to anonimously shared their stories and ask for advice.</p>
+<p>In Spain the most famous radio advice show, <em>El Consultorio de Elena Francis</em> run continuously from 1947 to 1984. For nearly four decades, millions of Spanish women tuned in or wrote letters to <em>Señora Francis</em> seeking guidance on personal issues, relationship struggles, family drama, and domestic problems. Interestingly, the show became the moral watchdog of the Franco regime. The responses broadcasted reflected the conservative, patriarchal, and Catholic values endorsed by the Francoist regime. Advice frequently encouraged women to endure infidelity, domestic hardship, or mistreatment, emphasizing patience, devotion, and submission to preserve the family structure.</p>
 <p>The <em>Señora Francis</em> of the USA is <em>Dear Abby</em>, a column that has been runnng countiously since 1956 and has been sindycated in more than 1,200 newspapers. The letters sent to Dear Abby have been compilated by <strong>The Pudding</strong>, an award-winning digital publication that creates visual essays and interactive data visualizations to explain culturally debated topics and complex ideas.</p>
 <p>In the The Putting article, <a href="https://pudding.cool/2018/11/dearabby/#histogram__category--religion">30 Years of American Anxietis</a>, authors Ilia Blinderman, Caitlyn Ralph, and Russell Samora (with illustrations by Thoka Maer) identify <em>the most debated topics</em> by Dear Abby readers: sex, religion, and LGBTQ issues.</p>
-<p>Here, I do my own analysis of the letters, which can be found in the <a href="https://github.com/the-pudding/data/tree/master/dearabby">The Pudding Github site</a>.</p>
+<p>Here, I do my own analysis of 20034 <em>Dear Abby</em> letters from 1985 to 2017 from an archive which can be found in the <a href="https://github.com/the-pudding/data/tree/master/dearabby">The Pudding Github site</a>.</p>
+<p>The word cloud below provides a good start to reveal some of the most prevalent topics of the leters. No filter has been applied, so as expected words like abby appear with high frequency.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pudding_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="pudding_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

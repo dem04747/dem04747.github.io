@@ -12,7 +12,14 @@ execute:
 #| echo: false
 library(tidyverse)
 library(openintro)
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(ggplot2)
+library(ggwordcloud)
+library(tidytext)
 ```
+
 
 ---
 ```{r}
@@ -22,17 +29,17 @@ pudding <- read_csv(
 )
 ```
 
+```{r}
+letters_year <- pudding |>
+  select(year) |>
+  group_by(year) |>
+  summarize(count = n())
+```
 
 ```{r}
-#| echo: false
-library(dplyr)
-library(stringr)
-library(tidyr)
-library(ggplot2)
-library(ggwordcloud)
-library(tidytext)
-
+total_letters <- summarize(letters_year, sum(count))
 ```
+
 
 ```{r}
 #| eval:  false
@@ -100,17 +107,22 @@ df <- data.frame(
 wordcloud2(data = df, size = 0.7, shape = 'circle', color = 'random-dark')
 ```
 
-# Where do you get advice?
 
-Seeking advice from friends is not always easy. Not everyone is a good confident and some times our secrets are too embarrasing or too delicate to reveal outloud. For centuries, the truthwordy confidents of people with power were individuals bound by a vow of secrecy, priest for example.  With the development of the printed press and later the radio, people found a chance to anonimously shared their stories and ask for advice. 
 
-In Spain for example most famous radio advice show, *El Consultorio de Elena Francis* run continuously from 1947 to 1984. For nearly four decades, millions of Spanish women tuned in or wrote letters to *Señora Francis* seeking guidance on personal issues, relationship struggles, family drama, and domestic problems. Interestingly, the show became the moral watchdog of the Franco regime.  The responses broadcasted reflected the conservative, patriarchal, and Catholic values endorsed by the Francoist regime. Advice frequently encouraged women to endure infidelity, domestic hardship, or mistreatment, emphasizing patience, devotion, and submission to preserve the family structure.  
+# Where do you get intimate advice?
+
+Seeking advice from friends is not always easy. Not everyone is a good confidant and some times our secrets are too embarrasing or too delicate to reveal outloud. For centuries, the truthwordy confidants of people with power were individuals bound by a vow of secrecy, priest for example.  With the development of the printed press and later the radio, people found a chance to anonimously shared their stories and ask for advice. 
+
+In Spain the most famous radio advice show, *El Consultorio de Elena Francis* run continuously from 1947 to 1984. For nearly four decades, millions of Spanish women tuned in or wrote letters to *Señora Francis* seeking guidance on personal issues, relationship struggles, family drama, and domestic problems. Interestingly, the show became the moral watchdog of the Franco regime.  The responses broadcasted reflected the conservative, patriarchal, and Catholic values endorsed by the Francoist regime. Advice frequently encouraged women to endure infidelity, domestic hardship, or mistreatment, emphasizing patience, devotion, and submission to preserve the family structure.  
 
 The *Señora Francis* of the USA is *Dear Abby*, a column that has been runnng countiously since 1956 and has been sindycated in more than 1,200 newspapers. The letters sent to Dear Abby have been compilated by **The Pudding**, an award-winning digital publication that creates visual essays and interactive data visualizations to explain culturally debated topics and complex ideas. 
 
 In the The Putting article, [30 Years of American Anxietis](https://pudding.cool/2018/11/dearabby/#histogram__category--religion), authors Ilia Blinderman, Caitlyn Ralph, and Russell Samora (with illustrations by Thoka Maer) identify *the most debated topics* by Dear Abby readers:  sex, religion, and LGBTQ issues.
 
-Here, I do my own analysis of the letters, which can be found in the [The Pudding Github site](https://github.com/the-pudding/data/tree/master/dearabby). 
+Here, I do my own analysis of `r total_letters` *Dear Abby* letters from 1985 to 2017 from an archive which can be found in the [The Pudding Github site](https://github.com/the-pudding/data/tree/master/dearabby). 
+
+The word cloud below provides a good start to reveal some of the most prevalent topics of the leters. No filter has been applied, so as expected words like abby appear with high frequency. 
+
 
 
 ```{r}
