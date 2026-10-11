@@ -214,9 +214,11 @@ ggplot(words_df, aes(label = word, size = n, color = n)) +
 The word "husband" is consistenly one of the most frequently used in these letters throughout several decades. Is that because women are the main writters to Abby?  In order to investigate this a bit further, I have selected letters that include the words "**my husband**" and "**my wife**" hoping that this indentifies the writer. This is obviously not a perfect strategy. The word clouds below come from those letters. Assuming that the writers are talking about their partners, what can the word frequencies tell us about the letters? Are the themes different? Have they changed through time?
 
 
-## If *my husband* then ... (1985)
 ```{r}
 #| echo: false
+
+library(ggtext)
+
 # 1. Filter rows containing "husband", tokenize, remove stop words, and count frequencies
 words_df <- pudding %>%
   filter(year == 1985) %>%
@@ -241,13 +243,17 @@ ggplot(words_df, aes(label = word, size = n, color = n)) +
   geom_text_wordcloud(grid_size = 1, max_grid_size = 32) +
   scale_size_area(max_size = 15) +
   scale_color_gradient(low = "orange", high = "red") +
-  theme_minimal()
-
+  theme_minimal() +
+  labs(title = "If my husband then ...", 
+       subtitle = "Letters from 1985") + # Adds a title and subtitle 
+  theme(plot.title = element_markdown(face = "bold")) # element_markdown enables italics with *
 ```
 
-## If *my husband* then ... (1995)
 ```{r}
 #| echo: false
+
+library(ggtext)
+
 # 1. Filter rows containing "husband", tokenize, remove stop words, and count frequencies
 words_df <- pudding %>%
   filter(year == 1995) %>%
@@ -272,13 +278,18 @@ ggplot(words_df, aes(label = word, size = n, color = n)) +
   geom_text_wordcloud(grid_size = 1, max_grid_size = 32) +
   scale_size_area(max_size = 15) +
   scale_color_gradient(low = "lightgreen", high = "darkgreen") +
-  theme_minimal()
-
+  theme_minimal() +
+  labs(title = "If my husband then ...", 
+       subtitle = "Letters from 1995") + # Adds a title and subtitle 
+  theme(plot.title = element_markdown(face = "bold")) # element_markdown enables italics with *
 ```
 
-## If *my wife* then ... (1985)
+
 ```{r}
 #| echo: false
+
+library(ggtext)
+
 # 1. Filter rows containing "husband", tokenize, remove stop words, and count frequencies
 words_df <- pudding %>%
   filter(year == 1985) %>%
@@ -303,13 +314,19 @@ ggplot(words_df, aes(label = word, size = n, color = n)) +
   geom_text_wordcloud(grid_size = 1, max_grid_size = 32) +
   scale_size_area(max_size = 15) +
   scale_color_gradient(low = "orange", high = "red") +
-  theme_minimal()
+  theme_minimal()  +
+  labs(title = "If *my wife* then ...", 
+       subtitle = "Letters from 1985") + # Adds a title and subtitle 
+  theme(plot.title = element_markdown(face = "bold")) # element_markdown enables italics with *
 
 ```
 
-## If *my wife* then ... (1995)
+
 ```{r}
 #| echo: false
+
+library(ggtext)
+
 # 1. Filter rows containing "husband", tokenize, remove stop words, and count frequencies
 words_df <- pudding %>%
   filter(year == 1995) %>%
@@ -334,7 +351,11 @@ ggplot(words_df, aes(label = word, size = n, color = n)) +
   geom_text_wordcloud(grid_size = 1, max_grid_size = 32) +
   scale_size_area(max_size = 15) +
   scale_color_gradient(low = "lightgreen", high = "darkgreen") +
-  theme_minimal()
+  theme_minimal() +
+  labs(title = "If *my wife* then ...", 
+       subtitle = "Letters from 1995") + # Adds a title and subtitle 
+  theme(plot.title = element_markdown(face = "bold")) # element_markdown enables italics with *
+
 
 ```
 
@@ -386,7 +407,7 @@ words_by_year_prop_w <- words_by_year_prop %>%
 # 1. Identify the top 10 words based on word_total
 top_10_words <- words_by_year_prop_w %>% 
   distinct(word, word_total) %>% 
-  slice_max(word_total, n = 20) %>% 
+  slice_max(word_total, n = 10) %>% 
   pull(word)
 
 # 2. Filter your dataset for only those top 10 words and plot
