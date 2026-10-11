@@ -43,7 +43,8 @@ letters_year <- pudding |>
 
 ```{r}
 #| echo: false
-total_letters <- summarize(letters_year, sum(count))
+library(scales)
+total_letters <- summarize(letters_year, comma(sum(count)))  
 ```
 
 
@@ -122,11 +123,11 @@ In Spain the most famous radio advice show, *El Consultorio de Elena Francis*, r
 
 The *Señora Francis* of the USA is *Dear Abby*, a column that has been runnng countiously since 1956 and has been sindycated in more than 1,200 newspapers. The letters sent to Dear Abby have been compilated by **The Pudding**, an award-winning digital publication that creates visual essays and interactive data visualizations to explain culturally debated topics and complex ideas. 
 
-In the The Putting article, [30 Years of American Anxietis](https://pudding.cool/2018/11/dearabby/#histogram__category--religion), authors Ilia Blinderman, Caitlyn Ralph, and Russell Samora (with illustrations by Thoka Maer) identify *the most debated topics* by Dear Abby readers:  sex, religion, and LGBTQ issues. The articule include =s some of the letters that are worth reading. 
+In the The Putting article, [30 Years of American Anxietis](https://pudding.cool/2018/11/dearabby/#histogram__category--religion), authors Ilia Blinderman, Caitlyn Ralph, and Russell Samora (with illustrations by Thoka Maer) identify *the most debated topics* by Dear Abby readers:  sex, religion, and LGBTQ issues. The articule includes many of the letters that are worth reading! 
 
 Here, I do my own analysis of `r total_letters` *Dear Abby* letters from 1985 to 2017 from an archive which can be found in the [The Pudding Github site](https://github.com/the-pudding/data/tree/master/dearabby). 
 
-I am using **word clouds** to reveal some of the most prevalent topics of the letters. No filters were applied to the top cloud which includeds `r total_letters` letters written from 1985 to 2017. Thus, words like abby appear, as expected, with high frequency. For the clouds for specific years, I have removed a list of words including Abby, dear, advice, letter, and letters.
+I am using **word clouds** to attempt to reveal some of the most prevalent topics of the letters. No filters were applied to the first cloud below which includes `r total_letters` letters written from 1985 to 2017. Thus, words like abby appear, as expected, with high frequency. For the clouds for specific years, I have removed a list of words including Abby, dear, advice, letter, and letters. 
 
 
 
@@ -138,7 +139,7 @@ words_df <- pudding %>%
   drop_na(question_only) %>%
   unnest_tokens(word, question_only) %>%
   anti_join(stop_words, by = "word") %>%
-  # Filter out numbers or non-alphabetical tokens if desired
+  # Filter out numbers or non-alphabetical tokens
   filter(str_detect(word, "^[a-z]+$")) %>%
   count(word, sort = TRUE) %>%
   # Keep top 100 most frequent words for readability
@@ -175,7 +176,7 @@ words_df <- pudding %>%
   # Filter out numbers or non-alphabetical tokens if desired
   filter(str_detect(word, "^[a-z]+$")) %>%
   count(word, sort = TRUE) %>%
-  # Keep top 100 most frequent words for readability
+  # Keep top 50-100 most frequent words for readability
   slice_max(n, n = 50)
 
 # 3. Generate the Word Cloud
