@@ -200,7 +200,7 @@ words_df <- pudding %>%
   filter(str_detect(word, "^[a-z]+$")) %>%
   count(word, sort = TRUE) %>%
   # Keep top 100 most frequent words for readability
-  slice_max(n, n = 80)
+  slice_max(n, n = 70)
 
 # 3. Generate the Word Cloud
 set.seed(42) # Ensures consistent word placement across runs
