@@ -177,12 +177,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#where-do-you-get-intimate-advice" id="toc-where-do-you-get-intimate-advice" class="nav-link active" data-scroll-target="#where-do-you-get-intimate-advice">Where do you get intimate advice?</a>
   <ul class="collapse">
   <li><a href="#through-the-years" id="toc-through-the-years" class="nav-link" data-scroll-target="#through-the-years">Through the Years</a></li>
-  <li><a href="#dear-abby-in-1995" id="toc-dear-abby-in-1995" class="nav-link" data-scroll-target="#dear-abby-in-1995">Dear Abby in 1995</a></li>
-  <li><a href="#dear-abby-in-2005" id="toc-dear-abby-in-2005" class="nav-link" data-scroll-target="#dear-abby-in-2005">Dear Abby in 2005</a></li>
-  <li><a href="#dear-abby-in-2015" id="toc-dear-abby-in-2015" class="nav-link" data-scroll-target="#dear-abby-in-2015">Dear Abby in 2015</a></li>
   <li><a href="#husbands-vs-wifes" id="toc-husbands-vs-wifes" class="nav-link" data-scroll-target="#husbands-vs-wifes">Husbands vs Wifes</a></li>
   </ul></li>
-  <li><a href="#five-top-words" id="toc-five-top-words" class="nav-link" data-scroll-target="#five-top-words">Five Top Words</a></li>
+  <li><a href="#top-words" id="toc-top-words" class="nav-link" data-scroll-target="#top-words">Top Words</a></li>
   </ul>
 </nav>
     </div>
@@ -283,9 +280,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="dear-abby-in-1995" class="level2">
-<h2 class="anchored" data-anchor-id="dear-abby-in-1995">Dear Abby in 1995</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -295,9 +289,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="dear-abby-in-2005" class="level2">
-<h2 class="anchored" data-anchor-id="dear-abby-in-2005">Dear Abby in 2005</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -307,9 +298,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="dear-abby-in-2015" class="level2">
-<h2 class="anchored" data-anchor-id="dear-abby-in-2015">Dear Abby in 2015</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -361,9 +349,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="five-top-words" class="level1">
-<h1>Five Top Words</h1>
-<p>The plot below tracks the change through the years in the frequency of the 5 most used words in the letters. The frequencies were calcuated by selecting the top 100 most frequent words for each individual year.</p>
+<section id="top-words" class="level1">
+<h1>Top Words</h1>
+<p>The plots below track the change through the years in the frequency of the most used words in the letters. The frequencies were calcuated by selecting the top 100 most frequent words for each individual year.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -411,7 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Usage of 5 Top Words Over Time"</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"percentage of the 10 top words over time"</span>,</span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">""</span>,</span>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Word"</span></span>
@@ -443,15 +431,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> prop, <span class="at">color =</span> word)) <span class="sc">+</span></span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> word, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">scales =</span> <span class="st">"free_y"</span>) <span class="sc">+</span> <span class="co"># Stacks them vertically with independent y-axes</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Proportion of Top Words Over Time"</span>,</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Proportion (prop)"</span>,</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Word"</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co"># Optional: hides legend since each panel is already labeled</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> word, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">scales =</span> <span class="st">"fixed"</span>) <span class="sc">+</span> <span class="co"># Uses the same scale for all panels</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>),   <span class="co"># Forces the axis to run from 0 to 4</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">4</span>),   <span class="co"># Places tick marks at both 0 and 4</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"4"</span>) <span class="co"># Displays labels for both 0 and 4</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"percentage of the five top words over time"</span>,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">""</span>,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Word"</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co"># Optional: hides legend since each panel is already labeled</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
