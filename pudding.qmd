@@ -361,6 +361,7 @@ ggplot(words_df, aes(label = word, size = n, color = n)) +
 The plots below track the change through the years in the frequency of the most used words in the letters. The frequencies were calcuated by selecting the top 100 most frequent words for each individual year. 
 
 ```{r}
+#|echo : false
 # Generate table with the 100 more frequent words by year
 # It evaluates every year independently and pulls out the top 100 most frequent words for each individual year.
 words_by_year <- pudding %>%
@@ -379,9 +380,9 @@ words_by_year <- pudding %>%
 
 
 ```{r}
-#| echo : false
+#|echo : false
+
 # 1. Calculates the percentages for each word in the year.
-#| echo: false
 words_by_year_prop <- words_by_year %>%
   group_by(year) %>%
   mutate(year_total = sum(n, na.rm = TRUE)) %>%
@@ -453,3 +454,48 @@ words_by_year_prop_w %>%
   theme_minimal() +
   theme(legend.position = "none") # Optional: hides legend since each panel is already labeled
 ```
+
+# Five random letters
+
+The letters below were selected by filtering using **my husband** and then searching for the words *wife* and *cheat*. 
+
+```{r}
+#| echo : false
+# 1. Filter all letters and my husband
+texto <- pudding %>%
+  select(question_only) %>%
+  drop_na(question_only) %>%
+  filter(str_detect(question_only, "my husband"))
+
+# 2. Get letters matching cheat and wife
+matching_texts <- texto$question_only[
+  str_detect(texto$question_only, "(?i)cheat") & 
+  str_detect(texto$question_only, "(?i)wife")
+]
+
+# 3. Randomly sample 5 lines (change 3 to 1 or 2 as needed)
+# sample(x, size) picks 'size' random elements from vector 'x'
+random_sample <- sample(matching_texts, size = 5)
+
+# 4. Print them out fully without truncation
+# writeLines(random_sample)
+
+```
+
+```{r, results='asis'}
+# 1. Print text in color box and number letters in title
+for (i in seq_along(random_sample)) {
+  txt <- random_sample[i]
+  
+  cat('<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">\n')
+  
+  # Use paste() to dynamically insert the number 'i'
+  cat(paste0('<strong>Letter ', i, '</strong><br>\n'))
+  
+  cat(txt, '\n')
+  cat('</div>\n\n')
+}
+```
+
+
+

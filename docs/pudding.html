@@ -180,6 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#husbands-vs-wifes" id="toc-husbands-vs-wifes" class="nav-link" data-scroll-target="#husbands-vs-wifes">Husbands vs Wifes</a></li>
   </ul></li>
   <li><a href="#top-words" id="toc-top-words" class="nav-link" data-scroll-target="#top-words">Top Words</a></li>
+  <li><a href="#five-random-letters" id="toc-five-random-letters" class="nav-link" data-scroll-target="#five-random-letters">Five random letters</a></li>
   </ul>
 </nav>
     </div>
@@ -355,32 +356,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate table with the 100 more frequent words by year</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># It evaluates every year independently and pulls out the top 100 most frequent words for each individual year.</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>words_by_year <span class="ot">&lt;-</span> pudding <span class="sc">%&gt;%</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(question_only) <span class="sc">%&gt;%</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(question_only) <span class="sc">%&gt;%</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, question_only) <span class="sc">%&gt;%</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remove expected/un-informative words </span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words, <span class="at">by =</span> <span class="st">"word"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(custom_stops, <span class="at">by =</span> <span class="st">"word"</span>) <span class="sc">%&gt;%</span>    <span class="co"># Removes YOUR custom words</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter out numbers or non-alphabetical tokens if desired</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(word, <span class="st">"^[a-z]+$"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|echo : false</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate table with the 100 more frequent words by year</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># It evaluates every year independently and pulls out the top 100 most frequent words for each individual year.</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>words_by_year <span class="ot">&lt;-</span> pudding <span class="sc">%&gt;%</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(question_only) <span class="sc">%&gt;%</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(question_only) <span class="sc">%&gt;%</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, question_only) <span class="sc">%&gt;%</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remove expected/un-informative words </span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words, <span class="at">by =</span> <span class="st">"word"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(custom_stops, <span class="at">by =</span> <span class="st">"word"</span>) <span class="sc">%&gt;%</span>    <span class="co"># Removes YOUR custom words</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter out numbers or non-alphabetical tokens if desired</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(word, <span class="st">"^[a-z]+$"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_max</span>(n, <span class="at">n =</span> <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculates the percentages for each word in the year.</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>words_by_year_prop <span class="ot">&lt;-</span> words_by_year <span class="sc">%&gt;%</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_total =</span> <span class="fu">sum</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">*</span> <span class="dv">100</span> <span class="sc">/</span> year_total) <span class="sc">|&gt;</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|echo : false</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculates the percentages for each word in the year.</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>words_by_year_prop <span class="ot">&lt;-</span> words_by_year <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_total =</span> <span class="fu">sum</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">*</span> <span class="dv">100</span> <span class="sc">/</span> year_total) <span class="sc">|&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="cell">
@@ -409,7 +412,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pudding_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="pudding_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -449,10 +452,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pudding_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="pudding_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
+</div>
+</section>
+<section id="five-random-letters" class="level1">
+<h1>Five random letters</h1>
+<p>The letters below were selected by filtering using <strong>my husband</strong> and then searching for the words <em>wife</em> and <em>cheat</em>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Filter all letters and my husband</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>texto <span class="ot">&lt;-</span> pudding <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(question_only) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(question_only) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(question_only, <span class="st">"my husband"</span>))</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Get letters matching cheat and wife</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>matching_texts <span class="ot">&lt;-</span> texto<span class="sc">$</span>question_only[</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(texto<span class="sc">$</span>question_only, <span class="st">"(?i)cheat"</span>) <span class="sc">&amp;</span> </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(texto<span class="sc">$</span>question_only, <span class="st">"(?i)wife"</span>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Randomly sample 5 lines (change 3 to 1 or 2 as needed)</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co"># sample(x, size) picks 'size' random elements from vector 'x'</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>random_sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(matching_texts, <span class="at">size =</span> <span class="dv">5</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Print them out fully without truncation</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># writeLines(random_sample)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Print text in color box and number letters in title</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(random_sample)) {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  txt <span class="ot">&lt;-</span> random_sample[i]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'&lt;div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;"&gt;</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use paste() to dynamically insert the number 'i'</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(<span class="st">'&lt;strong&gt;Letter '</span>, i, <span class="st">'&lt;/strong&gt;&lt;br&gt;</span><span class="sc">\n</span><span class="st">'</span>))</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(txt, <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'&lt;/div&gt;</span><span class="sc">\n\n</span><span class="st">'</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 1</strong><br> my mother-in-law tends to embrace every pitiful creature she comes into contact with. this thanksgiving she has invited my ex-boyfriend and his wife to her home to share in the festivities. my ex was abusive to me most of the time, and we did not end on good terms. the woman he cheated on me with is now his wife. my ex was sneaky and manipulative, and i believe his only reason for wanting to be there is to check up on me and my husband. i have explained this to my husband and his mother, and told them i don’t feel comfortable with the situation. they both told me i am “overreacting” and that he was a part of my past and i have since moved on. i feel the family i love has betrayed me. the idea of my ex being involved in what should be a comfortable family day has me afraid and uneasy. am i overreacting? or is my husband’s mother being unreasonable? – dreading thanksgiving</p>
+</div>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 2</strong><br> i love my husband and don’t want to lose him. he has always been my knight in shining armor, but i now know for a fact that he’s cheating. last night he left for a week to be with a woman he paid to fly here. she does not know he’s married. actually, there is a lot she doesn’t know. i have always lived by the poem that says if you love something – set it free. if it comes back to you, it’s yours, but if it doesn’t, it never belonged to you in the first place. abby, this man has left and come back to me five times! each time, he tells me he loves me, and i believe him. i should mention that he is from london, and i am a native texan, still living in the town where i grew up. england is where she is from – and where he always goes. my husband accuses me of trying to take away his friends and control him. believe me, i am not. all i ever wanted was a peaceful, happy life with the man i love. what should i do? i feel like a fool, but i love my husband dearly. – wife with an aching heart</p>
+</div>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 3</strong><br> i am facing my worst nightmare. while i was still dating my husband, i had an affair with a married man. i broke it off when my husband-to-be proposed. i never told my fiance about the affair. last week, i learned that the wife of the man i was involved with found one of the “intimate” items i had given him. she has now gone to a lawyer and is seeking a divorce. i am afraid i may be called to testify if the divorce proceedings go that far. i am scared to tell my husband. i’m afraid he will leave me if he finds out. i have been completely faithful my entire marriage – and plan to remain so. what should i do, abby? confess to my husband that i cheated prior to marrying him – or wait and see if the attorney or the wife of my ex-lover contacts me? – scared and lost in florida</p>
+</div>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 4</strong><br> my young son and his wife split up nine months ago. “paige” had a troubled past and unfortunate parenting. we took her in while they were dating – paige had just turned 18 – and my husband and i finished parenting her. abby, paige cheated on our son, began drinking and using drugs, and broke up another man’s family. there were three children involved, and it was ugly. our son was willing to go to marriage counseling – paige refused. since then, she has lost a good job and begun stripping, leaving our son deeply in debt because of her spending. my son has begun rebuilding his life. he got a couple of roommates so he could hold onto his little home, and i know he is better off without her. i, however, am having a hard time. i loved – and love – paige like she was my own child. i miss her spirit and her goodness, which was misplaced because of the drugs and alcohol. my son wants absolutely nothing more to do with her, but what do i do about my pain? she called us last month, and my husband just about hung up on her. i don’t want to disrespect my son’s wishes, but i’m torn. is this normal? – future ex-mother-in-law</p>
+</div>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 5</strong><br> dear abby i have been married to “grant” for eight years. soon after our marriage i learned he was a compulsive liar. grant told me while we were dating that he had a sister. i later learned the woman was a friend. he said he was divorced from his second wife when we met. they weren’t divorced until one month before our wedding, something i discovered only when i found his divorce papers. grant’s first wife swears they are still married. he says they’re divorced, but he lost the divorce papers. a year ago, i found out my husband was never in the marines like he said, and after eight years of believing he had a ba in business, i just learned he dropped out of college after his freshman year. i have just about had it with his constant lying. he has also cheated on me. i want a divorce, but i don’t want to look like a failure to my family and friends. grant is begging me to stay. he promises he’ll change, but i have heard that all before. what should i do? – wife in crisis</p>
 </div>
 
 
