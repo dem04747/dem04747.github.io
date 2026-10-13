@@ -180,7 +180,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#husbands-vs-wifes" id="toc-husbands-vs-wifes" class="nav-link" data-scroll-target="#husbands-vs-wifes">Husbands vs Wifes</a></li>
   </ul></li>
   <li><a href="#top-words" id="toc-top-words" class="nav-link" data-scroll-target="#top-words">Top Words</a></li>
-  <li><a href="#five-random-letters" id="toc-five-random-letters" class="nav-link" data-scroll-target="#five-random-letters">Five random letters</a></li>
+  <li><a href="#five-random-my-husband-letters" id="toc-five-random-my-husband-letters" class="nav-link" data-scroll-target="#five-random-my-husband-letters">Five random <em>my husband</em> letters</a></li>
+  <li><a href="#five-random-my-wife-letters" id="toc-five-random-my-wife-letters" class="nav-link" data-scroll-target="#five-random-my-wife-letters">Five random <em>my wife</em> letters</a></li>
   </ul>
 </nav>
     </div>
@@ -458,8 +459,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="five-random-letters" class="level1">
-<h1>Five random letters</h1>
+<section id="five-random-my-husband-letters" class="level1">
+<h1>Five random <em>my husband</em> letters</h1>
 <p>The letters below were selected by filtering using <strong>my husband</strong> and then searching for the words <em>wife</em> and <em>cheat</em>.</p>
 <div class="cell">
 <details class="code-fold">
@@ -513,6 +514,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
 <p><strong>Letter 5</strong><br> dear abby i have been married to “grant” for eight years. soon after our marriage i learned he was a compulsive liar. grant told me while we were dating that he had a sister. i later learned the woman was a friend. he said he was divorced from his second wife when we met. they weren’t divorced until one month before our wedding, something i discovered only when i found his divorce papers. grant’s first wife swears they are still married. he says they’re divorced, but he lost the divorce papers. a year ago, i found out my husband was never in the marines like he said, and after eight years of believing he had a ba in business, i just learned he dropped out of college after his freshman year. i have just about had it with his constant lying. he has also cheated on me. i want a divorce, but i don’t want to look like a failure to my family and friends. grant is begging me to stay. he promises he’ll change, but i have heard that all before. what should i do? – wife in crisis</p>
+</div>
+</section>
+<section id="five-random-my-wife-letters" class="level1">
+<h1>Five random <em>my wife</em> letters</h1>
+<p>The letters below were selected by filtering using <strong>my wife</strong> and then searching for the words <em>wife</em> and <em>cheat</em>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|echo : false</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Filter all letters and my husband</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>texto <span class="ot">&lt;-</span> pudding <span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(question_only) <span class="sc">%&gt;%</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(question_only) <span class="sc">%&gt;%</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(question_only, <span class="st">"my wife"</span>))</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Get letters matching cheat and wife</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>matching_texts <span class="ot">&lt;-</span> texto<span class="sc">$</span>question_only[</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(texto<span class="sc">$</span>question_only, <span class="st">"(?i)cheat"</span>) <span class="sc">&amp;</span> </span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(texto<span class="sc">$</span>question_only, <span class="st">"(?i)wife"</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Randomly sample 5 lines (change 3 to 1 or 2 as needed)</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co"># sample(x, size) picks 'size' random elements from vector 'x'</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>random_sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(matching_texts, <span class="at">size =</span> <span class="dv">5</span>)</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Print them out fully without truncation</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># writeLines(random_sample)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Print text in color box and number letters in title</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(random_sample)) {</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  txt <span class="ot">&lt;-</span> random_sample[i]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'&lt;div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;"&gt;</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use paste() to dynamically insert the number 'i'</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(<span class="st">'&lt;strong&gt;Letter '</span>, i, <span class="st">'&lt;/strong&gt;&lt;br&gt;</span><span class="sc">\n</span><span class="st">'</span>))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(txt, <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'&lt;/div&gt;</span><span class="sc">\n\n</span><span class="st">'</span>)</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 1</strong><br> my wife and i are near retirement age. we have a daughter, “annette,” who has five children by four different men. annette has always managed to dump the father after each child was born. she was married to the last one, but after he caught her cheating, he asked for a divorce. when each relationship ended, annette would come home to live with us. we felt it was our obligation to help until she got back on her feet. however, she continued to reproduce haphazardly. we love our grandchildren, abby, but the last time annette told us she was coming back, we told her this time she was on her own. we have six other children who occasionally have problems. we didn’t think it was fair to devote all of our attention to annette when her problems are self-inflicted. two years ago, annette disowned us. we’re at an impasse and miss our grandchildren terribly. do you think we did the right thing? what should we do now? – two grandparents in twin falls</p>
+</div>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 2</strong><br> my wife and i have a good marriage and two well-behaved kids who are good students and active in our community. our 8-year-old son is very much the rule follower in school and outside activities, but cheats when playing board or card games with me or his sister at home. when i catch him doing it, i end the game and tell him i won’t play with him if he’s going to cheat. my wife believes the cheating is “just for fun” and that i’m being too hard on him. i say the lesson i’m teaching him is that cheating is wrong. we agree we are fortunate this happens only at home, but i’m concerned that if it is left unchecked, it will be regarded as permissible and it will escalate to become a problem in other circumstances. what do you think? should i let up? – virginia dad</p>
+</div>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 3</strong><br> my wife, “jenny,” and i married 12 years ago because she was pregnant. i knew she had been promiscuous as a teenager, but i thought i could cope with it. now, after two children, i have second thoughts. when we married, jenny weighed 115 pounds. (she’s 5 foot 1.) now, after two children, she weighs 170 pounds, and her clothes are size 16. i am frustrated at the fact jenny cares so little about her appearance. yes, we all change, and i understand that. but i get furious when i think my wife gave up caring about her appearance when i put the ring on her finger. it looks like she got her man, so now she’s complacent. i am insanely jealous because i feel like jenny wanted to look good when she was chasing boys, but she doesn’t care now. talking about it and counseling haven’t helped. i know these are not healthy feelings, but they are in my heart. i’m thankful for my wife and kids, but i also feel cheated. please don’t tell me that weight gain is biological. there are plenty of thinner moms around. what can i do to help her see my point of view? – tied to a heavy ball and chain</p>
+</div>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 4</strong><br> i have been happily married for a number of years. i’m not what you would call “hot” -â far from it, actually. but for some reason, women have always been attracted to me. it doesn’t matter where i work, there always seems to be some woman coming on to me. i have never cheated on my wife – never! i have always told the interested party that i’m married and love my wife and kids, and would never do anything to destroy what we have. about a year ago, my wife and i hit a rough spot. i met a woman who was having problems with her boyfriend. we were attracted to each other and became quite close. we never did anything physically. we never spoke of love, and both recognized that we were only infatuated. my problem is this is the first time i was really tempted. i resisted, thank god, but feel terribly guilty about it. my head says telling my wife would help relieve my guilt, but nothing else. ultimately, it would hurt her. because nothing actually “happened,” should i listen to my head, or should i go with my heart, which says to tell her everything? this is eating me up inside. – consumed by guilt in n.y.</p>
+</div>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 5</strong><br> today i witnessed what may be the end of a marriage, and it was because of a professional health care worker’s unwise remark. my wife was having a colonoscopy, and there was one large recovery room where patients coming out of anesthesia were grouped. (there were curtains separating the patients.) while i was waiting for my wife to awaken, i overheard a nurse talking to the wife of the patient next to us. she said, “you know, you can find out anything from them when they’re coming out of anesthesia. they are completely incapable of lying.” she said it in a lighthearted way – sort of giggling. a few minutes later, i heard the wife ask in a hushed voice, “bart, have you ever cheated on me?” “yes,” he moaned, “with mary helen.” i heard the wife choke back a sob and she ran from the room. it was another 45 minutes before my wife was ready to leave, and the woman did not return during that time. abby, i think it was ridiculous for that nurse to pass on the information that prompted this scene. should i let the doctor know about his nurse’s unwise comment? – mike in tucson, ariz.</p>
 </div>
 
 

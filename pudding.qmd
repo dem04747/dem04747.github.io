@@ -455,7 +455,7 @@ words_by_year_prop_w %>%
   theme(legend.position = "none") # Optional: hides legend since each panel is already labeled
 ```
 
-# Five random letters
+# Five random *my husband* letters
 
 The letters below were selected by filtering using **my husband** and then searching for the words *wife* and *cheat*. 
 
@@ -497,5 +497,47 @@ for (i in seq_along(random_sample)) {
 }
 ```
 
+
+# Five random *my wife* letters
+
+The letters below were selected by filtering using **my wife** and then searching for the words *wife* and *cheat*. 
+
+```{r}
+#|echo : false
+# 1. Filter all letters and my husband
+texto <- pudding %>%
+  select(question_only) %>%
+  drop_na(question_only) %>%
+  filter(str_detect(question_only, "my wife"))
+
+# 2. Get letters matching cheat and wife
+matching_texts <- texto$question_only[
+  str_detect(texto$question_only, "(?i)cheat") & 
+  str_detect(texto$question_only, "(?i)wife")
+]
+
+# 3. Randomly sample 5 lines (change 3 to 1 or 2 as needed)
+# sample(x, size) picks 'size' random elements from vector 'x'
+random_sample <- sample(matching_texts, size = 5)
+
+# 4. Print them out fully without truncation
+# writeLines(random_sample)
+
+```
+
+```{r, results='asis'}
+# 1. Print text in color box and number letters in title
+for (i in seq_along(random_sample)) {
+  txt <- random_sample[i]
+  
+  cat('<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">\n')
+  
+  # Use paste() to dynamically insert the number 'i'
+  cat(paste0('<strong>Letter ', i, '</strong><br>\n'))
+  
+  cat(txt, '\n')
+  cat('</div>\n\n')
+}
+```
 
 
