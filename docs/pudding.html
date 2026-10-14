@@ -576,8 +576,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="aids" class="level1">
 <h1>AIDS</h1>
-<p>Although <strong>Dear Abby</strong> was first published in The San Francisco Chronicle on January 9, 1956, the data analyzed here ranges from 1985 to 2017. The AIDS (Acquired Immune Deficiency Syndrome) pandemic officially began on June 5, 1981, when the U.S. Centers for Disease Control and Prevention (CDC) published a report detailing a rare form of pneumonia (<em>Pneumocystis carinii</em>) in five young gay men in Los Angeles. In 1985,the U.S. Food and Drug Administration (FDA) approved the first commercial blood test for HIV (Human Immunodeficiency Virus), allowing blood banks to screen donations. Public fear peaked following high-profile diagnoses, such as actor Rock Hudson publicizing his illness before dying in October 1985.</p>
-<p>Did the Dear Abby letters reflect the public preocupation for the AIDS pandemic in the 1980s? Below are plots showing the number of letters that included the words AIDS and gay or homosexual. For comparison, I have included letters containing the word cat.</p>
+<p>Although <strong>Dear Abby</strong> was first published in <em>The San Francisco Chronicle</em> on January 9, 1956, the data analyzed here ranges from 1985 to 2017. The AIDS (Acquired Immune Deficiency Syndrome) pandemic officially began on June 5, 1981, when the U.S. Centers for Disease Control and Prevention (CDC) published a report detailing a rare form of pneumonia (<em>Pneumocystis carinii</em>) in five young gay men in Los Angeles. In 1985, the U.S. Food and Drug Administration (FDA) approved the first commercial blood test for HIV (Human Immunodeficiency Virus), allowing blood banks to screen donations. Public fear peaked following high-profile diagnoses, such as actor Rock Hudson publicizing his illness before dying in October 1985.</p>
+<p>Did the Dear Abby letters reflect the public preocupation for the AIDS pandemic in the 1980s? Below are plots showing the number of letters that included the words <em>AIDS</em> and <em>gay</em> or <em>homosexual</em>. For comparison, letters containing the word <em>cat</em> are also displayed.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -612,20 +612,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n, <span class="at">color =</span> word)) <span class="sc">+</span></span>
 <span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> word, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">scales =</span> <span class="st">"fixed"</span>) <span class="sc">+</span> <span class="co"># Uses the same scale for all panels</span></span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">65</span>),   <span class="co"># Forces the axis to run from 0 to 4</span></span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>),   <span class="co"># Places tick marks at both 0 and 4</span></span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"60"</span>) <span class="co"># Displays labels for both 0 and 4</span></span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Letters on AIDS and gay/homosexual"</span>,</span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total count"</span>,</span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Word"</span></span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co"># Optional: hides legend since each panel is already labeled</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> word, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">scales =</span> <span class="st">"fixed"</span>) <span class="sc">+</span> </span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Adds larger labels inside the top-right corner of each panel</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="cf">function</span>(x) { </span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Automatically finds the max year for each facet to place it on the right</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>      <span class="fu">transform</span>(x, <span class="at">max_year =</span> <span class="fu">max</span>(year)) </span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">x =</span> max_year, <span class="at">y =</span> <span class="dv">47</span>, <span class="at">label =</span> word, <span class="at">color =</span> word),</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">hjust =</span> <span class="fl">1.1</span>,         <span class="co"># Pushes it slightly away from the right edge</span></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">5</span>,            <span class="co"># Makes the label text larger</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># fontface = "bold",   # Makes the label text bold</span></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">show.legend =</span> <span class="cn">FALSE</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">65</span>),   <span class="co"># Forces the axis to run from 0 to 65</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>),   <span class="co"># Places tick marks at 0 and 60</span></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"60"</span>) <span class="co"># Displays labels for 0 and 60</span></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Letters mentioning AIDS, gay, or cat"</span>,</span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total count"</span>,</span>
+<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Word"</span></span>
+<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">strip.text =</span> <span class="fu">element_blank</span>() <span class="co"># Hides the original facet headers since they are now inside</span></span>
+<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>

@@ -533,10 +533,9 @@ for (i in seq_along(random_sample)) {
 
 # AIDS
 
-Although **Dear Abby** was first published in The San Francisco Chronicle on January 9, 1956, the data analyzed here ranges from 1985 to 2017. The AIDS (Acquired Immune Deficiency Syndrome) pandemic officially began on June 5, 1981, when the U.S. Centers for Disease Control and Prevention (CDC) published a report detailing a rare form of pneumonia (*Pneumocystis carinii*) in five young gay men in Los Angeles. In 1985,the U.S. Food and Drug Administration (FDA) approved the first commercial blood test for HIV (Human Immunodeficiency Virus), allowing blood banks to screen donations. Public fear peaked following high-profile diagnoses, such as actor Rock Hudson publicizing his illness before dying in October 1985.
+Although **Dear Abby** was first published in *The San Francisco Chronicle* on January 9, 1956, the data analyzed here ranges from 1985 to 2017. The AIDS (Acquired Immune Deficiency Syndrome) pandemic officially began on June 5, 1981, when the U.S. Centers for Disease Control and Prevention (CDC) published a report detailing a rare form of pneumonia (*Pneumocystis carinii*) in five young gay men in Los Angeles. In 1985, the U.S. Food and Drug Administration (FDA) approved the first commercial blood test for HIV (Human Immunodeficiency Virus), allowing blood banks to screen donations. Public fear peaked following high-profile diagnoses, such as actor Rock Hudson publicizing his illness before dying in October 1985.
 
-Did the Dear Abby letters reflect the public preocupation for the AIDS pandemic in the 1980s? Below are plots showing the number of letters that included the words AIDS and gay or homosexual. For comparison, I have included letters containing the word cat. 
-
+Did the Dear Abby letters reflect the public preocupation for the AIDS pandemic in the 1980s? Below are plots showing the number of letters that included the words *AIDS* and *gay* or *homosexual*. For comparison, letters containing the word *cat* are also displayed. 
 
 ```{r}
 #1. Make list of words to remove in addtion to default stop_words (to, and, she)
@@ -601,4 +600,4 @@ gay_by_year %>%
     legend.position = "none",
     strip.text = element_blank() # Hides the original facet headers since they are now inside
   )
-  ```
+```
