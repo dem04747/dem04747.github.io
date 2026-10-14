@@ -537,6 +537,7 @@ Although **Dear Abby** was first published in The San Francisco Chronicle on Jan
 
 Did the Dear Abby letters reflect the public preocupation for the AIDS pandemic in the 1980s? Below are plots showing the number of letters that included the words AIDS and gay or homosexual. For comparison, I have included letters containing the word cat. 
 
+
 ```{r}
 #1. Make list of words to remove in addtion to default stop_words (to, and, she)
 #| echo: false
@@ -569,19 +570,35 @@ gay_by_year %>%
   ggplot(aes(x = year, y = n, color = word)) +
   geom_point(alpha = 0.8, size = 2) +
   geom_line(alpha = 0.5) +
-  facet_wrap(~ word, ncol = 1, scales = "fixed") + # Uses the same scale for all panels
+  facet_wrap(~ word, ncol = 1, scales = "fixed") + 
+  
+  # Adds larger labels inside the top-right corner of each panel
+  geom_text(
+    data = function(x) { 
+      # Automatically finds the max year for each facet to place it on the right
+      transform(x, max_year = max(year)) 
+    },
+    aes(x = max_year, y = 47, label = word, color = word),
+    hjust = 1.1,         # Pushes it slightly away from the right edge
+    size = 5,            # Makes the label text larger
+    # fontface = "bold",   # Makes the label text bold
+    show.legend = FALSE
+  ) +
+  
   scale_y_continuous(
-    limits = c(0, 65),   # Forces the axis to run from 0 to 4
-    breaks = c(0, 60),   # Places tick marks at both 0 and 4
-    labels = c("0", "60") # Displays labels for both 0 and 4
+    limits = c(0, 65),   # Forces the axis to run from 0 to 65
+    breaks = c(0, 60),   # Places tick marks at 0 and 60
+    labels = c("0", "60") # Displays labels for 0 and 60
   ) +
   labs(
-    title = "Letters on AIDS and gay/homosexual",
+    title = "Letters mentioning AIDS, gay, or cat",
     x = "Year",
     y = "Total count",
     color = "Word"
   ) +
   theme_minimal() +
-  theme(legend.position = "none") # Optional: hides legend since each panel is already labeled
-```
-
+  theme(
+    legend.position = "none",
+    strip.text = element_blank() # Hides the original facet headers since they are now inside
+  )
+  ```
