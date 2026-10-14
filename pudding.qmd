@@ -340,7 +340,7 @@ words_df <- pudding %>%
   anti_join(custom_stops, by = "word") %>%    # Removes YOUR custom words
   # Filter out numbers or non-alphabetical tokens if desired
   filter(str_detect(word, "^[a-z]+$")) %>%
- # REMOVE THE WORD "husband" FROM THE WORD LIST ITSELF
+ # REMOVE THE WORD "wife" FROM THE WORD LIST ITSELF
   filter(word != "wife") %>%
   count(word, sort = TRUE) %>%
 # Keep top 50 most frequent words for readability
@@ -379,26 +379,22 @@ words_by_year <- pudding %>%
 ```
 
 
+
 ```{r}
 #|echo : false
-
 # 1. Calculates the percentages for each word in the year.
 words_by_year_prop <- words_by_year %>%
   group_by(year) %>%
   mutate(year_total = sum(n, na.rm = TRUE)) %>%
     mutate(prop = n * 100 / year_total) |>
   ungroup()
-``` 
 
-```{r}
-#| echo: false
 words_by_year_prop_w <- words_by_year_prop %>%
   group_by(word) %>%
   mutate(word_total = sum(n, na.rm = TRUE)) %>%
   mutate(year = as.numeric(year)) |>
   ungroup() |>
-  arrange(desc(word_total)) # |>
-  # head(300)
+  arrange(desc(word_total)) 
 ``` 
 
 
@@ -455,11 +451,11 @@ words_by_year_prop_w %>%
   theme(legend.position = "none") # Optional: hides legend since each panel is already labeled
 ```
 
-# Five random *my husband* letters
+# Five random *my husband* letters on adultery
 
-The letters below were selected by filtering using **my husband** and then searching for the words *wife* and *cheat*. 
+The letters below were selected by filtering using **my husband** and then searching for the word *adultery* or *cheat*.
 
-```{r}
+```{r, results='asis'}
 #| echo : false
 # 1. Filter all letters and my husband
 texto <- pudding %>%
@@ -467,10 +463,10 @@ texto <- pudding %>%
   drop_na(question_only) %>%
   filter(str_detect(question_only, "my husband"))
 
-# 2. Get letters matching cheat and wife
+# 2. Get letters matching cheat or adultery
 matching_texts <- texto$question_only[
-  str_detect(texto$question_only, "(?i)cheat") & 
-  str_detect(texto$question_only, "(?i)wife")
+  str_detect(texto$question_only, "(?i)cheat") | 
+  str_detect(texto$question_only, "(?i)adultery")
 ]
 
 # 3. Randomly sample 5 lines (change 3 to 1 or 2 as needed)
@@ -480,10 +476,8 @@ random_sample <- sample(matching_texts, size = 5)
 # 4. Print them out fully without truncation
 # writeLines(random_sample)
 
-```
 
-```{r, results='asis'}
-# 1. Print text in color box and number letters in title
+# 5. Print text in color box and number letters in title
 for (i in seq_along(random_sample)) {
   txt <- random_sample[i]
   
@@ -498,22 +492,22 @@ for (i in seq_along(random_sample)) {
 ```
 
 
-# Five random *my wife* letters
+# Five random *my wife* letters on adultery
 
-The letters below were selected by filtering using **my wife** and then searching for the words *wife* and *cheat*. 
+The letters below were selected by filtering using **my wife** and then searching for the words *adultery* and *cheat*. 
 
-```{r}
+```{r, results='asis'}
 #|echo : false
-# 1. Filter all letters and my husband
+# 1. Filter all letters and my wife
 texto <- pudding %>%
   select(question_only) %>%
   drop_na(question_only) %>%
   filter(str_detect(question_only, "my wife"))
 
-# 2. Get letters matching cheat and wife
+# 2. Get letters matching cheat and adultery
 matching_texts <- texto$question_only[
-  str_detect(texto$question_only, "(?i)cheat") & 
-  str_detect(texto$question_only, "(?i)wife")
+  str_detect(texto$question_only, "(?i)cheat") | 
+  str_detect(texto$question_only, "(?i)adultery")
 ]
 
 # 3. Randomly sample 5 lines (change 3 to 1 or 2 as needed)
@@ -523,10 +517,7 @@ random_sample <- sample(matching_texts, size = 5)
 # 4. Print them out fully without truncation
 # writeLines(random_sample)
 
-```
-
-```{r, results='asis'}
-# 1. Print text in color box and number letters in title
+# 5. Print text in color box and number letters in title
 for (i in seq_along(random_sample)) {
   txt <- random_sample[i]
   
@@ -540,4 +531,57 @@ for (i in seq_along(random_sample)) {
 }
 ```
 
+# AIDS
+
+Although **Dear Abby** was first published in The San Francisco Chronicle on January 9, 1956, the data analyzed here ranges from 1985 to 2017. The AIDS (Acquired Immune Deficiency Syndrome) pandemic officially began on June 5, 1981, when the U.S. Centers for Disease Control and Prevention (CDC) published a report detailing a rare form of pneumonia (*Pneumocystis carinii*) in five young gay men in Los Angeles. In 1985,the U.S. Food and Drug Administration (FDA) approved the first commercial blood test for HIV (Human Immunodeficiency Virus), allowing blood banks to screen donations. Public fear peaked following high-profile diagnoses, such as actor Rock Hudson publicizing his illness before dying in October 1985.
+
+Did the Dear Abby letters reflect the public preocupation for the AIDS pandemic in the 1980s? Below are plots showing the number of letters that included the words AIDS and gay or homosexual. For comparison, I have included letters containing the word cat. 
+
+```{r}
+#1. Make list of words to remove in addtion to default stop_words (to, and, she)
+#| echo: false
+# Define your custom words to ignore
+interest_words <- tibble(word = c("gay", "aids", "homosexual","cat"))
+
+# 2. Compute your main data for gay/homosexual and aids
+gay_by_year <- pudding %>%
+  group_by(year) %>%
+  select(question_only) %>%
+  drop_na(question_only) %>%
+  unnest_tokens(word, question_only) %>%
+  # Remap "homosexual" to "gay" before filtering
+  mutate(word = case_when(
+    word == "homosexual" ~ "gay",
+    TRUE ~ word
+  )) %>%
+  # Remove expected/un-informative words 
+  anti_join(stop_words, by = "word") %>%
+  # Filter out numbers or non-alphabetical tokens if desired
+  filter(str_detect(word, "^[a-z]+$")) %>%
+  # KEEP ONLY your specific interest words
+  semi_join(interest_words, by = "word") %>%
+  count(word, sort = TRUE) |>
+  # REORDER: Convert word to a factor with "cat" at the very end
+  mutate(word = factor(word, levels = c("aids", "gay", "cat")))
+
+# 3. Create the stacked facet plot
+gay_by_year %>%
+  ggplot(aes(x = year, y = n, color = word)) +
+  geom_point(alpha = 0.8, size = 2) +
+  geom_line(alpha = 0.5) +
+  facet_wrap(~ word, ncol = 1, scales = "fixed") + # Uses the same scale for all panels
+  scale_y_continuous(
+    limits = c(0, 65),   # Forces the axis to run from 0 to 4
+    breaks = c(0, 60),   # Places tick marks at both 0 and 4
+    labels = c("0", "60") # Displays labels for both 0 and 4
+  ) +
+  labs(
+    title = "Letters on AIDS and gay/homosexual",
+    x = "Year",
+    y = "Total count",
+    color = "Word"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none") # Optional: hides legend since each panel is already labeled
+```
 

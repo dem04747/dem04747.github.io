@@ -180,8 +180,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#husbands-vs-wifes" id="toc-husbands-vs-wifes" class="nav-link" data-scroll-target="#husbands-vs-wifes">Husbands vs Wifes</a></li>
   </ul></li>
   <li><a href="#top-words" id="toc-top-words" class="nav-link" data-scroll-target="#top-words">Top Words</a></li>
-  <li><a href="#five-random-my-husband-letters" id="toc-five-random-my-husband-letters" class="nav-link" data-scroll-target="#five-random-my-husband-letters">Five random <em>my husband</em> letters</a></li>
-  <li><a href="#five-random-my-wife-letters" id="toc-five-random-my-wife-letters" class="nav-link" data-scroll-target="#five-random-my-wife-letters">Five random <em>my wife</em> letters</a></li>
+  <li><a href="#five-random-my-husband-letters-on-adultery" id="toc-five-random-my-husband-letters-on-adultery" class="nav-link" data-scroll-target="#five-random-my-husband-letters-on-adultery">Five random <em>my husband</em> letters on adultery</a></li>
+  <li><a href="#five-random-my-wife-letters-on-adultery" id="toc-five-random-my-wife-letters-on-adultery" class="nav-link" data-scroll-target="#five-random-my-wife-letters-on-adultery">Five random <em>my wife</em> letters on adultery</a></li>
+  <li><a href="#aids" id="toc-aids" class="nav-link" data-scroll-target="#aids">AIDS</a></li>
   </ul>
 </nav>
     </div>
@@ -378,13 +379,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|echo : false</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculates the percentages for each word in the year.</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>words_by_year_prop <span class="ot">&lt;-</span> words_by_year <span class="sc">%&gt;%</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_total =</span> <span class="fu">sum</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">*</span> <span class="dv">100</span> <span class="sc">/</span> year_total) <span class="sc">|&gt;</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculates the percentages for each word in the year.</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>words_by_year_prop <span class="ot">&lt;-</span> words_by_year <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_total =</span> <span class="fu">sum</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">prop =</span> n <span class="sc">*</span> <span class="dv">100</span> <span class="sc">/</span> year_total) <span class="sc">|&gt;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>words_by_year_prop_w <span class="ot">&lt;-</span> words_by_year_prop <span class="sc">%&gt;%</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word_total =</span> <span class="fu">sum</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">as.numeric</span>(year)) <span class="sc">|&gt;</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">|&gt;</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(word_total)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="cell">
@@ -413,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pudding_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="pudding_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -453,16 +460,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="pudding_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="pudding_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="five-random-my-husband-letters" class="level1">
-<h1>Five random <em>my husband</em> letters</h1>
-<p>The letters below were selected by filtering using <strong>my husband</strong> and then searching for the words <em>wife</em> and <em>cheat</em>.</p>
-<div class="cell">
+<section id="five-random-my-husband-letters-on-adultery" class="level1">
+<h1>Five random <em>my husband</em> letters on adultery</h1>
+<p>The letters below were selected by filtering using <strong>my husband</strong> and then searching for the word <em>adultery</em> or <em>cheat</em>.</p>
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Filter all letters and my husband</span></span>
@@ -471,10 +477,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(question_only) <span class="sc">%&gt;%</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(question_only, <span class="st">"my husband"</span>))</span>
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Get letters matching cheat and wife</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Get letters matching cheat or adultery</span></span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>matching_texts <span class="ot">&lt;-</span> texto<span class="sc">$</span>question_only[</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(texto<span class="sc">$</span>question_only, <span class="st">"(?i)cheat"</span>) <span class="sc">&amp;</span> </span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(texto<span class="sc">$</span>question_only, <span class="st">"(?i)wife"</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(texto<span class="sc">$</span>question_only, <span class="st">"(?i)cheat"</span>) <span class="sc">|</span> </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(texto<span class="sc">$</span>question_only, <span class="st">"(?i)adultery"</span>)</span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>]</span>
 <span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Randomly sample 5 lines (change 3 to 1 or 2 as needed)</span></span>
@@ -482,96 +488,152 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>random_sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(matching_texts, <span class="at">size =</span> <span class="dv">5</span>)</span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Print them out fully without truncation</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># writeLines(random_sample)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Print text in color box and number letters in title</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(random_sample)) {</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  txt <span class="ot">&lt;-</span> random_sample[i]</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'&lt;div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;"&gt;</span><span class="sc">\n</span><span class="st">'</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use paste() to dynamically insert the number 'i'</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(<span class="st">'&lt;strong&gt;Letter '</span>, i, <span class="st">'&lt;/strong&gt;&lt;br&gt;</span><span class="sc">\n</span><span class="st">'</span>))</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(txt, <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>)</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'&lt;/div&gt;</span><span class="sc">\n\n</span><span class="st">'</span>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co"># writeLines(random_sample)</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Print text in color box and number letters in title</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(random_sample)) {</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  txt <span class="ot">&lt;-</span> random_sample[i]</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'&lt;div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;"&gt;</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use paste() to dynamically insert the number 'i'</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(<span class="st">'&lt;strong&gt;Letter '</span>, i, <span class="st">'&lt;/strong&gt;&lt;br&gt;</span><span class="sc">\n</span><span class="st">'</span>))</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(txt, <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'&lt;/div&gt;</span><span class="sc">\n\n</span><span class="st">'</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
-<p><strong>Letter 1</strong><br> my mother-in-law tends to embrace every pitiful creature she comes into contact with. this thanksgiving she has invited my ex-boyfriend and his wife to her home to share in the festivities. my ex was abusive to me most of the time, and we did not end on good terms. the woman he cheated on me with is now his wife. my ex was sneaky and manipulative, and i believe his only reason for wanting to be there is to check up on me and my husband. i have explained this to my husband and his mother, and told them i don’t feel comfortable with the situation. they both told me i am “overreacting” and that he was a part of my past and i have since moved on. i feel the family i love has betrayed me. the idea of my ex being involved in what should be a comfortable family day has me afraid and uneasy. am i overreacting? or is my husband’s mother being unreasonable? – dreading thanksgiving</p>
+<p><strong>Letter 1</strong><br> i have been married for 20 years to my high school sweetheart. he’s a great father and a hard worker. he has always been good to me – until a year ago when he came to me and confessed that he’d cheated on me with my best friend. i was devastated. the friendship was over, and i made my husband leave. after things calmed down, we decided to try and work things out because we still loved each other and wanted to try – not just for us – but for our children. i’m trying to pick up the pieces and trust him again, but there’s a problem. his job takes him out of town for days at a time, and when he comes home, i’m always checking his cell phone and credit card bills for any sign that he’s been unfaithful again. it’s been more than a year, but i still don’t trust him – or anyone, for that matter. when he’s home, we argue a lot. the other day, he said, “let’s get the kids, take off for the weekend and renew our vows, because i want to spend the rest of my life with you.” our anniversary is coming up, but i thought it was an odd suggestion, given all our problems. i’m confused and deeply hurt and don’t know what i should do. can you help me? – no longer trusting in california</p>
 </div>
 <div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
-<p><strong>Letter 2</strong><br> i love my husband and don’t want to lose him. he has always been my knight in shining armor, but i now know for a fact that he’s cheating. last night he left for a week to be with a woman he paid to fly here. she does not know he’s married. actually, there is a lot she doesn’t know. i have always lived by the poem that says if you love something – set it free. if it comes back to you, it’s yours, but if it doesn’t, it never belonged to you in the first place. abby, this man has left and come back to me five times! each time, he tells me he loves me, and i believe him. i should mention that he is from london, and i am a native texan, still living in the town where i grew up. england is where she is from – and where he always goes. my husband accuses me of trying to take away his friends and control him. believe me, i am not. all i ever wanted was a peaceful, happy life with the man i love. what should i do? i feel like a fool, but i love my husband dearly. – wife with an aching heart</p>
+<p><strong>Letter 2</strong><br> my husband has erectile dysfunction for which he takes medication. he gets it from a friend. i have discovered he takes the medication with him when he travels. he swears he isn’t cheating on me and that he’s faithful. should i believe him? – suspicious in arizona</p>
 </div>
 <div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
-<p><strong>Letter 3</strong><br> i am facing my worst nightmare. while i was still dating my husband, i had an affair with a married man. i broke it off when my husband-to-be proposed. i never told my fiance about the affair. last week, i learned that the wife of the man i was involved with found one of the “intimate” items i had given him. she has now gone to a lawyer and is seeking a divorce. i am afraid i may be called to testify if the divorce proceedings go that far. i am scared to tell my husband. i’m afraid he will leave me if he finds out. i have been completely faithful my entire marriage – and plan to remain so. what should i do, abby? confess to my husband that i cheated prior to marrying him – or wait and see if the attorney or the wife of my ex-lover contacts me? – scared and lost in florida</p>
+<p><strong>Letter 3</strong><br> my husband cheated on me and told me to find somebody else. he moved in with the other woman and spread lies about me, telling my in-laws that i had cheated on him. he was on probation, so i reported to his probation officer that he was lying about where he was living. he was arrested for it. he is now incarcerated and facing a two-year prison sentence. we’re trying to work on our marriage, but i haven’t told him that i’m the person who reported him to his probation officer. i’m still angry at him for cheating on me. when i write him, i tend to bring up what he did when he was out. i have told him i forgave him, but lately, i don’t even take time to respond to his letters. what should i do? – just plain angry</p>
 </div>
 <div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
-<p><strong>Letter 4</strong><br> my young son and his wife split up nine months ago. “paige” had a troubled past and unfortunate parenting. we took her in while they were dating – paige had just turned 18 – and my husband and i finished parenting her. abby, paige cheated on our son, began drinking and using drugs, and broke up another man’s family. there were three children involved, and it was ugly. our son was willing to go to marriage counseling – paige refused. since then, she has lost a good job and begun stripping, leaving our son deeply in debt because of her spending. my son has begun rebuilding his life. he got a couple of roommates so he could hold onto his little home, and i know he is better off without her. i, however, am having a hard time. i loved – and love – paige like she was my own child. i miss her spirit and her goodness, which was misplaced because of the drugs and alcohol. my son wants absolutely nothing more to do with her, but what do i do about my pain? she called us last month, and my husband just about hung up on her. i don’t want to disrespect my son’s wishes, but i’m torn. is this normal? – future ex-mother-in-law</p>
+<p><strong>Letter 4</strong><br> i recently tried to retrieve my e-mail when my husband’s e-mail account popped up. i noticed a few messages from one particular woman, and curiosity got the better of me. i opened them and discovered she and my husband have been chatting online. (his e-mail to her indicates they have “hot” conversations.) when i confronted my husband, he said it only happened a few times. i told him it’s a form of cheating. he insists it has nothing to do with his love for me – that it is a fantasy thing. i don’t care for his explanation, and i’m taking it personally. i can’t forget the things i read and i’m considering ending our marriage. because he is not carrying on a physical relationship with someone doesn’t mean his online relationship isn’t as damaging. do you agree? – betrayed in new jersey</p>
 </div>
 <div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
-<p><strong>Letter 5</strong><br> dear abby i have been married to “grant” for eight years. soon after our marriage i learned he was a compulsive liar. grant told me while we were dating that he had a sister. i later learned the woman was a friend. he said he was divorced from his second wife when we met. they weren’t divorced until one month before our wedding, something i discovered only when i found his divorce papers. grant’s first wife swears they are still married. he says they’re divorced, but he lost the divorce papers. a year ago, i found out my husband was never in the marines like he said, and after eight years of believing he had a ba in business, i just learned he dropped out of college after his freshman year. i have just about had it with his constant lying. he has also cheated on me. i want a divorce, but i don’t want to look like a failure to my family and friends. grant is begging me to stay. he promises he’ll change, but i have heard that all before. what should i do? – wife in crisis</p>
+<p><strong>Letter 5</strong><br> i recently divorced my husband of nine years because i found out he was having an affair. he actually introduced her to people that we both knew. i ended up hiring an off-duty police officer so i could get the proof (pictures). it turned out she was one of my husband’s co-workers, and the affair had been going on for three years. i ended up divorcing him, but the woman’s husband decided to forgive her. my ex hates my guts because she chose to remain with her husband. abby, i am so ashamed. how could i not have known? we had not slept together since our daughter was born; she is 6 years old now. he blames the whole affair on me. he says i was not doing my wifely duty and that’s what made him cheat. well, i just didn’t feel that close to him. he had been verbally and physically abusive prior to our daughter’s birth and afterward. he was terrible to my parents and called them names. he never paid any bills nor helped me with our daughter. to this day he hates me so much he can’t stand to look at me because he has to pay child support. he has every other weekend with our daughter, and it kills him to come and pick her up. he was a sorry excuse for a husband and not much better as a father. the problem is – if he wanted to come back, i believe i would take him back. why do i feel like this? is there something wrong with me? do i need counseling? – dazed and confused</p>
 </div>
 </section>
-<section id="five-random-my-wife-letters" class="level1">
-<h1>Five random <em>my wife</em> letters</h1>
-<p>The letters below were selected by filtering using <strong>my wife</strong> and then searching for the words <em>wife</em> and <em>cheat</em>.</p>
+<section id="five-random-my-wife-letters-on-adultery" class="level1">
+<h1>Five random <em>my wife</em> letters on adultery</h1>
+<p>The letters below were selected by filtering using <strong>my wife</strong> and then searching for the words <em>adultery</em> and <em>cheat</em>.</p>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|echo : false</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Filter all letters and my wife</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>texto <span class="ot">&lt;-</span> pudding <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(question_only) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(question_only) <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(question_only, <span class="st">"my wife"</span>))</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Get letters matching cheat and adultery</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>matching_texts <span class="ot">&lt;-</span> texto<span class="sc">$</span>question_only[</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(texto<span class="sc">$</span>question_only, <span class="st">"(?i)cheat"</span>) <span class="sc">|</span> </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(texto<span class="sc">$</span>question_only, <span class="st">"(?i)adultery"</span>)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Randomly sample 5 lines (change 3 to 1 or 2 as needed)</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="co"># sample(x, size) picks 'size' random elements from vector 'x'</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>random_sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(matching_texts, <span class="at">size =</span> <span class="dv">5</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Print them out fully without truncation</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co"># writeLines(random_sample)</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Print text in color box and number letters in title</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(random_sample)) {</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>  txt <span class="ot">&lt;-</span> random_sample[i]</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'&lt;div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;"&gt;</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use paste() to dynamically insert the number 'i'</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(<span class="st">'&lt;strong&gt;Letter '</span>, i, <span class="st">'&lt;/strong&gt;&lt;br&gt;</span><span class="sc">\n</span><span class="st">'</span>))</span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(txt, <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'&lt;/div&gt;</span><span class="sc">\n\n</span><span class="st">'</span>)</span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 1</strong><br> my wife and i have a good marriage and two well-behaved kids who are good students and active in our community. our 8-year-old son is very much the rule follower in school and outside activities, but cheats when playing board or card games with me or his sister at home. when i catch him doing it, i end the game and tell him i won’t play with him if he’s going to cheat. my wife believes the cheating is “just for fun” and that i’m being too hard on him. i say the lesson i’m teaching him is that cheating is wrong. we agree we are fortunate this happens only at home, but i’m concerned that if it is left unchecked, it will be regarded as permissible and it will escalate to become a problem in other circumstances. what do you think? should i let up? – virginia dad</p>
+</div>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 2</strong><br> today i witnessed what may be the end of a marriage, and it was because of a professional health care worker’s unwise remark. my wife was having a colonoscopy, and there was one large recovery room where patients coming out of anesthesia were grouped. (there were curtains separating the patients.) while i was waiting for my wife to awaken, i overheard a nurse talking to the wife of the patient next to us. she said, “you know, you can find out anything from them when they’re coming out of anesthesia. they are completely incapable of lying.” she said it in a lighthearted way – sort of giggling. a few minutes later, i heard the wife ask in a hushed voice, “bart, have you ever cheated on me?” “yes,” he moaned, “with mary helen.” i heard the wife choke back a sob and she ran from the room. it was another 45 minutes before my wife was ready to leave, and the woman did not return during that time. abby, i think it was ridiculous for that nurse to pass on the information that prompted this scene. should i let the doctor know about his nurse’s unwise comment? – mike in tucson, ariz.</p>
+</div>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 3</strong><br> after six years of marriage and a beautiful daughter, my wife, “chanelle,” demanded a separation. she said she needed time to “find herself.” she forgot to mention that she was having an affair with a subordinate at work, “earl.” eventually, earl’s wife and i found out. chanelle lost her job, her boyfriend and her self-respect. suddenly she wanted me back. i wasn’t sure i could live with a woman who had lied and cheated on me. after a year later, chanelle became pregnant with our son, who is due in a few months. i’m positive the baby is mine, so we decided for the children’s sake to reconcile. i still can’t forgive chanelle for the affair. she used a string of lies to cover her activities, so i’m having severe trust issues. i was faithful throughout our marriage. while we were separated, i frequently lent her money and ran errands for her. at the time, she told me she hadn’t been in love with me since the birth of our daughter. now i feel used. during our separation, i made sure our daughter called chanelle’s parents every night. we spent holidays with them while chanelle worked. instead of thanking me for it, they insist that i drove their daughter into the arms of another man. to make things worse, my parents refuse to accept chanelle back into the family. in all fairness, chanelle was the last person you’d think would have an affair. she was family-oriented and had conservative values. earl was the last person you’d imagine she’d choose. he’s a chain-smoking, married redneck with a history of infidelity. both sets of in-laws are trying to sabotage the marriage, my feelings for my wife have changed, and i now realize i never really knew chanelle at all. can this marriage be saved? – shaken, not stirred in west virginia</p>
+</div>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 4</strong><br> my job requires me to travel out of town several nights a week, leaving my wife home alone. she recently invited a mutual (male) friend out for dinner during my absence. he’s the other half of a couple we socialize with frequently. (his wife was also out of town.) i told her i was uncomfortable with it. i don’t think married men and women should go out alone with members of the opposite sex. she maintains that it wasn’t a “date,” that she was just having a meal with a friend. i value your opinion and would like to know how you feel about this. did i overreact? is it appropriate for a married woman to go out for a meal alone with a man other than her husband? – feeling cheated on in illinois</p>
+</div>
+<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
+<p><strong>Letter 5</strong><br> my wife and i have been married five years and have a beautiful 4-year-old daughter. two years ago, my wife cheated on three different occasions with three different men. each time she admitted her infidelity to me the following day. i was heartbroken. i have fallen out of love with her and no longer find her attractive. i didn’t leave immediately because i didn’t want our daughter to be raised in a broken home. also, my wife didn’t have a job. i thought i could forgive her and get over it, but i can’t and don’t think i ever will. should i leave her or stay in a marriage where i feel i am being unfair to myself and that i deserve better? please advise. – betrayed in kansas</p>
+</div>
+</section>
+<section id="aids" class="level1">
+<h1>AIDS</h1>
+<p>Although <strong>Dear Abby</strong> was first published in The San Francisco Chronicle on January 9, 1956, the data analyzed here ranges from 1985 to 2017. The AIDS (Acquired Immune Deficiency Syndrome) pandemic officially began on June 5, 1981, when the U.S. Centers for Disease Control and Prevention (CDC) published a report detailing a rare form of pneumonia (<em>Pneumocystis carinii</em>) in five young gay men in Los Angeles. In 1985,the U.S. Food and Drug Administration (FDA) approved the first commercial blood test for HIV (Human Immunodeficiency Virus), allowing blood banks to screen donations. Public fear peaked following high-profile diagnoses, such as actor Rock Hudson publicizing his illness before dying in October 1985.</p>
+<p>Did the Dear Abby letters reflect the public preocupation for the AIDS pandemic in the 1980s? Below are plots showing the number of letters that included the words AIDS and gay or homosexual. For comparison, I have included letters containing the word cat.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#|echo : false</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Filter all letters and my husband</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>texto <span class="ot">&lt;-</span> pudding <span class="sc">%&gt;%</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(question_only) <span class="sc">%&gt;%</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(question_only) <span class="sc">%&gt;%</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(question_only, <span class="st">"my wife"</span>))</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Get letters matching cheat and wife</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>matching_texts <span class="ot">&lt;-</span> texto<span class="sc">$</span>question_only[</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(texto<span class="sc">$</span>question_only, <span class="st">"(?i)cheat"</span>) <span class="sc">&amp;</span> </span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_detect</span>(texto<span class="sc">$</span>question_only, <span class="st">"(?i)wife"</span>)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>]</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Randomly sample 5 lines (change 3 to 1 or 2 as needed)</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co"># sample(x, size) picks 'size' random elements from vector 'x'</span></span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>random_sample <span class="ot">&lt;-</span> <span class="fu">sample</span>(matching_texts, <span class="at">size =</span> <span class="dv">5</span>)</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Print them out fully without truncation</span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># writeLines(random_sample)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#1. Make list of words to remove in addtion to default stop_words (to, and, she)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define your custom words to ignore</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>interest_words <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">word =</span> <span class="fu">c</span>(<span class="st">"gay"</span>, <span class="st">"aids"</span>, <span class="st">"homosexual"</span>,<span class="st">"cat"</span>))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Compute your main data for gay/homosexual and aids</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>gay_by_year <span class="ot">&lt;-</span> pudding <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year) <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(question_only) <span class="sc">%&gt;%</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(question_only) <span class="sc">%&gt;%</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(word, question_only) <span class="sc">%&gt;%</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remap "homosexual" to "gay" before filtering</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">case_when</span>(</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    word <span class="sc">==</span> <span class="st">"homosexual"</span> <span class="sc">~</span> <span class="st">"gay"</span>,</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> word</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">%&gt;%</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remove expected/un-informative words </span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words, <span class="at">by =</span> <span class="st">"word"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Filter out numbers or non-alphabetical tokens if desired</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(word, <span class="st">"^[a-z]+$"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># KEEP ONLY your specific interest words</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">semi_join</span>(interest_words, <span class="at">by =</span> <span class="st">"word"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># REORDER: Convert word to a factor with "cat" at the very end</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">factor</span>(word, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"aids"</span>, <span class="st">"gay"</span>, <span class="st">"cat"</span>)))</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Create the stacked facet plot</span></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>gay_by_year <span class="sc">%&gt;%</span></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> n, <span class="at">color =</span> word)) <span class="sc">+</span></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> word, <span class="at">ncol =</span> <span class="dv">1</span>, <span class="at">scales =</span> <span class="st">"fixed"</span>) <span class="sc">+</span> <span class="co"># Uses the same scale for all panels</span></span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">65</span>),   <span class="co"># Forces the axis to run from 0 to 4</span></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>),   <span class="co"># Places tick marks at both 0 and 4</span></span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"60"</span>) <span class="co"># Displays labels for both 0 and 4</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Letters on AIDS and gay/homosexual"</span>,</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year"</span>,</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total count"</span>,</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"Word"</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="co"># Optional: hides legend since each panel is already labeled</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="pudding_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Print text in color box and number letters in title</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(random_sample)) {</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  txt <span class="ot">&lt;-</span> random_sample[i]</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'&lt;div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;"&gt;</span><span class="sc">\n</span><span class="st">'</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Use paste() to dynamically insert the number 'i'</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste0</span>(<span class="st">'&lt;strong&gt;Letter '</span>, i, <span class="st">'&lt;/strong&gt;&lt;br&gt;</span><span class="sc">\n</span><span class="st">'</span>))</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(txt, <span class="st">'</span><span class="sc">\n</span><span class="st">'</span>)</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">'&lt;/div&gt;</span><span class="sc">\n\n</span><span class="st">'</span>)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
-<p><strong>Letter 1</strong><br> my wife and i are near retirement age. we have a daughter, “annette,” who has five children by four different men. annette has always managed to dump the father after each child was born. she was married to the last one, but after he caught her cheating, he asked for a divorce. when each relationship ended, annette would come home to live with us. we felt it was our obligation to help until she got back on her feet. however, she continued to reproduce haphazardly. we love our grandchildren, abby, but the last time annette told us she was coming back, we told her this time she was on her own. we have six other children who occasionally have problems. we didn’t think it was fair to devote all of our attention to annette when her problems are self-inflicted. two years ago, annette disowned us. we’re at an impasse and miss our grandchildren terribly. do you think we did the right thing? what should we do now? – two grandparents in twin falls</p>
 </div>
-<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
-<p><strong>Letter 2</strong><br> my wife and i have a good marriage and two well-behaved kids who are good students and active in our community. our 8-year-old son is very much the rule follower in school and outside activities, but cheats when playing board or card games with me or his sister at home. when i catch him doing it, i end the game and tell him i won’t play with him if he’s going to cheat. my wife believes the cheating is “just for fun” and that i’m being too hard on him. i say the lesson i’m teaching him is that cheating is wrong. we agree we are fortunate this happens only at home, but i’m concerned that if it is left unchecked, it will be regarded as permissible and it will escalate to become a problem in other circumstances. what do you think? should i let up? – virginia dad</p>
-</div>
-<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
-<p><strong>Letter 3</strong><br> my wife, “jenny,” and i married 12 years ago because she was pregnant. i knew she had been promiscuous as a teenager, but i thought i could cope with it. now, after two children, i have second thoughts. when we married, jenny weighed 115 pounds. (she’s 5 foot 1.) now, after two children, she weighs 170 pounds, and her clothes are size 16. i am frustrated at the fact jenny cares so little about her appearance. yes, we all change, and i understand that. but i get furious when i think my wife gave up caring about her appearance when i put the ring on her finger. it looks like she got her man, so now she’s complacent. i am insanely jealous because i feel like jenny wanted to look good when she was chasing boys, but she doesn’t care now. talking about it and counseling haven’t helped. i know these are not healthy feelings, but they are in my heart. i’m thankful for my wife and kids, but i also feel cheated. please don’t tell me that weight gain is biological. there are plenty of thinner moms around. what can i do to help her see my point of view? – tied to a heavy ball and chain</p>
-</div>
-<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
-<p><strong>Letter 4</strong><br> i have been happily married for a number of years. i’m not what you would call “hot” -â far from it, actually. but for some reason, women have always been attracted to me. it doesn’t matter where i work, there always seems to be some woman coming on to me. i have never cheated on my wife – never! i have always told the interested party that i’m married and love my wife and kids, and would never do anything to destroy what we have. about a year ago, my wife and i hit a rough spot. i met a woman who was having problems with her boyfriend. we were attracted to each other and became quite close. we never did anything physically. we never spoke of love, and both recognized that we were only infatuated. my problem is this is the first time i was really tempted. i resisted, thank god, but feel terribly guilty about it. my head says telling my wife would help relieve my guilt, but nothing else. ultimately, it would hurt her. because nothing actually “happened,” should i listen to my head, or should i go with my heart, which says to tell her everything? this is eating me up inside. – consumed by guilt in n.y.</p>
-</div>
-<div style="background-color: #f0f4f8; border-left: 4px solid #3182ce; padding: 15px; margin-bottom: 10px; border-radius: 4px;">
-<p><strong>Letter 5</strong><br> today i witnessed what may be the end of a marriage, and it was because of a professional health care worker’s unwise remark. my wife was having a colonoscopy, and there was one large recovery room where patients coming out of anesthesia were grouped. (there were curtains separating the patients.) while i was waiting for my wife to awaken, i overheard a nurse talking to the wife of the patient next to us. she said, “you know, you can find out anything from them when they’re coming out of anesthesia. they are completely incapable of lying.” she said it in a lighthearted way – sort of giggling. a few minutes later, i heard the wife ask in a hushed voice, “bart, have you ever cheated on me?” “yes,” he moaned, “with mary helen.” i heard the wife choke back a sob and she ran from the room. it was another 45 minutes before my wife was ready to leave, and the woman did not return during that time. abby, i think it was ridiculous for that nurse to pass on the information that prompted this scene. should i let the doctor know about his nurse’s unwise comment? – mike in tucson, ariz.</p>
 </div>
 
 
