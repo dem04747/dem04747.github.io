@@ -1,5 +1,17 @@
 ---
-title: "Fist Website"
+# title: "Daniel Martínez" # optional (omitted in example screenshots); this title appears under your photo
+image: file/path/to/headshot.jpeg # a great spot for your professional headshot :) 
+toc: false # disable table of contents for this page (if applicable)
+about: 
+  template: jolla 
+  image-shape: round
+  image-width: 17em
+  links: # create buttons
+    - text: GitHub
+      href: https://github.com/dem04747
+      target: _blank 
+    - text: Email
+      href: mailto:daniel.martinez@pomona.edu
 ---
 
 This is a Quarto website.
