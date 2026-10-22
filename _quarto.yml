@@ -9,6 +9,7 @@ website:
       - href: index.qmd
         text: Home
       - href: about.qmd
+      - href: hydra.qmd
       - text: Data Viz
         menu: 
          - text: "Palm Trees"
