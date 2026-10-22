@@ -28,7 +28,9 @@ library(ggtext)
 
 ## What is a new hydra?
 
-Hydra are freshwater invertebrates belonging to the phylum Cnidaria, a group that also includes corals, sea anemones, and jellyfish. While the vast majority of cnidarians are marine, hydras are among the few species adapted to freshwater environments. Within the class Aplanulata—which is characterized by the absence of the typical planula larva stage found in other hydroids—all species of Hydra are classified into their own dedicated family, Hydridae. 
+<img src="hydravulgaris.png" alt="Hydra" style="float: right; width: 30%; margin-left: 20px; margin-bottom: 10px;" />
+
+Hydra are freshwater invertebrates belonging to the phylum Cnidaria, a group that also includes corals, sea anemones, and jellyfish. While the vast majority of cnidarians are marine, hydras are among the few species adapted to freshwater environments. Within the class Aplanulata—which is characterized by the absence of the typical planula larva stage found in other hydroids—all species of Hydra are classified into their own dedicated family, Hydridae. Widely distributed across the globe, hydras inhabit ponds, lakes, and rivers. Although they thrive best in cold water, different species exhibit varying degrees of tolerance to warmer environments. As carnivorous predators, they feed on small crustaceans, insect larvae, and even fish fry.
 
 ## Hydra species and clades
 
