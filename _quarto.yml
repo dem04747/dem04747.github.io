@@ -9,7 +9,12 @@ website:
       - href: index.qmd
         text: Home
       - href: about.qmd
+        text: About
+      - href: myCV.pdf # providing a relative file path to a pdf will open up a browser-based pdf viewer when clicked
+        text: CV
+        target: _blank # opens link (or page) in a new browser tab
       - href: hydra.qmd
+        text: Hydra
       - text: Data Viz
         menu: 
          - text: "Palm Trees"
@@ -18,7 +23,10 @@ website:
            href: orcas.qmd
          - text: "Dear Abby"
            href: pudding.qmd
-
+  page-footer:
+    background: light # or `dark` or omit this option altogether (footer color will match page body color)
+    left: Copyright 2024, Daniel E. Martínez
+    right: This website is built with love and [Quarto](https://quarto.org/){target=_blank}
 format:
   html:
     theme: cosmo

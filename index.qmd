@@ -1,8 +1,26 @@
 ---
-title: "Fist Website"
+title: "Daniel Martínez Scavino" # optional (omitted in example screenshots); this title appears under your photo
+image: daniel.png # a great spot for your professional headshot :) 
+toc: false # disable table of contents for this page (if applicable)
+about: 
+  template: jolla 
+  image-shape: round
+  image-width: 17em
+  links: # create buttons
+    - icon: github 
+      text: GitHub
+      href: https://github.com/dem04747
+      target: _blank 
+    - icon: envelope
+      text: Email
+      href: mailto:daniel.martinez@pomona.edu  
+page-footer:
+    background: light # or `dark` or omit this option altogether (footer color will match page body color)
+    left: Copyright 2024, Daniel E. Martínez
+    right: This website is built with love and [Quarto](https://quarto.org/){target=_blank}
+
 ---
 
-This is a Quarto website.
- 
+Hello! I am Daniel Martínez Scavino, a biology professor at Pomona College. My research centers on Hydra—the remarkable, biologically immortal organism that somehow missed the memo on aging. When I am not in the lab or teaching genetics or G&T, you can usually find me exploring mountain trails, traveling, cooking, or diving into new languages.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.

@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Fist Website",
+    "title": "Daniel Martínez Scavino",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Hello! I am Daniel Martínez Scavino, a biology professor at Pomona College. My research centers on Hydra—the remarkable, biologically immortal organism that somehow missed the memo on aging. When I am not in the lab or teaching genetics or G&T, you can usually find me exploring mountain trails, traveling, cooking, or diving into new languages.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   },
   {
     "objectID": "about.html",
@@ -214,6 +214,13 @@
     "href": "hydra.html#hydra-species-and-clades",
     "title": "Hydra of the World!",
     "section": "Hydra species and clades",
-    "text": "Hydra species and clades\nWe studied the phylogenetic relationships among different species of Hydra using molecular markers, primarily the Internal Transcribed Spacers (ITS-1 and ITS-2) of ribosomal DNA. We identified nine distinct Hydra species: Hydra viridissima, Hydra utahensis, Hydra circumcincta, Hydra hymanae, Hydra oligactis, Hydra canadensis, Hydra oxycnida, Hydra lirosoma, and Hydra vulgaris. These species group into five distinct clades: Viridissima, Braueri, Oligactis, Lirosoma, and Vulgaris.\nThe Viridissima clade includes the “green” hydra, which harbor intracellular green unicellular algae within their endodermal epithelial cells, while the remaining four clades comprise “brown” hydra. While the vast majority of animals possess a single, circular mitochondrial chromosome, linear mitochondrial genomes have evolved independently in a few specific lineages including hydras, box jellyfish and calcareous sponges. In the Vulgaris clade of hydra the mitochondrial genome is split into two linear chromosomes (each roughly 8 kb in size). In the other four clade, there is a single linear chromosome of ~16 kb.\nA key for identifying these Hydra species can be found here. To read more about all described Hydra species, follow this link.\n\n\n\n\n\n\nFigure 1"
+    "text": "Hydra species and clades\nWe studied the phylogenetic relationships among different species of Hydra using molecular markers, primarily the Internal Transcribed Spacers (ITS-1 and ITS-2) of ribosomal DNA. We identified nine distinct Hydra species: Hydra viridissima, Hydra utahensis, Hydra circumcincta, Hydra hymanae, Hydra oligactis, Hydra canadensis, Hydra oxycnida, Hydra lirosoma, and Hydra vulgaris. These species group into five distinct clades: Viridissima, Braueri, Oligactis, Lirosoma, and Vulgaris.\nThe Viridissima clade includes the “green” hydra, which harbor intracellular green unicellular algae within their endodermal epithelial cells, while the remaining four clades comprise “brown” hydra. While the vast majority of animals possess a single, circular mitochondrial chromosome, linear mitochondrial genomes have evolved independently in a few specific lineages including hydras, box jellyfish, and calcareous sponges. In the Vulgaris clade of hydra the mitochondrial genome is split into two linear chromosomes (each roughly 8 kb in size). In the other four clades, there is a single linear chromosome of ~16 kb.\nA key for identifying these Hydra species can be found here. To read more about all described Hydra species, follow this link.\n\n\n\n\n\n\nFigure 1"
+  },
+  {
+    "objectID": "hydra.html#what-is-a-new-hydra",
+    "href": "hydra.html#what-is-a-new-hydra",
+    "title": "Hydra of the World!",
+    "section": "What is a new hydra?",
+    "text": "What is a new hydra?\nHydra are freshwater invertebrates belonging to the phylum Cnidaria, a group that also includes corals, sea anemones, and jellyfish. While the vast majority of cnidarians are marine, hydras are among the few species adapted to freshwater environments. Within the class Aplanulata—which is characterized by the absence of the typical planula larva stage found in other hydroids—all species of Hydra are classified into their own dedicated family, Hydridae."
   }
 ]
