@@ -214,7 +214,7 @@
     "href": "hydra.html#hydra-species-and-clades",
     "title": "Hydras of the World",
     "section": "Hydra species and clades",
-    "text": "Hydra species and clades\nWe studied the phylogenetic relationships among different species of Hydra using molecular markers, primarily the Internal Transcribed Spacers (ITS-1 and ITS-2) of ribosomal DNA. We identified nine distinct Hydra species: Hydra viridissima, Hydra utahensis, Hydra circumcincta, Hydra hymanae, Hydra oligactis, Hydra canadensis, Hydra oxycnida, Hydra lirosoma, and Hydra vulgaris. These species group into five distinct clades: Viridissima, Braueri, Oligactis, Lirosoma, and Vulgaris.\nThe Viridissima clade includes the “green” hydra, which harbor intracellular green unicellular algae within their endodermal epithelial cells, while the remaining four clades comprise “brown” hydra. While the vast majority of animals possess a single, circular mitochondrial chromosome, linear mitochondrial genomes have evolved independently in a few specific lineages including hydras, box jellyfish, and calcareous sponges. In the Vulgaris clade of hydra the mitochondrial genome is split into two linear chromosomes (each roughly 8 kb in size). In the other four clades, there is a single linear chromosome of ~16 kb.\nA key for identifying these Hydra species can be found here. To read more about all described Hydra species, follow this link.\n\n\n\n\n\n\nFigure 1"
+    "text": "Hydra species and clades\nWe studied the phylogenetic relationships among different species of Hydra using molecular markers, primarily the Internal Transcribed Spacers (ITS-1 and ITS-2) of ribosomal DNA. We identified nine distinct Hydra species: Hydra viridissima, Hydra utahensis, Hydra circumcincta, Hydra hymanae, Hydra oligactis, Hydra canadensis, Hydra oxycnida, Hydra lirosoma, and Hydra vulgaris. These species group into five distinct clades: Viridissima, Braueri, Oligactis, Lirosoma, and Vulgaris.\nThe Viridissima clade includes the “green” hydra, which harbor intracellular green unicellular algae within their endodermal epithelial cells, while the remaining four clades comprise “brown” hydra. While the vast majority of animals possess a single, circular mitochondrial chromosome, linear mitochondrial genomes have evolved independently in a few specific lineages including hydras, box jellyfish, and calcareous sponges. In the Vulgaris clade of hydra the mitochondrial genome is split into two linear chromosomes (each roughly 8 kb in size). In the other four clades, there is a single linear chromosome of ~16 kb.\nThe distribution of all hydra species throughout the world can be observed in this map.\nA key for identifying these Hydra species can be found here.\nTo read more about all described Hydra species, follow this link.\n\n\n\n\n\n\nFigure 1"
   },
   {
     "objectID": "hydra.html#what-is-a-new-hydra",
@@ -264,5 +264,40 @@
     "title": "About these visualizations",
     "section": "TidyTuesday",
     "text": "TidyTuesday\nWhat is TidyTuesday? A response from AI (Gemini)\nTidyTuesday is a weekly data project aimed at the R community, hosted by the R4DS Online Learning Community (Data Science in a Box / R for Data Science).\nEvery Tuesday, a new dataset is posted on GitHub, usually accompanied by a brief article or chart exploring it. Participants from around the world download the data, analyze it, create data visualizations (most commonly using ggplot2), and share their code and plots on social media (primarily on X/Twitter and LinkedIn) using the hashtag #TidyTuesday.\n\nKey Features of TidyTuesday\n\nFocus on the “Tidyverse”: The project encourages the use of tidy data principles and packages from the tidyverse ecosystem (like dplyr, tidyr, and ggplot2), though participants are free to use any tools or programming languages they prefer.\nReal-World Data: The datasets cover a wide variety of engaging, often quirky topics—ranging from historical events and scientific discoveries to pop culture, sports, and environmental statistics.\nLearning and Community: It serves as a low-stakes, supportive environment for beginners and experienced data scientists alike to practice data wrangling, sharpen data visualization skills, and learn from how others approach the same dataset."
+  },
+  {
+    "objectID": "hydramap1.html",
+    "href": "hydramap1.html",
+    "title": "Hydras of the World",
+    "section": "",
+    "text": "Code\n#2. Option 2\nlibrary(dplyr)\nlibrary(readr)\n\nmy_data2 &lt;- my_data %&gt;%\n  mutate(\n    lat2 = parse_number(as.character(lat2)),\n    long2 = parse_number(as.character(long2))\n  )\n\n\n\n\nCode\n# Convert coordinates to sf object using your actual column names (longitude first, then latitude)\nhydra_sf &lt;- my_data2 %&gt;%\n  filter(!is.na(lat2), !is.na(long2)) %&gt;%\n  st_as_sf(coords = c(\"long2\", \"lat2\"), crs = 4326)\n\nggplot() +\n  annotation_map_tile(type = \"osm\", zoom = 2) + \n  geom_sf(data = hydra_sf, aes(color = species), size = 1, alpha = 0.6) +\n  scale_color_manual(values = c(\n    \"canadensis\"   = \"red\",\n    \"circumcincta\" = \"darkorange\",\n    \"hymanae\"      = \"pink\",\n    \"lirosoma\"     = \"purple\",\n    \"oligactis\"    = \"blue\",\n    \"utahensis\"    = \"gold\",\n    \"viridissima\"  = \"forestgreen\",\n    \"vulgaris\"     = \"sienna\"\n  )) +\n  theme_minimal() +\n  labs(title = \"Hydra Locations\")\n\n\n\n\n\n\n\n\n\n\n\nCode\nhydra_sf &lt;- my_data %&gt;%\n  mutate(\n    lat2 = parse_number(as.character(lat2)),\n    long2 = parse_number(as.character(long2))\n  ) %&gt;%\n  filter(!is.na(lat2), !is.na(long2), lat2 != 0, long2 != 0) %&gt;%\n  st_as_sf(coords = c(\"long2\", \"lat2\"), crs = 4326)\n\n\n\n\nCode\nlibrary(dplyr)\n\n# Check rows where lat2 became NA after coercion\nbad_rows &lt;- my_data %&gt;%\n  mutate(lat2_num = suppressWarnings(as.numeric(lat2))) %&gt;%\n  filter(is.na(lat2_num) & !is.na(lat2))\n\n# View those rows to see what text is hiding in the column\nprint(bad_rows)\n\n\n [1] country      state        local_name   strain       alt_strain  \n [6] species      lat2         long2        col_locality col_date    \n[11] col_name     lat2_num    \n&lt;0 rows&gt; (or 0-length row.names)"
+  },
+  {
+    "objectID": "hydramap1.html#hydra-maps",
+    "href": "hydramap1.html#hydra-maps",
+    "title": "Hydras of the World",
+    "section": "",
+    "text": "Code\n#2. Option 2\nlibrary(dplyr)\nlibrary(readr)\n\nmy_data2 &lt;- my_data %&gt;%\n  mutate(\n    lat2 = parse_number(as.character(lat2)),\n    long2 = parse_number(as.character(long2))\n  )\n\n\n\n\nCode\n# Convert coordinates to sf object using your actual column names (longitude first, then latitude)\nhydra_sf &lt;- my_data2 %&gt;%\n  filter(!is.na(lat2), !is.na(long2)) %&gt;%\n  st_as_sf(coords = c(\"long2\", \"lat2\"), crs = 4326)\n\nggplot() +\n  annotation_map_tile(type = \"osm\", zoom = 2) + \n  geom_sf(data = hydra_sf, aes(color = species), size = 1, alpha = 0.6) +\n  scale_color_manual(values = c(\n    \"canadensis\"   = \"red\",\n    \"circumcincta\" = \"darkorange\",\n    \"hymanae\"      = \"pink\",\n    \"lirosoma\"     = \"purple\",\n    \"oligactis\"    = \"blue\",\n    \"utahensis\"    = \"gold\",\n    \"viridissima\"  = \"forestgreen\",\n    \"vulgaris\"     = \"sienna\"\n  )) +\n  theme_minimal() +\n  labs(title = \"Hydra Locations\")\n\n\n\n\n\n\n\n\n\n\n\nCode\nhydra_sf &lt;- my_data %&gt;%\n  mutate(\n    lat2 = parse_number(as.character(lat2)),\n    long2 = parse_number(as.character(long2))\n  ) %&gt;%\n  filter(!is.na(lat2), !is.na(long2), lat2 != 0, long2 != 0) %&gt;%\n  st_as_sf(coords = c(\"long2\", \"lat2\"), crs = 4326)\n\n\n\n\nCode\nlibrary(dplyr)\n\n# Check rows where lat2 became NA after coercion\nbad_rows &lt;- my_data %&gt;%\n  mutate(lat2_num = suppressWarnings(as.numeric(lat2))) %&gt;%\n  filter(is.na(lat2_num) & !is.na(lat2))\n\n# View those rows to see what text is hiding in the column\nprint(bad_rows)\n\n\n [1] country      state        local_name   strain       alt_strain  \n [6] species      lat2         long2        col_locality col_date    \n[11] col_name     lat2_num    \n&lt;0 rows&gt; (or 0-length row.names)"
+  },
+  {
+    "objectID": "hydramap1.html#location-maps",
+    "href": "hydramap1.html#location-maps",
+    "title": "Hydras of the World",
+    "section": "Location maps",
+    "text": "Location maps\nThe maps below dsiplay the locations of hydra collected thought the world. For clarity the world amp ahs been divided into region. Please select the region you want to display. There is little we can do aboout the map projection which distorts the true areas of the world exagerating lands at higher latitudes.\nPLease lect the map from North America, South America, Europe, Africa, Asia, and Oceania."
+  },
+  {
+    "objectID": "hydramap2.html#location-maps",
+    "href": "hydramap2.html#location-maps",
+    "title": "Hydras of the World",
+    "section": "Location maps",
+    "text": "Location maps\nThe maps below dsiplay the locations of hydra collected thought the world. For clarity the world amp ahs been divided into region. Please select the region you want to display. There is little we can do aboout the map projection which distorts the true areas of the world exagerating lands at higher latitudes."
+  },
+  {
+    "objectID": "hydramap2.html#location-map",
+    "href": "hydramap2.html#location-map",
+    "title": "Hydras of the World",
+    "section": "Location map",
+    "text": "Location map\nThe map below displays the locations of hydra collected throughtout the world. Please use your computer pad to enlarge the zone you want to observe. There is little we can do about the map projection which distorts the true areas of the world exagerating lands at higher latitudes."
   }
 ]
