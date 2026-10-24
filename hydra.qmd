@@ -38,7 +38,7 @@ We studied the phylogenetic relationships among different species of *Hydra* usi
 
 The **Viridissima** clade includes the "green" hydra, which harbor intracellular green unicellular algae within their endodermal epithelial cells, while the remaining four clades comprise "brown" hydra. While the vast majority of animals possess a single, circular mitochondrial chromosome, linear mitochondrial genomes have evolved independently in a few specific lineages including hydras, box jellyfish, and calcareous sponges. In the **Vulgaris** clade of hydra the mitochondrial genome is split into two linear chromosomes (each roughly 8 kb in size). In the other four clades, there is a single linear chromosome of ~16 kb. 
 
- A key for identifying these *Hydra* species can be found here. To read more about all described *Hydra* species, follow this link.
+ A key for identifying these *Hydra* species can be found [here](hydra_key.qmd). To read more about all described *Hydra* species, follow this [link.](list.qmd)
 
 
 ![ ](hydra_spp0.png){#fig-mylabel width="100%" placement=H"}

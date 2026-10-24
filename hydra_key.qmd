@@ -9,7 +9,7 @@ execute:
   message: false
 ---
 
-## Key to the groups of hydras
+## Key to hydra groups
 
 Modified from Campbell (1987). 
 
