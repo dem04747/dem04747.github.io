@@ -24,8 +24,8 @@ library(ggtext)
 # To see all available palettes, run:
 # display.brewer.all()
 ```
----
 
+---
 ## What is a hydra?
 
 <img src="hydravulgaris.png" alt="Hydra" style="float: right; width: 30%; margin-left: 20px; margin-bottom: 10px;" />
