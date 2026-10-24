@@ -16,7 +16,7 @@ website:
         - href: hydra.qmd
           text: What is hydra?
         - href: list.qmd
-          text: Hydra taxonmy
+          text: Species lists
         - href: hydramap2.qmd
           text: Distribution
         - href: hydra_key.qmd

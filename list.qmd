@@ -10,7 +10,7 @@ execute:
 ---
 
 ***
-## Hydra lists
+## Hydra species lists
 
 Many new species of hydra have been proposed since the first hydra, *Hydra oligactis*, was described by **Antonie Philips van Leeuwenhoek** in a letter sent to the Royal Society of London in 1702 (The letter was published in the *Philosophical Transactions of the Royal Society of London* a year later--Van Leeuwenhoek, 1703). Unfortunately the few distinct morphological traits of hydra make it difficult to distinguish between species and consequently to describe new ones. Thus, one is tempted to assume that many new species were proposed simply based on their geographical origin.   The figure below shows three lists of species from papers by Ewer (1948), Grayson (1971), and Campbell (1987). The number of "valid" species included in these lists varies significantly. Phylogenetic work using molecular markers and including more than 102 strains collected from around the world, suggests that the number of species maybe much smaller at around 9 (Martínez et al. 2010). 
 
