@@ -39,7 +39,7 @@ Modified from Campbell (1987).
   <dl>
     <dt>1a.</dt>
     <dd>Hydra green due to intracellular algal symbionts;  <br>
-    stenotele nematocysts not longer than 11 µm .......................................... <strong>Viridissima group</strong></dd>
+    stenotele nematocysts not longer than 11 µm ...................................... <strong>Viridissima group</strong></dd>
     
     <dt>1b.</dt>
     <dd>Hydra not green; stenotele nematocysts longer than 11 µm</dd>
@@ -52,9 +52,9 @@ Modified from Campbell (1987).
 
   <dl class="level-3">
     <dt>3a.</dt>
-    <dd>Embryotheca without spines ............................................ <strong>Braueri group</strong></dd> 
+    <dd>Flatten embryotheca without spines .................................. <strong>Braueri group</strong></dd> 
     <dt>3b.</dt>
-    <dd>Embryotheca with spines ................................................ <strong>Lirosoma group</strong></dd>
+    <dd>Round embryotheca with spines .................................... <strong>Lirosoma group</strong></dd>
   </dl>
 
   <dl class="level-2">
@@ -66,11 +66,11 @@ Modified from Campbell (1987).
     <dt>4a.</dt>
     <dd>Buds acquire 2 lateral tentacles before other tentacles appear;<br> 
     otherwise, stenoteles at least 1.5 times as long as broad <br>
-    smooth, spherical embryotheca ...................................... <strong>Oligactis group</strong></dd>
+    smooth, spherical embryotheca .................................... <strong>Oligactis group</strong></dd>
     <dt>4b.</dt>
     <dd>Buds acquire tentacles in some other order; otherwise, <br>
     stenoteles less than 1.5 times as long as broad <br>
-    spherical embryotheca with spines.................................... <strong>Vulgaris group</strong></dd>
+    spherical embryotheca with spines.............................. <strong>Vulgaris group</strong></dd>
   </dl>
 </div>
 
