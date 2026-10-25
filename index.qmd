@@ -1,5 +1,5 @@
 ---
-title: "Daniel Martínez Scavino" # optional (omitted in example screenshots); this title appears under your photo
+# title: "Daniel Martínez Scavino" # optional (omitted in example screenshots); this title appears under your photo
 image: daniel.png # a great spot for your professional headshot :) 
 toc: false # disable table of contents for this page (if applicable)
 about: 
@@ -21,6 +21,6 @@ page-footer:
 
 ---
 
-Hello! I am Daniel Martínez Scavino, a biology professor at Pomona College. My research centers on Hydra—the remarkable, biologically immortal organism that somehow missed the memo on aging. When I am not in the lab or teaching genetics or G&T, you can usually find me exploring mountain trails, traveling, cooking, or diving into new languages.
+Hello! I am **Daniel Martínez Scavino**, a biology professor at Pomona College. My research centers on Hydra—the remarkable, biologically immortal organism that somehow missed the memo on aging. When I am not in the lab or teaching genetics or G&T, you can usually find me exploring mountain trails, traveling, cooking, or diving into new languages.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
