@@ -20,7 +20,7 @@ website:
         - href: dist.qmd
           text: Distribution
         - href: groups.qmd
-          text: Key to groups
+          text: Campbell's groups
       - text: Data Viz
         menu: 
          - href: about.qmd
