@@ -1,318 +1,10 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Daniel Martínez Scavino",
-    "section": "",
-    "text": "Hello! I am Daniel Martínez Scavino, a biology professor at Pomona College. My research centers on Hydra—the remarkable, biologically immortal organism that somehow missed the memo on aging. When I am not in the lab or teaching genetics or G&T, you can usually find me exploring mountain trails, traveling, cooking, or diving into new languages.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About these visualizations",
-    "section": "",
-    "text": "This website and the visualizations here were created as assignments for the Foundations of Data Science in R course taught by Professor Jo Hardin at Pomona College.\nI audited the class in the fall of 2026 and I absolutely loved the course. I am indebted to Professor Hardin, who gracefully allowed my unusual presence in her classroom. I am also grateful to my students Ava Santos-Volpe and Ryan (bRyan) Mooney who insisted that I take this class; they knew I would love it.\nThe visualizations presented here represent assignments designed for students to learn various data science concepts. Students were free to select TidyTuesday datasets to analyze and display. I chose datasets on Orca Encounters in Puget Sound, Dear Abby letters, and Palmtrees to practice different types of graphs."
-  },
-  {
-    "objectID": "orcas.html",
-    "href": "orcas.html",
-    "title": "Orca Encounters",
-    "section": "",
-    "text": "Orcas are nasty fish that enjoy munching on people!\nNope! There are several things that are wrong with that picture. Orcas are cetaceans related to dolphins that live in all of the world oceans. They are higly intelligent predators that hunt in coordinated family pods using very elaborate strategies. Their varied diet includes fish, sharks, smaller marine mammals (e.g. see lions), and even whales. But not humans!"
-  },
-  {
-    "objectID": "palmtrees.html",
-    "href": "palmtrees.html",
-    "title": "Palm Trees of the World",
-    "section": "",
-    "text": "Palm trees can be tall! Or very short…\nPalm trees are quite variable in height ranging from 0 to 170 meters. Palm tress can be grouped by Tribes (a taxonomic rank between family and genus). Members of some tribes are taller than trees in other tribes. Calameae and Lepidocaryeae are two tribes with particularly tall trees.\n\n\n\n\n\n\n\n\n\nThe tibble below shows the top and the bottom 5 tribes according to mean height.\n\n\n# A tibble: 10 × 4\n   palm_tribe     mean_height min_height max_height\n   &lt;chr&gt;                &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n 1 Lepidocaryeae       25.2            0        150\n 2 Corypheae           22.1            5         45\n 3 Roystoneeae         21.5           15         40\n 4 Calameae            20.0            0        170\n 5 Borasseae           18.7            0         34\n 6 Chamaedoreeae        3.63           0         20\n 7 Eugeissoneae         2.22           0          8\n 8 Podococceae          1              0          2\n 9 Sclerospermeae       0.667          0          2\n10 Nypoideae            0              0          0"
-  },
-  {
-    "objectID": "pudding.html",
-    "href": "pudding.html",
-    "title": "Dear Abby",
-    "section": "",
-    "text": "Code\n# 1. Save data from The Pudding Github site\n#| echo: false\npudding &lt;- read_csv(\n  \"https://raw.githubusercontent.com/the-pudding/data/master/dearabby/raw_da_qs.csv\"\n)\nCode\n# 1. Count number of letters per year\n#| echo: false\nletters_year &lt;- pudding |&gt;\n  select(year) |&gt;\n  group_by(year) |&gt;\n  summarize(count = n())\nCode\n#1. Total number for letters: 20,034\n#| echo: false\nlibrary(scales)\ntotal_letters &lt;- summarize(letters_year, comma(sum(count)))"
-  },
-  {
-    "objectID": "pudding.html#word-clould",
-    "href": "pudding.html#word-clould",
-    "title": "The Pudding",
-    "section": "Word clould",
-    "text": "Word clould\nThe code below willl generate a word cloud using ggplot2. The code was generate by Google Gemini.\nThe code below also generates a word cloud and it was also provided by AI (Google Gemini)\n\nlibrary(wordcloud2)\n\n# Input requires a 2-column data frame (word, freq)\ndf &lt;- data.frame(\n  word = c(\"R\", \"Data\", \"Science\", \"Visualization\", \"Ggplot\", \"Code\", \"Analysis\"),\n  freq = c(50, 40, 35, 30, 25, 20, 15)\n)\n\n# Render interactive HTML cloud\nwordcloud2(data = df, size = 0.7, shape = 'circle', color = 'random-dark')"
-  },
-  {
-    "objectID": "ds2-hw3-dem04747/ds2-hw3-wrangle.html",
-    "href": "ds2-hw3-dem04747/ds2-hw3-wrangle.html",
-    "title": "DS002R - HW 3 - Wrangling",
-    "section": "",
-    "text": "Introduction\nIn this assignment, we dive into using data wrangling to summarize datasets quantitatively and to format datasets so that they can be visualized.\nBack to the Midwest… this time, wrangling.\nIn this part you will revisit and build on some of your findings from HW 2, where you explored the midwest data frame. Remember that the data frame is bundled with the ggplot2 package and is automatically loaded when you load the tidyverse package. As a refresher, the data contains demographic characteristics of counties in the Midwest region of the United States. You can read documentation for the data set, including variable definitions by typing ?midwest in the Console or searching for midwest in the Help pane.\n\n\n\n\n\n\nNote\n\n\n\nThe data in the midwest data frame are from the 2000 census, so the information you compute below is likely slightly different from the values today.\n\n\n\nQuestion 1\nCalculate the number of counties in each state and display your results in descending order of number of counties. Which state has the highest number of counties, and how many? Which state has the lowest number, and how many?\n\n\n\n\n\n\nNote\n\n\n\nCommands Without Chaining by_state &lt;- group_by(midwest, state) count_by_state &lt;- summarize(by_state, count = n()) count_by_state_sorted &lt;- arrange(count_by_state, desc(count)) view(count_by_state_sorted)\n\n\nWith Chaining\n\n  midwest |&gt;\n  group_by(state) |&gt;\n  summarize(count = n()) |&gt;\n  arrange(desc(count)) \n\n# A tibble: 5 × 2\n  state count\n  &lt;chr&gt; &lt;int&gt;\n1 IL      102\n2 IN       92\n3 OH       88\n4 MI       83\n5 WI       72\n\n\nANSWER: Illinois has the the highest number of counties (102) and Wisconsin has the lowest (72)\n\n\nQuestion 2\nWithin a state, two counties can’t have the same name, but across states county names can be shared. A friend says “Look, there is a county called XYZ in EVERY state in this dataset!” In a single pipeline, discover all counties that could fill in the value of XYZ. Your output should be a data frame with two columns: county and the number of times they appear in the data.\n\n\n\n\n\n\nTip\n\n\n\nYou will want to use the filter() function in your answer, which requires a logical condition to describe what you want to filter for. For example filter(x &gt; 2) means filter for values of x greater than 2, filter(y &lt;= 3) means filter for values of y less than or equal to 3.\n\n\n\noperator\ndefinition\n\n\n\n\n&lt;\nless than\n\n\n&lt;=\nless than or equal to\n\n\n&gt;\ngreater than\n\n\n&gt;=\ngreater than or equal to\n\n\n==\nexactly equal to\n\n\n!=\nnot equal to\n\n\nx & y\nx AND y\n\n\nx | y\nx OR y\n\n\nis.na(x)\ntest if x is NA\n\n\n!is.na(x)\ntest if x is not NA\n\n\nx %in% y\ntest if x is in y\n\n\n!(x %in% y)\ntest if x is not in y\n\n\n!x\nnot x\n\n\n\nThe table above is a summary of logical operators and how to articulate them in R.\n\n\n\n midwest |&gt;\n  group_by(county) |&gt;\n  summarize(count = n()) |&gt;\n  filter(count &gt;= 2) |&gt;\n  arrange(desc(count))\n\n# A tibble: 70 × 2\n   county     count\n   &lt;chr&gt;      &lt;int&gt;\n 1 CRAWFORD       5\n 2 JACKSON        5\n 3 MONROE         5\n 4 ADAMS          4\n 5 BROWN          4\n 6 CLARK          4\n 7 CLINTON        4\n 8 JEFFERSON      4\n 9 LAKE           4\n10 WASHINGTON     4\n# ℹ 60 more rows\n\n\n\n\nQuestion 3\nConsider the following box plot of population densities where you can see that some counties have extreme values.\n\n\n\n\n\n\n\n\n\nIdentify the counties described in each part:\n\nThe counties with a population density higher than 25,000. Your code must use the filter() function.\n\n\nmidwest |&gt;\nfilter(popdensity &gt;= 25000) |&gt;\nselect(county,state,popdensity,poptotal,area) |&gt;\narrange(desc(popdensity))\n\n# A tibble: 9 × 5\n  county    state popdensity poptotal  area\n  &lt;chr&gt;     &lt;chr&gt;      &lt;dbl&gt;    &lt;int&gt; &lt;dbl&gt;\n1 COOK      IL        88018.  5105067 0.058\n2 MILWAUKEE WI        63952.   959275 0.015\n3 WAYNE     MI        60334.  2111687 0.035\n4 CUYAHOGA  OH        54313.  1412140 0.026\n5 DU PAGE   IL        39083.   781666 0.02 \n6 MARION    IN        34659.   797159 0.023\n7 HAMILTON  OH        34649.   866228 0.025\n8 FRANKLIN  OH        28278.   961437 0.034\n9 MACOMB    MI        25621.   717400 0.028\n\n\n\nThe county with the highest population density. Your code must use the max() function.\n\n\nmidwest |&gt;\nfilter (popdensity == max(popdensity)) |&gt;\nselect(county,state,popdensity,poptotal,area) \n\n# A tibble: 1 × 5\n  county state popdensity poptotal  area\n  &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt;    &lt;int&gt; &lt;dbl&gt;\n1 COOK   IL        88018.  5105067 0.058\n\n\n\n\n\n\n\n\nNote\n\n\n\nAnswer using a single data wrangling pipeline for each part. Your response should be a data frame with five columns: county name, state name, population density, total population, and area, in order. If your response has multiple rows, the data frame should be arranged in descending order of population density.\n\n\n\n\nQuestion 4\nLet’s say that you want to describe the distribution of population densities. The following is one acceptable description (in words) that touches on shape, center, and spread of this distribution. Create a plot that fits the description, and use data verbs to calculate the values that should go into the blanks. [You might want to look up the quantile() function by typing ?quantile into the Console.]\n\nThe distribution of population density of counties is unimodal and extremely right-skewed. A typical Midwestern county has population density of ____ people per unit area. The middle 50% of the counties have population densities between ___ to ___ people per unit area.\n\n\n\n\n\n\n\nTip\n\n\n\nThink about which measures of center and spread are appropriate for skewed distributions. That is, there is a right answer for the choice of functions you use to calculate the center and spread.\n\n\n\nggplot(midwest, aes(x = popdensity)) +\ngeom_histogram(binwidth = 1000) +\nlabs(\nx = \"Population density\",\ny = \"Number of Counties\",\ntitle = \"Population density of midwesten counties\",\nsubtitle = \"Binwidth = 1000\"\n)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nRemember that a right-skewed or right-tailed distribution leans to the left and is said to have positive skew.\n\n\nAnother option no so pretty.\n\nggplot(midwest, aes(x = popdensity, y = after_stat(density))) +\n  geom_histogram(binwidth = 1000, fill = \"lightblue\", color = \"green\") +\n  geom_density(color = \"red\", linewidth = 0.6) +\n  labs(\n    x = \"Population Density\",\n    y = \"Density\",\n    title = \"Population Density of Midwestern Counties\",\n    subtitle = \"Histogram with overlaid density curve\"\n  )\n\n\n\n\n\n\n\n\n\nmidwest |&gt;\n  # select(popdensity) |&gt;\n  pull(popdensity) |&gt;\n  quantile(probs = seq(0,1,0.25), na.rm = FALSE)\n\n        0%        25%        50%        75%       100% \n   85.0500   622.4074  1156.2083  2330.0000 88018.3966 \n\n\nANSWER: The distribution of population density of counties is unimodal and extremely right-skewed. A typical Midwestern county has population density of 1156 people per unit area. The middle 50% of the counties have population densities between 622 to 2330 people per unit area.\n\n\nQuestion 5\nRecall the visualization from HW 2 that showed the proportion of urban counties in each state.\n\nmidwest &lt;- midwest |&gt;\n  mutate(metro = if_else(inmetro == 1, \"Yes\", \"No\"))\n\nggplot(midwest, aes(x = state, fill = metro)) +\n  geom_bar(position = \"fill\") +\n  labs(\n    title = \"Do some states have more urban counties than others?\",\n    x = \"State\",\n    y = \"Proportion in metro area\",\n    fill = \"In metro area?\"\n  )\n\n\n\n\n\n\n\n\nIn a single data pipeline, calculate the proportion of counties in a metro area for each state (that is, the turquoise number from the plot above).\n\nmidwest |&gt;\n  mutate(metro = if_else(inmetro == 1, \"Yes\", \"No\")) |&gt;\n  group_by(state)  |&gt;\n  summarize(\n    yes_count = sum(metro == \"Yes\"),\n    no_count  = sum(metro == \"No\"),\n    ratio  = yes_count / (yes_count + no_count)) |&gt;\n    arrange(desc(ratio))\n\n# A tibble: 5 × 4\n  state yes_count no_count ratio\n  &lt;chr&gt;     &lt;int&gt;    &lt;int&gt; &lt;dbl&gt;\n1 OH           40       48 0.455\n2 IN           37       55 0.402\n3 MI           25       58 0.301\n4 WI           20       52 0.278\n5 IL           28       74 0.275\n\n\n\n\nQuestion 6\nReturn to the following scatter plot of percentage below poverty vs. percentage of people with a college degree, where the color and shape of points are determined by state. Recall that you were asked to identify (by name) at least one county that is a clear outlier.\n\n\n\n\n\n\n\n\n\n\nIn a single pipeline, identify the observations marked in the orange square on the upper left corner. Your answer should be a data frame with four variables: county, state, percentage below poverty, and percentage college educated.\n\n\nmidwest |&gt;\n  filter(percbelowpoverty &gt;= 40) |&gt;\n  select(county,state,percbelowpoverty,percollege) \n\n# A tibble: 1 × 4\n  county    state percbelowpoverty percollege\n  &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 MENOMINEE WI                48.7       7.34\n\n\n\nIn a single pipeline, identify the observations marked in the red square in the plot above. Your answer should again be a data frame with four variables: county, state, percentage below poverty, and percentage college educated.\n\n\nmidwest |&gt;\n  filter(percollege &gt;= 40) |&gt;\n  select(county,state,percbelowpoverty,percollege) \n\n# A tibble: 5 × 4\n  county    state percbelowpoverty percollege\n  &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 CHAMPAIGN IL               15.6        41.3\n2 DU PAGE   IL                2.71       42.8\n3 HAMILTON  IN                3.59       42.1\n4 WASHTENAW MI               12.2        48.1\n5 DANE      WI               10.5        43.6\n\n\n\nBring your answers from part (a) and part (b) together! In a single pipeline, and a single filter() statement, identify the observations marked in the red and orange square in the plot above. Your answer should again be a data frame with four variables: county, state, percentage below poverty, and percentage college educated.\n\n\nmidwest |&gt;\n  filter(percollege &gt;= 40 | percbelowpoverty &gt;= 40) |&gt;\n  select(county,state,percbelowpoverty,percollege) \n\n# A tibble: 6 × 4\n  county    state percbelowpoverty percollege\n  &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt;      &lt;dbl&gt;\n1 CHAMPAIGN IL               15.6       41.3 \n2 DU PAGE   IL                2.71      42.8 \n3 HAMILTON  IN                3.59      42.1 \n4 WASHTENAW MI               12.2       48.1 \n5 DANE      WI               10.5       43.6 \n6 MENOMINEE WI               48.7        7.34\n\n\n\nCreate a new variable in midwest called potential_outlier. This variable should take on the value:\n\n\nYes if the point is one the ones you identified in part (c), i.e., one of the points marked in the squares in the plot above.\nNo otherwise.\n\nThen, display the updated midwest data frame, with county, state, percentage below poverty, percentage college educated, potential_outlier as the selected variables, arranged in ascending order of potential_outlier. (Hint: look above and/or recall how metro was calculated using the function if_else().)\n\nmidwest |&gt;\n  mutate(potential_outlier = if_else(percbelowpoverty &gt;=40 | percollege &gt;= 40, \"Yes\", \"No\")) |&gt;\n  arrange(desc(potential_outlier)) |&gt;\n  select(county,state,potential_outlier) \n\n# A tibble: 437 × 3\n   county    state potential_outlier\n   &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;            \n 1 CHAMPAIGN IL    Yes              \n 2 DU PAGE   IL    Yes              \n 3 HAMILTON  IN    Yes              \n 4 WASHTENAW MI    Yes              \n 5 DANE      WI    Yes              \n 6 MENOMINEE WI    Yes              \n 7 ADAMS     IL    No               \n 8 ALEXANDER IL    No               \n 9 BOND      IL    No               \n10 BOONE     IL    No               \n# ℹ 427 more rows\n\n\n\nRecreate the visualization above, i.e., a scatterplot of percentage below poverty vs. percentage of people with a college degree, however color the points by the newly created potential_outlier variable instead of by state.\n\n\nmidwest2 &lt;- midwest |&gt;\n  mutate(potential_outlier = if_else(percbelowpoverty &gt;=40 | percollege &gt;= 40, \"Yes\", \"No\")) |&gt;\n  arrange(desc(potential_outlier))\nhead(midwest2)\n\n# A tibble: 6 × 30\n    PID county   state  area poptotal popdensity popwhite popblack popamerindian\n  &lt;int&gt; &lt;chr&gt;    &lt;chr&gt; &lt;dbl&gt;    &lt;int&gt;      &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;         &lt;int&gt;\n1   570 CHAMPAI… IL    0.058   173025      2983.   146506    16559           331\n2   582 DU PAGE  IL    0.02    781666     39083.   714905    15462           962\n3   691 HAMILTON IN    0.024   108936      4539    106764      676           163\n4  1277 WASHTEN… MI    0.041   282937      6901.   236390    31720          1076\n5  2993 DANE     WI    0.073   367085      5029.   344617    10511          1201\n6  3020 MENOMIN… WI    0.021     3890       185.      416        0          3469\n# ℹ 21 more variables: popasian &lt;int&gt;, popother &lt;int&gt;, percwhite &lt;dbl&gt;,\n#   percblack &lt;dbl&gt;, percamerindan &lt;dbl&gt;, percasian &lt;dbl&gt;, percother &lt;dbl&gt;,\n#   popadults &lt;int&gt;, perchsd &lt;dbl&gt;, percollege &lt;dbl&gt;, percprof &lt;dbl&gt;,\n#   poppovertyknown &lt;int&gt;, percpovertyknown &lt;dbl&gt;, percbelowpoverty &lt;dbl&gt;,\n#   percchildbelowpovert &lt;dbl&gt;, percadultpoverty &lt;dbl&gt;,\n#   percelderlypoverty &lt;dbl&gt;, inmetro &lt;int&gt;, category &lt;chr&gt;, metro &lt;chr&gt;,\n#   potential_outlier &lt;chr&gt;\n\n\n\nggplot(\n  midwest2,\n  aes(\n    x = percollege,\n    y = percbelowpoverty,\n    color = potential_outlier,\n    shape = state\n  )\n) +\n    annotate(\n    geom = \"point\",\n    x = 45,\n    y = 10.2,\n    color = \"grey\",\n    shape = \"square\",\n    size = 25,\n    stroke = 1,\n    alpha = 0.2\n  ) +\n  annotate(\n    geom = \"point\",\n    x = 7.35,\n    y = 48.5,\n    color = \"grey\",\n    shape = \"square\",\n    size = 4.5,\n    stroke = 1,\n    alpha = 0.2\n  ) +\n  geom_point() +\n  labs(\n    title = \"Percentage with a college degree versus poverty rate\",\n    subtitle = \"by State in the Midwest\",\n    x = \"% college educated\",\n    y = \"% below poverty\",\n    color = \"Outlier?\",\n    shape = \"State\"\n  )  +\n  theme_minimal()\n\n\n\n\n\n\n\n\n\n\nQuestion 7\n\nIn a single pipeline (with multiple data verbs), calculate the total population for each state and save the resulting data frame as state_population and display it in descending order of total population.\n\n\n midwest |&gt;\n  group_by(state) |&gt;\n  summarize(state_population = sum(poptotal)) |&gt;\n  arrange(desc(state_population))\n\n# A tibble: 5 × 2\n  state state_population\n  &lt;chr&gt;            &lt;int&gt;\n1 IL            11430602\n2 OH            10847115\n3 MI             9295297\n4 IN             5544159\n5 WI             4891769\n\n\n\nThen, in a separate pipeline, calculate the proportion of the total population in each state (e.g., find the percent of people living in WI out of all the people in the midwest) and, once again, display the results in descending order of proportion of population.\n\n\n midwest |&gt;\n  mutate(midwest_pop = sum(poptotal)) |&gt;\n  group_by(state) |&gt;\n  summarize(perc_mdw_pop = sum(poptotal*100/midwest_pop))|&gt;\n  arrange(desc(perc_mdw_pop))\n\n# A tibble: 5 × 2\n  state perc_mdw_pop\n  &lt;chr&gt;        &lt;dbl&gt;\n1 IL            27.2\n2 OH            25.8\n3 MI            22.1\n4 IN            13.2\n5 WI            11.6\n\n\n\n\n\n\n\n\nTip\n\n\n\nIn answering parts (a) and (b), you’ll create two new variables, one for total population and other for proportion of total proportion. Make sure to give them “reasonable” names – short but evocative.\n\n\n\nWhich Midwestern state is most populous and what percent of the Midwest population lives there? Which is the least populous and what percent lives there?\n\nANSWER: The most populous is Illinois with 27.2% of the pop[ulation of midwestern states. Wisconsin is the least populated with 11.6%of the toal.\n\n\nQuestion 8\nCalculate the average percentage below poverty for each state and save the resulting data frame as state_poverty with the columns state and mean_percbelowpoverty.\nThen, in a new pipeline, display the state_poverty data frame in ascending order of mean_percbelowpoverty. Which state has the lowest average percentage below poverty across its counties? Which state has the highest average percentage below poverty across its counties?\n\n state_poverty &lt;- midwest |&gt;\n  group_by(state) |&gt;\n  summarize(mean_percbelowpoverty = mean(percbelowpoverty))\nstate_poverty\n\n# A tibble: 5 × 2\n  state mean_percbelowpoverty\n  &lt;chr&gt;                 &lt;dbl&gt;\n1 IL                     13.1\n2 IN                     10.3\n3 MI                     14.2\n4 OH                     13.0\n5 WI                     11.9\n\n\n\n state_poverty |&gt;\n  arrange(desc(-mean_percbelowpoverty))\n\n# A tibble: 5 × 2\n  state mean_percbelowpoverty\n  &lt;chr&gt;                 &lt;dbl&gt;\n1 IN                     10.3\n2 WI                     11.9\n3 OH                     13.0\n4 IL                     13.1\n5 MI                     14.2\n\n\nANSWER: The Midwest state with the lowest average percentage below poverty across its counties is Indiana (~10%) and the state with the highest average below poverty is Michigan (~14%)."
-  },
-  {
-    "objectID": "pudding.html#abby-in-1985",
-    "href": "pudding.html#abby-in-1985",
-    "title": "Dear Abby",
-    "section": "Abby in 1985",
-    "text": "Abby in 1985"
-  },
-  {
-    "objectID": "pudding.html#abby-in-1995",
-    "href": "pudding.html#abby-in-1995",
-    "title": "Dear Abby",
-    "section": "Abby in 1995",
-    "text": "Abby in 1995"
-  },
-  {
-    "objectID": "pudding.html#abby-in-2005",
-    "href": "pudding.html#abby-in-2005",
-    "title": "Dear Abby",
-    "section": "Abby in 2005",
-    "text": "Abby in 2005"
-  },
-  {
-    "objectID": "pudding.html#abby-in-2015",
-    "href": "pudding.html#abby-in-2015",
-    "title": "Dear Abby",
-    "section": "Abby in 2015",
-    "text": "Abby in 2015\n\n\n\n\n\n\n\n\n\nThe word husband is the most frequent word that emerges from the letters published through several decades. Is that because women are the main writters to Abby? In order to investigate this a bit further, I have selected letters that include the words “my husband” and “my wife” hoping that this indentifies the writer. This is obviously not a perfect strategy. The word clouds below come from those letters. Assuming that the writers are talking about their partners, what are the word freqencies telling us about the letters? Are the themes different? Have they changed through time?"
-  },
-  {
-    "objectID": "pudding.html#if-husband-then-1985",
-    "href": "pudding.html#if-husband-then-1985",
-    "title": "Dear Abby",
-    "section": "If husband then … (1985)",
-    "text": "If husband then … (1985)"
-  },
-  {
-    "objectID": "pudding.html#if-husband-then-1995",
-    "href": "pudding.html#if-husband-then-1995",
-    "title": "Dear Abby",
-    "section": "If husband then … (1995)",
-    "text": "If husband then … (1995)"
-  },
-  {
-    "objectID": "pudding.html#search-for-a-term",
-    "href": "pudding.html#search-for-a-term",
-    "title": "Dear Abby",
-    "section": "Search for a Term",
-    "text": "Search for a Term\n// 1. This is its own standalone OJS block viewof searchWord = Inputs.text({ label: “Type a word to search:”, value: “apple” })"
-  },
-  {
-    "objectID": "pudding.html#if-wife-then-1985",
-    "href": "pudding.html#if-wife-then-1985",
-    "title": "Dear Abby",
-    "section": "If wife then … (1985)",
-    "text": "If wife then … (1985)"
-  },
-  {
-    "objectID": "pudding.html#if-husband-then-1995-1",
-    "href": "pudding.html#if-husband-then-1995-1",
-    "title": "Dear Abby",
-    "section": "If husband then … (1995)",
-    "text": "If husband then … (1995)"
-  },
-  {
-    "objectID": "pudding.html#if-wife-then-1995",
-    "href": "pudding.html#if-wife-then-1995",
-    "title": "Dear Abby",
-    "section": "If wife then … (1995)",
-    "text": "If wife then … (1995)"
-  },
-  {
-    "objectID": "pudding.html#if-my-husband-then-1985",
-    "href": "pudding.html#if-my-husband-then-1985",
-    "title": "Dear Abby",
-    "section": "If my husband then … (1985)",
-    "text": "If my husband then … (1985)"
-  },
-  {
-    "objectID": "pudding.html#if-my-husband-then-1995",
-    "href": "pudding.html#if-my-husband-then-1995",
-    "title": "Dear Abby",
-    "section": "If my husband then … (1995)",
-    "text": "If my husband then … (1995)"
-  },
-  {
-    "objectID": "pudding.html#if-my-wife-then-1985",
-    "href": "pudding.html#if-my-wife-then-1985",
-    "title": "Dear Abby",
-    "section": "If my wife then … (1985)",
-    "text": "If my wife then … (1985)"
-  },
-  {
-    "objectID": "pudding.html#if-my-wife-then-1995",
-    "href": "pudding.html#if-my-wife-then-1995",
-    "title": "Dear Abby",
-    "section": "If my wife then … (1995)",
-    "text": "If my wife then … (1995)"
-  },
-  {
-    "objectID": "pudding.html#through-the-years",
-    "href": "pudding.html#through-the-years",
-    "title": "Dear Abby",
-    "section": "Through the Years",
-    "text": "Through the Years"
-  },
-  {
-    "objectID": "pudding.html#dear-abby-in-1985",
-    "href": "pudding.html#dear-abby-in-1985",
-    "title": "Dear Abby",
-    "section": "Dear Abby in 1985",
-    "text": "Dear Abby in 1985"
-  },
-  {
-    "objectID": "pudding.html#dear-abby-in-1995",
-    "href": "pudding.html#dear-abby-in-1995",
-    "title": "Dear Abby",
-    "section": "Dear Abby in 1995",
-    "text": "Dear Abby in 1995"
-  },
-  {
-    "objectID": "pudding.html#dear-abby-in-2005",
-    "href": "pudding.html#dear-abby-in-2005",
-    "title": "Dear Abby",
-    "section": "Dear Abby in 2005",
-    "text": "Dear Abby in 2005"
-  },
-  {
-    "objectID": "pudding.html#dear-abby-in-2015",
-    "href": "pudding.html#dear-abby-in-2015",
-    "title": "Dear Abby",
-    "section": "Dear Abby in 2015",
-    "text": "Dear Abby in 2015"
-  },
-  {
-    "objectID": "pudding.html#husbands-vs-wifes",
-    "href": "pudding.html#husbands-vs-wifes",
-    "title": "Dear Abby",
-    "section": "Husbands vs Wifes",
-    "text": "Husbands vs Wifes\nThe word “husband” is consistenly one of the most frequently used in these letters throughout several decades. Is that because women are the main writters to Abby? In order to investigate this a bit further, I have selected letters that include the words “my husband” and “my wife” hoping that this indentifies the writer. This is obviously not a perfect strategy. The word clouds below come from those letters. Assuming that the writers are talking about their partners, what can the word frequencies tell us about the letters? Are the themes different? Have they changed through time?"
-  },
-  {
-    "objectID": "hydra.html",
-    "href": "hydra.html",
-    "title": "Hydra of the World!",
-    "section": "",
-    "text": "Hydra Species\nUsing molecular markers, mainly the Internally Transcribed Regions (ITS-1 and ITS-2) of ribosomal DNA, we have identfy 9 different species of hydra.\n\n\n\n\n\n\nFigure 1: Hydra Species"
-  },
-  {
-    "objectID": "hydra.html#hydra-species",
-    "href": "hydra.html#hydra-species",
-    "title": "Hydra of the World!",
-    "section": "Hydra Species",
-    "text": "Hydra Species\nUsing molecular markers, mainly the Internally Transcribed Regions (ITS-1 and ITS-2) of ribosomal DNA, we have identfy 9 different species of hydra.\n\n\n\n\n\n\nFigure 1"
-  },
-  {
-    "objectID": "hydra.html#what-is-a-hydra",
-    "href": "hydra.html#what-is-a-hydra",
-    "title": "Hydras of the World",
-    "section": "What is a hydra?",
-    "text": "What is a hydra?\n\nHydra are freshwater invertebrates belonging to the phylum Cnidaria, a group that also includes corals, sea anemones, and jellyfish. While the vast majority of cnidarians are marine, hydras are among the few species adapted to freshwater environments. Within the class Aplanulata—which is characterized by the absence of the typical planula larva stage found in other hydroids—all species of Hydra are classified into their own dedicated family, Hydridae. Widely distributed across the globe, hydras inhabit ponds, lakes, and rivers. Although they thrive best in cold water, different species exhibit varying degrees of tolerance to warmer environments. As carnivorous predators, they feed on small crustaceans, insect larvae, and even fish fry."
-  },
-  {
     "objectID": "hydra.html#hydra-species-and-clades",
     "href": "hydra.html#hydra-species-and-clades",
     "title": "Hydras of the World",
     "section": "Hydra species and clades",
     "text": "Hydra species and clades\n\nHydras are freshwater invertebrates belonging to the phylum Cnidaria, a group of animals that also includes corals, sea anemones, and jellyfish. While the vast majority of cnidarians are marine, hydras are among the few species adapted to freshwater environments. Within the class Aplanulata—which is characterized by the absence of the typical planula larva stage found in other hydroids—all species of the Genus Hydra are classified into their own dedicated family, Hydridae. Widely distributed across the globe, hydras inhabit ponds, lakes, and rivers. Although they thrive best in cold water, different species exhibit varying degrees of tolerance to warmer environments. As carnivorous predators, they feed on small crustaceans, insect larvae, and even fish fry. Hydra reproduce both sexually and asexually (by budding). Some species are gonochoristic (dioecious) with male or female individuals, while most hydras are hermaphroditic producing both testes and eggs.\nTens of different species of hydras have been proposed based on morphological characters and geographical origin. However, molecular phylogenies suggest that the number of species is rather small. We have identified nine distinct species: Hydra viridissima, Hydra utahensis, Hydra circumcincta, Hydra hymanae, Hydra oligactis, Hydra canadensis, Hydra oxycnida, Hydra lirosoma, and Hydra vulgaris.\nThe nine hydra species maybe grouped into five distinct clades (see Campbell’s groups): Viridissima, Braueri, Oligactis, Lirosoma, and Vulgaris. The Viridissima clade includes the “green” hydras, which harbor intracellular green unicellular algae within their endodermal epithelial cells, while the remaining four clades comprise the “brown” hydras. Interestingly, the genomes of the brown hydras are approximately three times the size of the genomes of the green hydras as the result of the expansion of long interspersed nuclear elements, mostly of a single family of the chicken repeat 1 (CR1) class (Wong et al. 2019).\nWhile most animal taxa feature a single, circular mitochondrial chromosome, linear mitochondrial genomes have evolved independently in a few lineages, including hydras, box jellyfish, and calcareous sponges. In the Vulgaris clade of hydras the mitochondrial genome is split into two linear chromosomes (each roughly 8 kb in size). In all the other four clades, there is a single linear chromosome of ~16 kb.\n\n\n\nThe distribution of hydra species throughout the world is quite interesting. While all nine species can be found on continents derived from Laurasia, only two species—H. viridissima and H. vulgaris—natively inhabit the southern hemisphere continents derived from Gondwana1. This observation led Martínez et al. (2010) to suggest that hydras evolved in Laurasia, a hypothesis supported by the current estimated times of divergence among Hydra clades (Wong et al. 2019). Furthermore, these two Southern Hemisphere species appear to exhibit a higher tolerance to elevated temperatures, which may explain their broader global distribution.\n\nMartínez D.E. , A.R. Iñiguez; K.M. Percell; J.B. Willner; J. Signorovitch; R.D. Campbell, 2010. Phylogeny and biogeography of Hydra (Cnidaria: Hydridae) using mitochondrial and nuclear DNA sequences. Molecular Phylogenetics and Evolution 57 (20): 403-410.\nWong W.Y., O. Simakov, D.M. Bridge , P. Cartwright , A.J. Bellantuono , A. Kuhn , T. Holstein , C. David , R.E. Steele , D.E. Martínez, 2019. Expansion of a single transposable element family is associated with genome size increase and radiation in the genus Hydra. Proc. Natl. Acad. Sci. USA. 116 (46): 22915–22917."
-  },
-  {
-    "objectID": "hydra.html#what-is-a-new-hydra",
-    "href": "hydra.html#what-is-a-new-hydra",
-    "title": "Hydra of the World!",
-    "section": "What is a new hydra?",
-    "text": "What is a new hydra?\n\nHydra are freshwater invertebrates belonging to the phylum Cnidaria, a group that also includes corals, sea anemones, and jellyfish. While the vast majority of cnidarians are marine, hydras are among the few species adapted to freshwater environments. Within the class Aplanulata—which is characterized by the absence of the typical planula larva stage found in other hydroids—all species of Hydra are classified into their own dedicated family, Hydridae. Widely distributed across the globe, hydras inhabit ponds, lakes, and rivers. Although they thrive best in cold water, different species exhibit varying degrees of tolerance to warmer environments. As carnivorous predators, they feed on small crustaceans, insect larvae, and even fish fry."
-  },
-  {
-    "objectID": "list.html",
-    "href": "list.html",
-    "title": "Hydras of the World",
-    "section": "",
-    "text": "Many new species of hydra have been proposed since the first hydra, Hydra oligactis, was described by Antonie Philips van Leeuwenhoek in a letter sent to the Royal Society of London in 1702 (The letter was published in the Philosophical Transactions of the Royal Society of London a year later–Van Leeuwenhoek, 1703). Unfortunately the few distinct morphological traits of hydra make it difficult to distinguish between species based on the original descriptions. Thus, one is tempted to assume that many new species were described simply based on their geographical origin. The figure below shows three lists of species from papers by Ewer (1948), Grayson (1971), and Campbell (1987). The number of “valid” species in these lists varies significantly. Phylogenetic work using molecular markers and including more than 102 strains collected from around the world, suggests that the number of species maybe much smaller at around 9 (Martínez et al. 2010).\n  \nPeter Simon Pallas (1741–1811) was a prominent German zoologist and botanist who spent a large portion of his career working in the Russian Empire. He is widely recognized as one of the great naturalists and explorers of the 18th and early 19th centuries.\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263.\nEwer, R. F. (1948). A review of the Hydridae and two new species of Hydra from Natal. Proceedings of the Zoological Society of London, 118(1), 226–244.\nGrayson, R. F. (1971). The freshwater hydras of Europe. I. A review of the European species. Archiv für Hydrobiologie, 68, 436–449.\nVan Leeuwenhoek, A. (1703). Part of a Letter from Mr Antony van Leeuwenhoek, F. R. S. concerning Green Weeds Growing in Water, and Some Animalcula Found about Them. Philosophical Transactions of the Royal Society of London, 23(283), 1304–1311."
-  },
-  {
-    "objectID": "list.html#hydra-lists",
-    "href": "list.html#hydra-lists",
-    "title": "Hydras of the World",
-    "section": "Hydra lists",
-    "text": "Hydra lists\nMany new species of hydra have been proposed since the first hydra, Hydra oligactis, was described by Antonie Philips van Leeuwenhoek in a letter sent to the Royal Society of London in 1702 (The letter was published in the Philosophical Transactions of the Royal Society of London a year later–Van Leeuwenhoek, 1703). Unfortunately the few distinct morphological traits of hydra make it difficult to distinguish between species and consequently to describe new ones. Thus, one is tempted to assume that many new species were proposed simply based on their geographical origin. The figure below shows three lists of species from papers by Ewer (1948), Grayson (1971), and Campbell (1987). The number of “valid” species included in these lists varies significantly. Phylogenetic work using molecular markers and including more than 102 strains collected from around the world, suggests that the number of species maybe much smaller at around 9 (Martínez et al. 2010).\n  \nPeter Simon Pallas (1741–1811) was a prominent German zoologist and botanist who spent a large portion of his career working in the Russian Empire. He is widely recognized as one of the great naturalists and explorers of the 18th and early 19th centuries.\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263.\nEwer, R. F. (1948). A review of the Hydridae and two new species of Hydra from Natal. Proceedings of the Zoological Society of London, 118(1), 226–244.\nGrayson, R. F. (1971). The freshwater hydras of Europe. I. A review of the European species. Archiv für Hydrobiologie, 68, 436–449.\nVan Leeuwenhoek, A. (1703). Part of a Letter from Mr Antony van Leeuwenhoek, F. R. S. concerning Green Weeds Growing in Water, and Some Animalcula Found about Them. Philosophical Transactions of the Royal Society of London, 23(283), 1304–1311."
-  },
-  {
-    "objectID": "hydra_key.html",
-    "href": "hydra_key.html",
-    "title": "Hydras of the World",
-    "section": "",
-    "text": "Modified from Campbell (1987).\n\n\n\n\n1a.\n\n\nHydra green due to intracellular algal symbionts;  stenotele nematocysts not longer than 11 µm …………………………………… Viridissima group\n\n\n1b.\n\n\nHydra not green; stenotele nematocysts longer than 11 µm\n\n\n\n\n2a.\n\n\nHolotrichous isorhiza nematocysts plump (at half as broad as long)\n\n\n\n\n3a.\n\n\nEmbryotheca without spines …………………………………….. Braueri group\n\n\n3b.\n\n\nEmbryotheca with spines ………………………………………… Lirosoma group\n\n\n\n\n2b.\n\n\nHolotrichous isorhiza slender, or if plump then embryotheca with spines\n\n\n\n\n4a.\n\n\nBuds acquire 2 lateral tentacles before other tentacles appear; otherwise, stenoteles at least 1.5 times as long as broad  smooth, spherical embryotheca ……………………………….. Oligactis group\n\n\n4b.\n\n\nBuds acquire tentacles in some other order; otherwise,  stenoteles less than 1.5 times as long as broad  spherical embryotheca with spines……………………………… Vulgaris group\n\n\n\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263."
-  },
-  {
-    "objectID": "hydra_key.html#key-to-the-groups-of-hydras",
-    "href": "hydra_key.html#key-to-the-groups-of-hydras",
-    "title": "Hydras of the World",
-    "section": "",
-    "text": "Modified from Campbell (1987).\n\n\n\n\n1a.\n\n\nHydra green due to intracellular algal symbionts;  stenotele nematocysts not longer than 11 µm …………………………………… Viridissima group\n\n\n1b.\n\n\nHydra not green; stenotele nematocysts longer than 11 µm\n\n\n\n\n2a.\n\n\nHolotrichous isorhiza nematocysts plump (at half as broad as long)\n\n\n\n\n3a.\n\n\nEmbryotheca without spines …………………………………….. Braueri group\n\n\n3b.\n\n\nEmbryotheca with spines ………………………………………… Lirosoma group\n\n\n\n\n2b.\n\n\nHolotrichous isorhiza slender, or if plump then embryotheca with spines\n\n\n\n\n4a.\n\n\nBuds acquire 2 lateral tentacles before other tentacles appear; otherwise, stenoteles at least 1.5 times as long as broad  smooth, spherical embryotheca ……………………………….. Oligactis group\n\n\n4b.\n\n\nBuds acquire tentacles in some other order; otherwise,  stenoteles less than 1.5 times as long as broad  spherical embryotheca with spines……………………………… Vulgaris group\n\n\n\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263."
-  },
-  {
-    "objectID": "hydra_key.html#key-to-hydra-groups",
-    "href": "hydra_key.html#key-to-hydra-groups",
-    "title": "Hydras of the World",
-    "section": "Key to hydra groups",
-    "text": "Key to hydra groups\nModified from Campbell (1987).\n\n\n\n\n1a.\n\n\nHydra green due to intracellular algal symbionts;  stenotele nematocysts not longer than 11 µm ……………………………….. Viridissima group\n\n\n1b.\n\n\nHydra not green; stenotele nematocysts longer than 11 µm\n\n\n\n\n2a.\n\n\nHolotrichous isorhiza nematocysts plump (at half as broad as long)\n\n\n\n\n3a.\n\n\nFlatten embryotheca without spines ……………………………. Braueri group\n\n\n3b.\n\n\nRound embryotheca with spines ……………………………… Lirosoma group\n\n\n\n\n2b.\n\n\nHolotrichous isorhiza slender, or if plump then embryotheca with spines\n\n\n\n\n4a.\n\n\nBuds acquire 2 lateral tentacles before other tentacles appear; otherwise, stenoteles at least 1.5 times as long as broad  smooth, spherical embryotheca ……………………………… Oligactis group\n\n\n4b.\n\n\nBuds acquire tentacles in some other order; otherwise,  stenoteles less than 1.5 times as long as broad  spherical embryotheca with spines………………………… Vulgaris group\n\n\n\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263."
-  },
-  {
-    "objectID": "about.html#tidytuesday",
-    "href": "about.html#tidytuesday",
-    "title": "About these visualizations",
-    "section": "TidyTuesday",
-    "text": "TidyTuesday\nWhat is TidyTuesday? A response from AI (Gemini)\nTidyTuesday is a weekly data project aimed at the R community, hosted by the R4DS Online Learning Community (Data Science in a Box / R for Data Science).\nEvery Tuesday, a new dataset is posted on GitHub, usually accompanied by a brief article or chart exploring it. Participants from around the world download the data, analyze it, create data visualizations (most commonly using ggplot2), and share their code and plots on social media (primarily on X/Twitter and LinkedIn) using the hashtag #TidyTuesday.\n\nKey Features of TidyTuesday\n\nFocus on the “Tidyverse”: The project encourages the use of tidy data principles and packages from the tidyverse ecosystem (like dplyr, tidyr, and ggplot2), though participants are free to use any tools or programming languages they prefer.\nReal-World Data: The datasets cover a wide variety of engaging, often quirky topics—ranging from historical events and scientific discoveries to pop culture, sports, and environmental statistics.\nLearning and Community: It serves as a low-stakes, supportive environment for beginners and experienced data scientists alike to practice data wrangling, sharpen data visualization skills, and learn from how others approach the same dataset."
-  },
-  {
-    "objectID": "hydramap1.html",
-    "href": "hydramap1.html",
-    "title": "Hydras of the World",
-    "section": "",
-    "text": "Code\n#2. Option 2\nlibrary(dplyr)\nlibrary(readr)\n\nmy_data2 &lt;- my_data %&gt;%\n  mutate(\n    lat2 = parse_number(as.character(lat2)),\n    long2 = parse_number(as.character(long2))\n  )\n\n\n\n\nCode\n# Convert coordinates to sf object using your actual column names (longitude first, then latitude)\nhydra_sf &lt;- my_data2 %&gt;%\n  filter(!is.na(lat2), !is.na(long2)) %&gt;%\n  st_as_sf(coords = c(\"long2\", \"lat2\"), crs = 4326)\n\nggplot() +\n  annotation_map_tile(type = \"osm\", zoom = 2) + \n  geom_sf(data = hydra_sf, aes(color = species), size = 1, alpha = 0.6) +\n  scale_color_manual(values = c(\n    \"canadensis\"   = \"red\",\n    \"circumcincta\" = \"darkorange\",\n    \"hymanae\"      = \"pink\",\n    \"lirosoma\"     = \"purple\",\n    \"oligactis\"    = \"blue\",\n    \"utahensis\"    = \"gold\",\n    \"viridissima\"  = \"forestgreen\",\n    \"vulgaris\"     = \"sienna\"\n  )) +\n  theme_minimal() +\n  labs(title = \"Hydra Locations\")\n\n\n\n\n\n\n\n\n\n\n\nCode\nhydra_sf &lt;- my_data %&gt;%\n  mutate(\n    lat2 = parse_number(as.character(lat2)),\n    long2 = parse_number(as.character(long2))\n  ) %&gt;%\n  filter(!is.na(lat2), !is.na(long2), lat2 != 0, long2 != 0) %&gt;%\n  st_as_sf(coords = c(\"long2\", \"lat2\"), crs = 4326)\n\n\n\n\nCode\nlibrary(dplyr)\n\n# Check rows where lat2 became NA after coercion\nbad_rows &lt;- my_data %&gt;%\n  mutate(lat2_num = suppressWarnings(as.numeric(lat2))) %&gt;%\n  filter(is.na(lat2_num) & !is.na(lat2))\n\n# View those rows to see what text is hiding in the column\nprint(bad_rows)\n\n\n [1] country      state        local_name   strain       alt_strain  \n [6] species      lat2         long2        col_locality col_date    \n[11] col_name     lat2_num    \n&lt;0 rows&gt; (or 0-length row.names)"
-  },
-  {
-    "objectID": "hydramap1.html#hydra-maps",
-    "href": "hydramap1.html#hydra-maps",
-    "title": "Hydras of the World",
-    "section": "",
-    "text": "Code\n#2. Option 2\nlibrary(dplyr)\nlibrary(readr)\n\nmy_data2 &lt;- my_data %&gt;%\n  mutate(\n    lat2 = parse_number(as.character(lat2)),\n    long2 = parse_number(as.character(long2))\n  )\n\n\n\n\nCode\n# Convert coordinates to sf object using your actual column names (longitude first, then latitude)\nhydra_sf &lt;- my_data2 %&gt;%\n  filter(!is.na(lat2), !is.na(long2)) %&gt;%\n  st_as_sf(coords = c(\"long2\", \"lat2\"), crs = 4326)\n\nggplot() +\n  annotation_map_tile(type = \"osm\", zoom = 2) + \n  geom_sf(data = hydra_sf, aes(color = species), size = 1, alpha = 0.6) +\n  scale_color_manual(values = c(\n    \"canadensis\"   = \"red\",\n    \"circumcincta\" = \"darkorange\",\n    \"hymanae\"      = \"pink\",\n    \"lirosoma\"     = \"purple\",\n    \"oligactis\"    = \"blue\",\n    \"utahensis\"    = \"gold\",\n    \"viridissima\"  = \"forestgreen\",\n    \"vulgaris\"     = \"sienna\"\n  )) +\n  theme_minimal() +\n  labs(title = \"Hydra Locations\")\n\n\n\n\n\n\n\n\n\n\n\nCode\nhydra_sf &lt;- my_data %&gt;%\n  mutate(\n    lat2 = parse_number(as.character(lat2)),\n    long2 = parse_number(as.character(long2))\n  ) %&gt;%\n  filter(!is.na(lat2), !is.na(long2), lat2 != 0, long2 != 0) %&gt;%\n  st_as_sf(coords = c(\"long2\", \"lat2\"), crs = 4326)\n\n\n\n\nCode\nlibrary(dplyr)\n\n# Check rows where lat2 became NA after coercion\nbad_rows &lt;- my_data %&gt;%\n  mutate(lat2_num = suppressWarnings(as.numeric(lat2))) %&gt;%\n  filter(is.na(lat2_num) & !is.na(lat2))\n\n# View those rows to see what text is hiding in the column\nprint(bad_rows)\n\n\n [1] country      state        local_name   strain       alt_strain  \n [6] species      lat2         long2        col_locality col_date    \n[11] col_name     lat2_num    \n&lt;0 rows&gt; (or 0-length row.names)"
-  },
-  {
-    "objectID": "hydramap1.html#location-maps",
-    "href": "hydramap1.html#location-maps",
-    "title": "Hydras of the World",
-    "section": "Location maps",
-    "text": "Location maps\nThe maps below dsiplay the locations of hydra collected thought the world. For clarity the world amp ahs been divided into region. Please select the region you want to display. There is little we can do aboout the map projection which distorts the true areas of the world exagerating lands at higher latitudes.\nPLease lect the map from North America, South America, Europe, Africa, Asia, and Oceania."
-  },
-  {
-    "objectID": "hydramap2.html#location-maps",
-    "href": "hydramap2.html#location-maps",
-    "title": "Hydras of the World",
-    "section": "Location maps",
-    "text": "Location maps\nThe maps below dsiplay the locations of hydra collected thought the world. For clarity the world amp ahs been divided into region. Please select the region you want to display. There is little we can do aboout the map projection which distorts the true areas of the world exagerating lands at higher latitudes."
-  },
-  {
-    "objectID": "hydramap2.html#location-map",
-    "href": "hydramap2.html#location-map",
-    "title": "Hydras of the World",
-    "section": "Location map",
-    "text": "Location map\nThe map below displays the locations of hydra collected throughtout the world. Please use your computer pad to enlarge the zone you want to observe. There is little we can do about the map projection which distorts the true areas of the world exagerating lands at higher latitudes."
-  },
-  {
-    "objectID": "hydramap2.html#distribution-map",
-    "href": "hydramap2.html#distribution-map",
-    "title": "Hydras of the World",
-    "section": "Distribution map",
-    "text": "Distribution map\nThe map below displays the locations of hydra collected throughtout the world. Please use your computer pad to enlarge the zone you want to observe. There is little we can do about the map projection which distorts the true areas of the world exagerating lands at higher latitudes."
-  },
-  {
-    "objectID": "list.html#hydra-species-lists",
-    "href": "list.html#hydra-species-lists",
-    "title": "Hydras of the World",
-    "section": "Hydra species lists",
-    "text": "Hydra species lists\nMany new species of hydra have been proposed since the first hydra, Hydra oligactis, was described by Antonie Philips van Leeuwenhoek in a letter sent to the Royal Society of London in 1702 (The letter was published in the Philosophical Transactions of the Royal Society of London a year later–Van Leeuwenhoek, 1703). The few distinct morphological traits of hydra make it difficult to distinguish between species and consequently to describe new ones. While reading descriptions of many new species, one is tempted to assume that these new species were proposed simply based on their geographical origin. The figure below shows three lists of species from papers by Ewer (1948), Grayson (1971), and Campbell (1987). The number of “valid” species included in these lists varies significantly. One of the best anaylsis of the validity of hydra species is the paper by Campbell (1987). Anyone with interest on hydra taxonomy is encourage to read that paper. Phylogenetic work using molecular markers and including more than 102 strains collected from around the world (Martínez et al. 2010), suggests that the number of species maybe much smaller. There seem to be 9 disctint “molecular” clades (monophyletic groups) of hydra which correspond to 9 previoulsy described morphological species.\nWe studied the phylogenetic relationships among different species of Hydra using molecular markers, primarily the Internal Transcribed Spacers (ITS-1 and ITS-2) of ribosomal DNA.\n  \nPeter Simon Pallas (1741–1811) was a prominent German zoologist and botanist who spent a large portion of his career working in the Russian Empire. He is widely recognized as one of the great naturalists and explorers of the 18th and early 19th centuries.\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263.\nEwer, R. F. (1948). A review of the Hydridae and two new species of Hydra from Natal. Proceedings of the Zoological Society of London, 118(1), 226–244.\nGrayson, R. F. (1971). The freshwater hydras of Europe. I. A review of the European species. Archiv für Hydrobiologie, 68, 436–449.\nVan Leeuwenhoek, A. (1703). Part of a Letter from Mr Antony van Leeuwenhoek, F. R. S. concerning Green Weeds Growing in Water, and Some Animalcula Found about Them. Philosophical Transactions of the Royal Society of London, 23(283), 1304–1311."
   },
   {
     "objectID": "hydra.html#footnotes",
@@ -322,25 +14,67 @@
     "text": "Footnotes\n\n\nLaurasia and Gondwana are the two giant landmasses that formed when the ancient supercontinent Pangaea split apart roughly 200 million years ago.↩︎"
   },
   {
-    "objectID": "hydra_key.html#key-to-hydra-clades",
-    "href": "hydra_key.html#key-to-hydra-clades",
-    "title": "Hydras of the World",
-    "section": "Key to hydra clades",
-    "text": "Key to hydra clades\n\n\n\n\n1a.\n\n\nHydra green due to intracellular algal symbionts;  stenotele nematocysts not longer than 11 µm ……………………………….. Viridissima group\n\n\n1b.\n\n\nHydra not green; stenotele nematocysts longer than 11 µm\n\n\n\n\n2a.\n\n\nHolotrichous isorhiza nematocysts plump (at half as broad as long)\n\n\n\n\n3a.\n\n\nFlatten embryotheca without spines …………………………. Braueri group\n\n\n3b.\n\n\nRound embryotheca with spines ……………………………… Lirosoma group\n\n\n\n\n2b.\n\n\nHolotrichous isorhiza slender, or if plump then embryotheca with spines\n\n\n\n\n4a.\n\n\nBuds acquire 2 lateral tentacles before other tentacles appear; otherwise, stenoteles at least 1.5 times as long as broad  smooth, spherical embryotheca ………………………………. Oligactis group\n\n\n4b.\n\n\nBuds acquire tentacles in some other order; otherwise,  stenoteles less than 1.5 times as long as broad  spherical embryotheca with spines………………………….. Vulgaris group\n\n\n\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263.\nMartínez D.E. , A.R. Iñiguez; K.M. Percell; J.B. Willner; J. Signorovitch; R.D. Campbell, 2010. Phylogeny and biogeography of Hydra (Cnidaria: Hydridae) using mitochondrial and nuclear DNA sequences. Molecular Phylogenetics and Evolution 57(20): 403-410.\nSchulze, P. (1917). Neue Beiträge zu einer Monographie der Gattung Hydra. Archiv für Biontologie, 4(1), 29–119."
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About these visualizations",
+    "section": "",
+    "text": "This website and the visualizations here were created as assignments for the Foundations of Data Science in R course taught by Professor Jo Hardin at Pomona College.\nI audited the class in the fall of 2026 and I absolutely loved the course. I am indebted to Professor Hardin, who gracefully allowed my unusual presence in her classroom. I am also grateful to my students Ava Santos-Volpe and Ryan (bRyan) Mooney who insisted that I take this class; they knew I would love it.\nThe visualizations presented here represent assignments designed for students to learn various data science concepts. Students were free to select TidyTuesday datasets to analyze and display. I chose datasets on Orca Encounters in Puget Sound, Dear Abby letters, and Palmtrees to practice different types of graphs."
   },
   {
-    "objectID": "hydra_key.html#hydra-groups",
-    "href": "hydra_key.html#hydra-groups",
-    "title": "Hydras of the World",
-    "section": "Hydra groups",
-    "text": "Hydra groups\nBuilding on Schulze’s (1917) idea that hydra can be clustered into morphological types, Campbell (1987) established four groups of hydra: the Viridissima group (green hydras), the Braueri group (gracile hydras), the Oligactis group (stalked hydras) and the Vulgaris group (common hydras). Campbell summarized the distinct morphological traits of these groups into an identification key. In the same paper, Campbell described a new species, H. lirosoma, collected from a creek near the Okefenokee Swamp in southern Georgia, USA.\nAlthough Campbell placed H. lirosoma in the Braueri group due to the broad shape of its holotrichous isorhiza nematocysts, he noted that it differs from other group members “by virtue of its spherical embryotheca, other species usually have flattened embryothecae that adhere to the substratum.” Subsequent genomic characterization indicates that H. lirosoma actually represents an entirely distinct group of hydra. The identification key below has been modified from Campbell (1987) to reflect this updated taxonomic status.\nIt is important to note that Campbell’s Groups were comfirmed to correspond to monophiletic groups (clades) of hydra (Martínez et al. 2010)."
+    "objectID": "about.html#tidytuesday",
+    "href": "about.html#tidytuesday",
+    "title": "About these visualizations",
+    "section": "TidyTuesday",
+    "text": "TidyTuesday\nWhat is TidyTuesday? A response from AI (Gemini)\nTidyTuesday is a weekly data project aimed at the R community, hosted by the R4DS Online Learning Community (Data Science in a Box / R for Data Science).\nEvery Tuesday, a new dataset is posted on GitHub, usually accompanied by a brief article or chart exploring it. Participants from around the world download the data, analyze it, create data visualizations (most commonly using ggplot2), and share their code and plots on social media (primarily on X/Twitter and LinkedIn) using the hashtag #TidyTuesday.\n\nKey Features of TidyTuesday\n\nFocus on the “Tidyverse”: The project encourages the use of tidy data principles and packages from the tidyverse ecosystem (like dplyr, tidyr, and ggplot2), though participants are free to use any tools or programming languages they prefer.\nReal-World Data: The datasets cover a wide variety of engaging, often quirky topics—ranging from historical events and scientific discoveries to pop culture, sports, and environmental statistics.\nLearning and Community: It serves as a low-stakes, supportive environment for beginners and experienced data scientists alike to practice data wrangling, sharpen data visualization skills, and learn from how others approach the same dataset."
   },
   {
-    "objectID": "hydra_key.html#campbells-groups",
-    "href": "hydra_key.html#campbells-groups",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Daniel Martínez Scavino",
+    "section": "",
+    "text": "Hello! I am Daniel Martínez Scavino, a biology professor at Pomona College. My research centers on Hydra—the remarkable, biologically immortal organism that somehow missed the memo on aging. When I am not in the lab or teaching genetics or G&T, you can usually find me exploring mountain trails, traveling, cooking, or diving into new languages.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "dist.html#species-distribution",
+    "href": "dist.html#species-distribution",
     "title": "Hydras of the World",
-    "section": "Campbell’s groups",
-    "text": "Campbell’s groups\nBuilding on Schulze’s (1917) idea that hydra can be clustered into morphological types, Campbell (1987) established four groups of hydra: the Viridissima group (green hydras), the Braueri group (gracile hydras), the Oligactis group (stalked hydras) and the Vulgaris group (common hydras). Campbell summarized the distinct morphological traits of these groups into an identification key. In the same paper, Campbell described a new species, H. lirosoma, collected from a creek near the Okefenokee Swamp in southern Georgia, USA.\nAlthough Campbell placed H. lirosoma in the Braueri group due to the broad shape of its holotrichous isorhiza nematocysts, he noted that it differs from other group members “by virtue of its spherical embryotheca, other species usually have flattened embryothecae that adhere to the substratum.” Subsequent genomic characterization indicates that H. lirosoma actually represents an entirely distinct group of hydra. The identification key below has been modified from Campbell (1987) to reflect this updated taxonomic status.\nIt is important to note that Campbell’s groups were comfirmed to correspond to monophyletic groups (clades) of hydra (Martínez et al. 2010)."
+    "section": "Species distribution",
+    "text": "Species distribution\nThe map below displays the locations of hydra collected throughtout the world. Please use your computer pad to enlarge the zone you want to observe. There is little we can do about the map projection which distorts the true areas of the world exagerating lands at higher latitudes."
+  },
+  {
+    "objectID": "pudding.html",
+    "href": "pudding.html",
+    "title": "Dear Abby",
+    "section": "",
+    "text": "Code\n# 1. Save data from The Pudding Github site\n#| echo: false\npudding &lt;- read_csv(\n  \"https://raw.githubusercontent.com/the-pudding/data/master/dearabby/raw_da_qs.csv\"\n)\nCode\n# 1. Count number of letters per year\n#| echo: false\nletters_year &lt;- pudding |&gt;\n  select(year) |&gt;\n  group_by(year) |&gt;\n  summarize(count = n())\nCode\n#1. Total number for letters: 20,034\n#| echo: false\nlibrary(scales)\ntotal_letters &lt;- summarize(letters_year, comma(sum(count)))"
+  },
+  {
+    "objectID": "pudding.html#through-the-years",
+    "href": "pudding.html#through-the-years",
+    "title": "Dear Abby",
+    "section": "Through the Years",
+    "text": "Through the Years"
+  },
+  {
+    "objectID": "pudding.html#husbands-vs-wifes",
+    "href": "pudding.html#husbands-vs-wifes",
+    "title": "Dear Abby",
+    "section": "Husbands vs Wifes",
+    "text": "Husbands vs Wifes\nThe word “husband” is consistenly one of the most frequently used in these letters throughout several decades. Is that because women are the main writters to Abby? In order to investigate this a bit further, I have selected letters that include the words “my husband” and “my wife” hoping that this indentifies the writer. This is obviously not a perfect strategy. The word clouds below come from those letters. Assuming that the writers are talking about their partners, what can the word frequencies tell us about the letters? Are the themes different? Have they changed through time?"
+  },
+  {
+    "objectID": "list.html#hydra-species-lists",
+    "href": "list.html#hydra-species-lists",
+    "title": "Hydras of the World",
+    "section": "Hydra species lists",
+    "text": "Hydra species lists\nMany new species of hydra have been proposed since the first hydra, Hydra oligactis, was described by Antonie Philips van Leeuwenhoek in a letter sent to the Royal Society of London in 1702 (The letter was published in the Philosophical Transactions of the Royal Society of London a year later–Van Leeuwenhoek, 1703). The few distinct morphological traits of hydra make it difficult to distinguish between species and consequently to describe new ones. While reading descriptions of many new species, one is tempted to assume that these new species were proposed simply based on their geographical origin. The figure below shows three lists of species from papers by Ewer (1948), Grayson (1971), and Campbell (1987). The number of “valid” species included in these lists varies significantly. One of the best anaylsis of the validity of hydra species is the paper by Campbell (1987). Anyone with interest on hydra taxonomy is encourage to read that paper. Phylogenetic work using molecular markers and including more than 102 strains collected from around the world (Martínez et al. 2010), suggests that the number of species maybe much smaller. There seem to be 9 disctint “molecular” clades (monophyletic groups) of hydra which correspond to 9 previoulsy described morphological species.\nWe studied the phylogenetic relationships among different species of Hydra using molecular markers, primarily the Internal Transcribed Spacers (ITS-1 and ITS-2) of ribosomal DNA.\n  \nPeter Simon Pallas (1741–1811) was a prominent German zoologist and botanist who spent a large portion of his career working in the Russian Empire. He is widely recognized as one of the great naturalists and explorers of the 18th and early 19th centuries.\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263.\nEwer, R. F. (1948). A review of the Hydridae and two new species of Hydra from Natal. Proceedings of the Zoological Society of London, 118(1), 226–244.\nGrayson, R. F. (1971). The freshwater hydras of Europe. I. A review of the European species. Archiv für Hydrobiologie, 68, 436–449.\nVan Leeuwenhoek, A. (1703). Part of a Letter from Mr Antony van Leeuwenhoek, F. R. S. concerning Green Weeds Growing in Water, and Some Animalcula Found about Them. Philosophical Transactions of the Royal Society of London, 23(283), 1304–1311."
+  },
+  {
+    "objectID": "palmtrees.html",
+    "href": "palmtrees.html",
+    "title": "Palm Trees of the World",
+    "section": "",
+    "text": "Palm trees can be tall! Or very short…\nPalm trees are quite variable in height ranging from 0 to 170 meters. Palm tress can be grouped by Tribes (a taxonomic rank between family and genus). Members of some tribes are taller than trees in other tribes. Calameae and Lepidocaryeae are two tribes with particularly tall trees.\n\n\n\n\n\n\n\n\n\nThe tibble below shows the top and the bottom 5 tribes according to mean height.\n\n\n# A tibble: 10 × 4\n   palm_tribe     mean_height min_height max_height\n   &lt;chr&gt;                &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n 1 Lepidocaryeae       25.2            0        150\n 2 Corypheae           22.1            5         45\n 3 Roystoneeae         21.5           15         40\n 4 Calameae            20.0            0        170\n 5 Borasseae           18.7            0         34\n 6 Chamaedoreeae        3.63           0         20\n 7 Eugeissoneae         2.22           0          8\n 8 Podococceae          1              0          2\n 9 Sclerospermeae       0.667          0          2\n10 Nypoideae            0              0          0"
   },
   {
     "objectID": "groups.html#campbells-groups",
@@ -357,17 +91,10 @@
     "text": "Key to hydra clades\n\n\n\n\n1a.\n\n\nHydra green due to intracellular algal symbionts;  stenotele nematocysts not longer than 11 µm ……………………………….. Viridissima group\n\n\n1b.\n\n\nHydra not green; stenotele nematocysts longer than 11 µm\n\n\n\n\n2a.\n\n\nHolotrichous isorhiza nematocysts plump (at half as broad as long)\n\n\n\n\n3a.\n\n\nFlatten embryotheca without spines …………………………. Braueri group\n\n\n3b.\n\n\nRound embryotheca with spines ……………………………… Lirosoma group\n\n\n\n\n2b.\n\n\nHolotrichous isorhiza slender, or if plump then embryotheca with spines\n\n\n\n\n4a.\n\n\nBuds acquire 2 lateral tentacles before other tentacles appear; otherwise, stenoteles at least 1.5 times as long as broad  smooth, spherical embryotheca ………………………………. Oligactis group\n\n\n4b.\n\n\nBuds acquire tentacles in some other order; otherwise,  stenoteles less than 1.5 times as long as broad  spherical embryotheca with spines………………………….. Vulgaris group\n\n\n\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263.\nMartínez D.E. , A.R. Iñiguez; K.M. Percell; J.B. Willner; J. Signorovitch; R.D. Campbell, 2010. Phylogeny and biogeography of Hydra (Cnidaria: Hydridae) using mitochondrial and nuclear DNA sequences. Molecular Phylogenetics and Evolution 57(20): 403-410.\nSchulze, P. (1917). Neue Beiträge zu einer Monographie der Gattung Hydra. Archiv für Biontologie, 4(1), 29–119."
   },
   {
-    "objectID": "dist.html#distribution-map",
-    "href": "dist.html#distribution-map",
-    "title": "Hydras of the World",
-    "section": "Distribution map",
-    "text": "Distribution map\nThe map below displays the locations of hydra collected throughtout the world. Please use your computer pad to enlarge the zone you want to observe. There is little we can do about the map projection which distorts the true areas of the world exagerating lands at higher latitudes."
-  },
-  {
-    "objectID": "dist.html#species-distribution",
-    "href": "dist.html#species-distribution",
-    "title": "Hydras of the World",
-    "section": "Species distribution",
-    "text": "Species distribution\nThe map below displays the locations of hydra collected throughtout the world. Please use your computer pad to enlarge the zone you want to observe. There is little we can do about the map projection which distorts the true areas of the world exagerating lands at higher latitudes."
+    "objectID": "orcas.html",
+    "href": "orcas.html",
+    "title": "Orca Encounters",
+    "section": "",
+    "text": "Orcas are nasty fish that enjoy munching on people!\nNope! There are several things that are wrong with that picture. Orcas are cetaceans related to dolphins that live in all of the world oceans. They are higly intelligent predators that hunt in coordinated family pods using very elaborate strategies. Their varied diet includes fish, sharks, smaller marine mammals (e.g. see lions), and even whales. But not humans!"
   }
 ]
