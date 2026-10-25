@@ -12,7 +12,9 @@ execute:
 ***
 ## Key to hydra clades
 
-Modified from Campbell (1987). 
+Bulding on Schulze's (1917) idea that hydra can be clustered into morphological types, Campbell (1987) established four groups of hydra: the **Viridissima group** (green hydras), the **Braueri group** (gracile hydras), the **Oligactis group**  (stalked hydras) and the **Vulgaris group** (common hydras). Campbell summarized the distinct morphological traits of these groups into an identification key. In the same paper, Campbell described a new species, *H. lirosoma*, collected from a creek near the Okefenkee Swamp in southern Georgia. 
+
+Although Campbell placed *H. lirosoma* in the Braueri group due to the broad shape of its holotrichous isorhiza nematocysts, he noted that it differs from other group members *"by virtue of its spherical embryotheca, other species usually have flattened embryothecae that adhere to the substratum."*  Subsequent genomic characterization indicates that *H. lirosoma* actually represents an entirely distinct group of hydra. The identification key below has been modified from Campbell (1987) to reflect this updated taxonomic status.
 
 <style>
 .tax-key {
@@ -52,7 +54,7 @@ Modified from Campbell (1987).
 
   <dl class="level-3">
     <dt>3a.</dt>
-    <dd>Flatten embryotheca without spines .................................. <strong>Braueri group</strong></dd> 
+    <dd>Flatten embryotheca without spines ............................... <strong>Braueri group</strong></dd> 
     <dt>3b.</dt>
     <dd>Round embryotheca with spines .................................... <strong>Lirosoma group</strong></dd>
   </dl>
@@ -66,14 +68,15 @@ Modified from Campbell (1987).
     <dt>4a.</dt>
     <dd>Buds acquire 2 lateral tentacles before other tentacles appear;<br> 
     otherwise, stenoteles at least 1.5 times as long as broad <br>
-    smooth, spherical embryotheca .................................... <strong>Oligactis group</strong></dd>
+    smooth, spherical embryotheca ..................................... <strong>Oligactis group</strong></dd>
     <dt>4b.</dt>
     <dd>Buds acquire tentacles in some other order; otherwise, <br>
     stenoteles less than 1.5 times as long as broad <br>
-    spherical embryotheca with spines.............................. <strong>Vulgaris group</strong></dd>
+    spherical embryotheca with spines................................ <strong>Vulgaris group</strong></dd>
   </dl>
 </div>
 
 ---
-Campbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263.
+Campbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. *Zoological Journal of the Linnean Society*, **91**, 253–263.
 
+Schulze, P. (1917). Neue Beiträge zu einer Monographie der Gattung Hydra. *Archiv für Biontologie*, **4**(1), 29–119.
