@@ -4,7 +4,13 @@ project:
 
 website:
   title: "Daniel Martínez Scavino"
+  title: false # override printing your website `title` (e.g. "Sam Csik" on line 6) in the top left corner of your navbar
+    logo: dms.png
+    logo-alt: "Daniel Martínez Scavino"
   navbar:
+  title: false # override printing your website `title` (e.g. "Sam Csik" on line 6) in the top left corner of your navbar
+  logo: dms.png
+  logo-alt: "Daniel Martínez Scavino"
     right:
       # - href: index.qmd
       #   text: Home
