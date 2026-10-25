@@ -95,14 +95,29 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
-<span class="menu-text">Home</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-hydras-of-the-world" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Hydras of the World</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-hydras-of-the-world">    
+        <li>
+    <a class="dropdown-item" href="./hydra.html">
+ <span class="dropdown-text">Hydra species</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./hydra.html"> 
-<span class="menu-text">Hydra</span></a>
+        <li>
+    <a class="dropdown-item" href="./list.html">
+ <span class="dropdown-text">Species lists</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./hydramap2.html">
+ <span class="dropdown-text">Distribution</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./hydra_key.html">
+ <span class="dropdown-text">Key to groups</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-viz" role="link" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">Data Viz</span>
@@ -171,9 +186,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This website and the visualizations were created as assignments for the <strong>Foundations of Data Science in R</strong> course taught by <strong>Professor Jo Hardin</strong> at Pomona College.</p>
-<p>I audited the class in the fall of 2026 and I absolutely loved the course. I am indebted to Professor Hardin, who gracefully allowed my unusual presence in her classroom. I am also grateful to my students, Ava Santos-Volpe and Ryan (bRyan) Mooney, who insisted that I take this class; they knew I would enjoy it.</p>
-<p>The visualizations presented here represent assignments designed for students to learn various data science concepts. Students were free to select the <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data">TidyTuesday</a> datasets to analyze and display. I chose datasets on <strong>Orca Encounters in Puget Sound</strong>, <strong>Dear Abby letters</strong>, and <strong>Palmtrees</strong> to practice different types of graphs.</p>
+<p>This website and the visualizations here were created as assignments for the <strong>Foundations of Data Science in R</strong> course taught by <strong>Professor Jo Hardin</strong> at Pomona College.</p>
+<p>I audited the class in the fall of 2026 and I absolutely loved the course. I am indebted to Professor Hardin, who gracefully allowed my unusual presence in her classroom. I am also grateful to my students Ava Santos-Volpe and Ryan (bRyan) Mooney who insisted that I take this class; they knew I would love it.</p>
+<p>The visualizations presented here represent assignments designed for students to learn various data science concepts. Students were free to select <a href="https://github.com/rfordatascience/tidytuesday/tree/master/data">TidyTuesday</a> datasets to analyze and display. I chose datasets on <strong>Orca Encounters in Puget Sound</strong>, <strong>Dear Abby letters</strong>, and <strong>Palmtrees</strong> to practice different types of graphs.</p>
 <p><img src="orcas1.png" id="fig-mylabel" class="img-fluid" style="width:25.0%" data-placement="H&quot;"> <img src="abby.png" id="fig-mylabel" class="img-fluid" style="width:35.0%" data-placement="H&quot;"> <img src="palm.png" id="fig-mylabel" class="img-fluid" style="width:35.0%" data-placement="H&quot;"></p>
 <section id="tidytuesday" class="level2">
 <h2 class="anchored" data-anchor-id="tidytuesday">TidyTuesday</h2>

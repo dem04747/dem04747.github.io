@@ -2,11 +2,11 @@
 title: "About these visualizations"
 ---
 
-This website and the visualizations were created as assignments for the **Foundations of Data Science in R** course taught by **Professor Jo Hardin** at Pomona College. 
+This website and the visualizations here were created as assignments for the **Foundations of Data Science in R** course taught by **Professor Jo Hardin** at Pomona College. 
 
-I audited the class in the fall of 2026 and I absolutely loved the course. I am indebted to Professor Hardin, who gracefully allowed my unusual presence in her classroom. I am also grateful to my students, Ava Santos-Volpe and Ryan (bRyan) Mooney, who insisted that I take this class; they knew I would enjoy it.
+I audited the class in the fall of 2026 and I absolutely loved the course. I am indebted to Professor Hardin, who gracefully allowed my unusual presence in her classroom. I am also grateful to my students Ava Santos-Volpe and Ryan (bRyan) Mooney who insisted that I take this class; they knew I would love it.
 
-The visualizations presented here represent assignments designed for students to learn various data science concepts. Students were free to select the [TidyTuesday](https://github.com/rfordatascience/tidytuesday/tree/master/data) datasets to analyze and display. I chose datasets on **Orca Encounters in Puget Sound**, **Dear Abby letters**, and **Palmtrees** to practice different types of graphs. 
+The visualizations presented here represent assignments designed for students to learn various data science concepts. Students were free to select [TidyTuesday](https://github.com/rfordatascience/tidytuesday/tree/master/data) datasets to analyze and display. I chose datasets on **Orca Encounters in Puget Sound**, **Dear Abby letters**, and **Palmtrees** to practice different types of graphs. 
 
 ![ ](orcas1.png){#fig-mylabel width="25%" placement=H"}
 ![ ](abby.png){#fig-mylabel width="35%" placement=H"}
