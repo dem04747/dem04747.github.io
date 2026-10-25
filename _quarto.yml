@@ -11,10 +11,10 @@ website:
       # - href: myCV.pdf # providing a relative file path to a pdf will open up a browser-based pdf viewer when clicked
       #  text: CV
       #  target: _blank # opens link (or page) in a new browser tab
-      - text: Hydra of the World
+      - text: Hydras of the World
         menu:
         - href: hydra.qmd
-          text: What is hydra?
+          text: Hydra species
         - href: list.qmd
           text: Species lists
         - href: hydramap2.qmd
