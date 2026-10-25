@@ -5,6 +5,7 @@ project:
 website:
   title: "Daniel Martínez Scavino"
   navbar:
+    logo: dms1.png
     right:
       # - href: index.qmd
       #   text: Home
