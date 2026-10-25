@@ -17,9 +17,9 @@ website:
           text: Hydra species
         - href: list.qmd
           text: Species lists
-        - href: hydramap2.qmd
+        - href: dist.qmd
           text: Distribution
-        - href: hydra_key.qmd
+        - href: groups.qmd
           text: Key to groups
       - text: Data Viz
         menu: 

@@ -341,5 +341,26 @@
     "title": "Hydras of the World",
     "section": "Campbell’s groups",
     "text": "Campbell’s groups\nBuilding on Schulze’s (1917) idea that hydra can be clustered into morphological types, Campbell (1987) established four groups of hydra: the Viridissima group (green hydras), the Braueri group (gracile hydras), the Oligactis group (stalked hydras) and the Vulgaris group (common hydras). Campbell summarized the distinct morphological traits of these groups into an identification key. In the same paper, Campbell described a new species, H. lirosoma, collected from a creek near the Okefenokee Swamp in southern Georgia, USA.\nAlthough Campbell placed H. lirosoma in the Braueri group due to the broad shape of its holotrichous isorhiza nematocysts, he noted that it differs from other group members “by virtue of its spherical embryotheca, other species usually have flattened embryothecae that adhere to the substratum.” Subsequent genomic characterization indicates that H. lirosoma actually represents an entirely distinct group of hydra. The identification key below has been modified from Campbell (1987) to reflect this updated taxonomic status.\nIt is important to note that Campbell’s groups were comfirmed to correspond to monophyletic groups (clades) of hydra (Martínez et al. 2010)."
+  },
+  {
+    "objectID": "groups.html#campbells-groups",
+    "href": "groups.html#campbells-groups",
+    "title": "Hydras of the World",
+    "section": "Campbell’s groups",
+    "text": "Campbell’s groups\nBuilding on Schulze’s (1917) idea that hydra can be clustered into morphological types, Campbell (1987) established four groups of hydra: the Viridissima group (green hydras), the Braueri group (gracile hydras), the Oligactis group (stalked hydras) and the Vulgaris group (common hydras). Campbell summarized the distinct morphological traits of these groups into an identification key. In the same paper, Campbell described a new species, H. lirosoma, collected from a creek near the Okefenokee Swamp in southern Georgia, USA.\nAlthough Campbell placed H. lirosoma in the Braueri group due to the broad shape of its holotrichous isorhiza nematocysts, he noted that it differs from other group members “by virtue of its spherical embryotheca, other species usually have flattened embryothecae that adhere to the substratum.” Subsequent genomic characterization indicates that H. lirosoma actually represents an entirely distinct group of hydra. The identification key below has been modified from Campbell (1987) to reflect this updated taxonomic status.\nIt is important to note that Campbell’s groups were comfirmed to correspond to monophyletic groups (clades) of hydra (Martínez et al. 2010)."
+  },
+  {
+    "objectID": "groups.html#key-to-hydra-clades",
+    "href": "groups.html#key-to-hydra-clades",
+    "title": "Hydras of the World",
+    "section": "Key to hydra clades",
+    "text": "Key to hydra clades\n\n\n\n\n1a.\n\n\nHydra green due to intracellular algal symbionts;  stenotele nematocysts not longer than 11 µm ……………………………….. Viridissima group\n\n\n1b.\n\n\nHydra not green; stenotele nematocysts longer than 11 µm\n\n\n\n\n2a.\n\n\nHolotrichous isorhiza nematocysts plump (at half as broad as long)\n\n\n\n\n3a.\n\n\nFlatten embryotheca without spines …………………………. Braueri group\n\n\n3b.\n\n\nRound embryotheca with spines ……………………………… Lirosoma group\n\n\n\n\n2b.\n\n\nHolotrichous isorhiza slender, or if plump then embryotheca with spines\n\n\n\n\n4a.\n\n\nBuds acquire 2 lateral tentacles before other tentacles appear; otherwise, stenoteles at least 1.5 times as long as broad  smooth, spherical embryotheca ………………………………. Oligactis group\n\n\n4b.\n\n\nBuds acquire tentacles in some other order; otherwise,  stenoteles less than 1.5 times as long as broad  spherical embryotheca with spines………………………….. Vulgaris group\n\n\n\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263.\nMartínez D.E. , A.R. Iñiguez; K.M. Percell; J.B. Willner; J. Signorovitch; R.D. Campbell, 2010. Phylogeny and biogeography of Hydra (Cnidaria: Hydridae) using mitochondrial and nuclear DNA sequences. Molecular Phylogenetics and Evolution 57(20): 403-410.\nSchulze, P. (1917). Neue Beiträge zu einer Monographie der Gattung Hydra. Archiv für Biontologie, 4(1), 29–119."
+  },
+  {
+    "objectID": "dist.html#distribution-map",
+    "href": "dist.html#distribution-map",
+    "title": "Hydras of the World",
+    "section": "Distribution map",
+    "text": "Distribution map\nThe map below displays the locations of hydra collected throughtout the world. Please use your computer pad to enlarge the zone you want to observe. There is little we can do about the map projection which distorts the true areas of the world exagerating lands at higher latitudes."
   }
 ]
