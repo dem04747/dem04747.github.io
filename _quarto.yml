@@ -6,10 +6,10 @@ website:
   title: "Daniel Martínez Scavino"
   title: false # override printing your website `title` (e.g. "Sam Csik" on line 6) in the top left corner of your navbar
   navbar:
-  title: false # override printing your website `title` (e.g. "Sam Csik" on line 6) in the top left corner of your navbar
-  logo: dms.png
-  logo-alt: "Daniel Martínez Scavino"
-  right:
+     title: false # override printing your website `title` (e.g. "Sam Csik" on line 6) in the top left corner of your navbar
+     logo: dms.png
+     logo-alt: "Daniel Martínez Scavino"
+     right:
       # - href: index.qmd
       #   text: Home
       # - href: myCV.pdf # providing a relative file path to a pdf will open up a browser-based pdf viewer when clicked
