@@ -12,7 +12,6 @@ about:
       href: https://github.com/dem04747
       target: _blank 
     - icon: envelope
-      text: Email
       href: mailto:daniel.martinez@pomona.edu  
 page-footer:
     background: light # or `dark` or omit this option altogether (footer color will match page body color)
