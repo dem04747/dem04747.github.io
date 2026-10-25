@@ -5,6 +5,7 @@ project:
 website:
   title: "Daniel Martínez Scavino"
   navbar:
+    title: false # override printing your website `title` 
     logo: dms.svg
     right:
       # - href: index.qmd
