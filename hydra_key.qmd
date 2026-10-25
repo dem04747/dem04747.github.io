@@ -10,7 +10,7 @@ execute:
 ---
 
 ***
-## Key to hydra groups
+## Key to hydra clades
 
 Modified from Campbell (1987). 
 
