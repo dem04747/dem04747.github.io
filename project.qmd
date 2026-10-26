@@ -20,7 +20,7 @@ Compounding this issue, evidence shows that standard laboratory strains—such a
 Understanding the diversity and distribution of Hydra around the world requires a monumental effort, and no one contributed more to this enterprise than **Dr. Richard D. Campbell** at University of California, Irvine.  Campbell collected specimens from approximately 2,000 distinct locations across every unfrozen continent, resolving numerous taxonomic complexities and clarifying the validity of many species (e.g. Campbell 1987, 1989; Campbell & Holstein, 1991; Holstein, Campbell & Tardent, 1990).
 
 Dr. Robert Steele (UCI) and I have completed several collecting trips in search of hydras. I am deeply grateful for Rob's companionship and support, especially in some extraordinary destinations like the Peruvian highlands, the Peruvian Amazon, northern Mexico, the Okefenokee Swamp in Georgia, and the Great Dismal Swamp in Virginia. 
-
+ 
 More recently, Callen Hyland at the University of San Diego has spearheaded an iNaturalist project to map global observations.
 
 ---
