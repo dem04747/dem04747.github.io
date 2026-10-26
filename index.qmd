@@ -20,6 +20,6 @@ page-footer:
 
 ---
 
-Hello! I am **Daniel Martínez Scavino**, a biology professor at Pomona College. My research centers on Hydra—the remarkable, biologically immortal organism that somehow missed the memo on aging. When I am not in the lab or teaching genetics or G&T, you can usually find me exploring mountain trails, traveling, cooking, or diving into new languages.
+Hola! I am **Daniel Martínez Scavino**, a biology professor at Pomona College. My research centers on Hydra—the remarkable, biologically immortal organism that somehow missed the memo on aging. When I am not in the lab or teaching Introductory Genetics or Genomics & Transcriptomics, you can usually find me exploring mountain trails, traveling, cooking, or diving into new languages. I was born in Argentina so my native language is Spanish. 
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
