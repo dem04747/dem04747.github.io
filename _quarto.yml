@@ -17,12 +17,12 @@ website:
         menu:
         - href: hydra.qmd
           text: Hydra species
-        - href: list.qmd
-          text: Species lists
         - href: dist.qmd
           text: Distribution
         - href: groups.qmd
           text: Campbell's groups
+        - href: list.qmd
+          text: Species lists
       - text: Data Viz
         menu: 
          - href: about.qmd
