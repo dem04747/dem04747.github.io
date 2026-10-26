@@ -34,7 +34,6 @@ website:
          - text: "Dear Abby"
            href: pudding.qmd
       - icon: envelope
-        text: Email
         href: mailto:daniel.martinez@pomona.edu  
 
   page-footer:
