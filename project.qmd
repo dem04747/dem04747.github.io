@@ -11,8 +11,17 @@ execute:
 
 ## About "Hydras of the World"
 
-The main objective of this project is to provide a resource for people interested in the kinds of hydra that inhabit the world. It seems to me that understanding the diversity of hydra species in an evolutionary framework is essential for scientists working with hydra.  Biology research has made important progress by studying **model organisms** to understand fundamental biological processes. But research that is overwhelmingly skewed toward a tiny handful of species creates a severely distorted view of life (a taxomic bias). Hydra biologists like to say that we study a "non-model organism", but then we generalized our findings based on studies of a single laboratory strain—sometimes of somewhat unknown origen (see lab strains). Variation is the norm not the exception. I am hopeful that this pages will encourage my colleagues to characterize taxonomically the strains they are studying. There is evidence that the laboratory strains that we use (e.g. H. vulgaris 105, H. vulgaris AEP) have "evolved" since they were collected . This is expected given that 105 and AEP have been in different labs around the world for more than 40 and 30 years. Once cna imagine the culture passing through regular bottlenecks and undergoing regular selection.  
+The main objective of this project is to provide a comprehensive resource for anyone interested in the global diversity of Hydra. Understanding this diversity within an evolutionary framework is essential for researchers working with the genus. While modern biology has made remarkable progress by focusing on standard model organisms, an overwhelming skew toward a tiny handful of species creates a severely distorted view of life—a distinct taxonomic bias.
 
-The strains 
+Hydra researchers often describe their study subjects as "non-model organisms," yet they frequently generalize findings based on a single laboratory strain of sometimes uncertain origin. Variation is the norm, not the exception. While every study obviously cannot include multiple strains or species, these pages aim to encourage colleagues to rigorously characterize the taxonomic status of the strains they study rather than simply reporting a species name.
+
+Compounding this issue, evidence shows that standard laboratory strains—such as *Hydra vulgaris 105* and *Hydra vulgaris AEP*—have significantly diverged since being collected and maintained across different laboratories worldwide for over 40 and 30 years, respectively. Very likely, these laboratory cultures regularly experience genetic bottlenecks and artificial selection in captivity.
+
+Understanding the diversity and distribution of Hydra around the world requires a monumental effort, and no one contributed more to this enterprise than Dr. Richard D. Campbell. Campbell collected specimens from approximately 2,000 distinct locations across every unfrozen continent, resolving numerous taxonomic complexities and clarifying the validity of many species.
+
+More recently, Callen Hyland at the University of San Diego has spearheaded an iNaturalist project to map global observations.
+
+
+
 
 

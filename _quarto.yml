@@ -15,6 +15,8 @@ website:
       #  target: _blank # opens link (or page) in a new browser tab
       - text: Hydras of the World
         menu:
+        - href: project.qmd
+          text: About
         - href: hydra.qmd
           text: Hydra species
         - href: dist.qmd
