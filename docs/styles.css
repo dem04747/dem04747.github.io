@@ -1,4 +1,20 @@
 /* css styles */
+
+
+/* Override Bootstrap's max-width constraints */
+.page-columns, 
+.content, 
+main {
+  max-width: 100% !important;
+}
+
+/* If you want to target the specific container holding your map/content grid */
+.quarto-container {
+  max-width: 100% !important;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 /*-- scss:rules --*/
 .navbar-brand img { 
   max-height: 70px;
