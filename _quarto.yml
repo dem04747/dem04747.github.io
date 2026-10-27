@@ -23,6 +23,8 @@ website:
           text: Distribution
         - href: groups.qmd
           text: Campbell's groups
+        - href: tree.qmd
+          text: Phylogenies
         - href: list.qmd
           text: Species lists
       - text: Data Viz

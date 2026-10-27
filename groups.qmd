@@ -45,7 +45,7 @@ It is important to note that **Campbell's groups** were comfirmed to correspond 
   <dl>
     <dt>1a.</dt>
     <dd>Hydra green due to intracellular algal symbionts;  <br>
-    stenotele nematocysts not longer than 11 µm ...................................... <strong>Viridissima group</strong></dd>
+    stenotele nematocysts not longer than 11 µm ........................................ <strong>Viridissima group</strong></dd>
     
     <dt>1b.</dt>
     <dd>Hydra not green; stenotele nematocysts longer than 11 µm</dd>
@@ -76,7 +76,7 @@ It is important to note that **Campbell's groups** were comfirmed to correspond 
     <dt>4b.</dt>
     <dd>Buds acquire tentacles in some other order; otherwise, <br>
     stenoteles less than 1.5 times as long as broad <br>
-    spherical embryotheca with spines................................ <strong>Vulgaris group</strong></dd>
+    spherical embryotheca with spines.................................. <strong>Vulgaris group</strong></dd>
   </dl>
 </div>
 
