@@ -4,6 +4,7 @@ subtitle: "Phylogeny, Biogeography, and more."
 author: "Daniel Martínez Scavino"
 format: html
 code-fold: true
+lightbox: true
 execute: 
   warning: false
   message: false
@@ -40,11 +41,16 @@ The nine hydra species maybe grouped into five distinct clades [(see Campbell's 
 While most animal taxa feature a single, circular mitochondrial chromosome, linear mitochondrial genomes have evolved independently in a few lineages, including hydras, box jellyfish, and calcareous sponges. In the **Vulgaris** clade of hydras the mitochondrial genome is split into two linear chromosomes (each roughly 8 kb in size). In all the other four clades, there is a single linear chromosome of ~16 kb. 
 
 
+Click on the figure if you want to enlarge it to observe it in more detail
+
 <div style="clear: both;">
-  <img src="clades.png" alt="Clades" style="width: 70%; display: block; margin-left: auto; margin-right: 0;" />
+  <img src="clades.png" alt="Clades" class="lightbox" style="width: 70%; display: block; margin-left: auto; margin-right: 0;" />
 </div>
- 
+
+
  The [distribution of hydra](dist.qmd) species throughout the world is quite interesting. While all nine species can be found on continents derived from Laurasia, only two species—*H. viridissima* and *H. vulgaris*—natively inhabit the southern hemisphere continents derived from Gondwana[^1]. This observation led Martínez et al. (2010) to suggest that hydras evolved in Laurasia, a hypothesis supported by the current estimated times of divergence among Hydra clades (Wong et al. 2019). Furthermore, these two Southern Hemisphere species appear to exhibit a higher tolerance to elevated temperatures, which may explain their broader global distribution.
+
+
 
 ***
 Martínez D.E. , A.R. Iñiguez; K.M. Percell; J.B. Willner; J. Signorovitch; R.D. Campbell, 2010. Phylogeny and biogeography of Hydra (Cnidaria: Hydridae) using mitochondrial and nuclear DNA sequences. *Molecular Phylogenetics and Evolution* **57** (20): 403-410.

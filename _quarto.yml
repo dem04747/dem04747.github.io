@@ -44,10 +44,12 @@ website:
     right: This website is built with love and [Quarto](https://quarto.org/){target=_blank}
 format:
   html:
+    lightbox: true
     theme: cosmo
     css: styles.css
     toc: true
     page-layout: full
+
 
 
 
