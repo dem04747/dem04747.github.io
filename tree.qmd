@@ -26,33 +26,30 @@ Arguably the most comprehensive molecular phylogeny of the genus *Hydra* to date
 
 
 
----
-Please click on the phyologram to enlarge it and look at specific details. 
-
-![Maxiumn Likelihood Phylogram from Martinez et a. 2010](mpetree.png){.lightbox fig-alt="Clades" style="width: 100%; display: block; margin-left: auto; margin-right: 10;"}
+******
+![Maxiumn Likelihood Phylogram from Martinez et a. 2010. Please click on the phyologram to enlarge it and inspect specific details](mpetree.png){.lightbox fig-alt="Clades" style="width: 100%; display: block; margin-left: auto; margin-right: 10; font-size: 0.9rem"}
 
 
-***
-
-Bosch, T. C. G., Krylow, S. M., Bode, H. R., & Steele, R. E. (1988). Thermotolerance and synthesis of heat shock proteins in the freshwater cnidarian Hydra. *Proceedings of the National Academy of Sciences*, **85**(21), 7927–7931. [https://doi.org/10.1073/pnas.85.21.7927](https://doi.org/10.1073/pnas.85.21.7927)
+*****
+Bosch, T. C. G., Krylow, S. M., Bode, H. R., & Steele, R. E. (1988). Thermotolerance and synthesis of heat shock proteins in the freshwater cnidarian Hydra. *Proceedings of the National Academy of Sciences*, **85**(21), 7927–7931. [https://doi.org/10.1073/pnas.85.21.7927](https://doi.org/10.1073/pnas.85.21.7927){target="_blank"}
 
 ::: {.fragment}
 ::: {style="padding-left: 2rem; padding-right: 2rem; font-size: 0.9rem"}
 A classic comparative study establishing that *Hydra oligactis* lacks an inducible heat-shock response (HSR) and is extremely sensitive to elevated temperatures (disintegrating above 24–33°C), whereas *Hydra attenuata (H. vulgaris)* synthesizes major heat-shock proteins (Hsps, notably Hsp60 and Hsp70) and acquires thermotolerance following pre-incubation at sub-lethal elevated temperatures. [AI Gemini]
 :::
 
-Gellner, K., Praetzel, G., & Bosch, T. C. G. (1992). Cloning and expression of a heat-inducible hsp70 gene in two species of Hydra which differ in their stress response. *European Journal of Biochemistry*, **210**(3), 683–691. [https://doi.org/10.1111/j.1432-1033.1992.tb17469.x](https://doi.org/10.1111/j.1432-1033.1992.tb17469.x)
+Gellner, K., Praetzel, G., & Bosch, T. C. G. (1992). Cloning and expression of a heat-inducible hsp70 gene in two species of Hydra which differ in their stress response. *European Journal of Biochemistry*, **210**(3), 683–691. [https://doi.org/10.1111/j.1432-1033.1992.tb17469.x](https://doi.org/10.1111/j.1432-1033.1992.tb17469.x){target="_blank"}
 
 ::: {.fragment}
 ::: {style="padding-left: 2rem; padding-right: 2rem; font-size: 0.9rem"}
 Investigates the molecular mechanics underlying the divergence in thermal tolerance between *H. vulgaris* and *H. oligactis*, demonstrating transcriptional differences in hsp70 expression under thermal stress.[AI Gemini]
 :::
 
-Martínez, D. E., Iñiguez, A. R., Percell, K. M., Willner, J. B., Signorovitch, J., & Campbell, R. D. (2010). Phylogeny and biogeography of *Hydra* (Cnidaria: Hydridae) using mitochondrial and nuclear DNA sequences. *Molecular Phylogenetics and Evolution*, **57**(1), 403–410. [https://doi.org/10.1016/j.ympev.2010.06.012](https://doi.org/10.1016/j.ympev.2010.06.012)
+Martínez, D. E., Iñiguez, A. R., Percell, K. M., Willner, J. B., Signorovitch, J., & Campbell, R. D. (2010). Phylogeny and biogeography of *Hydra* (Cnidaria: Hydridae) using mitochondrial and nuclear DNA sequences. *Molecular Phylogenetics and Evolution*, **57**(1), 403–410. [https://doi.org/10.1016/j.ympev.2010.06.012](https://doi.org/10.1016/j.ympev.2010.06.012){target="_blank"}
 
 Schulze, P. (1914). Bestimmungstabelle der deutschen Hydraarten (Vorläufige Mitteilung). *Sitzungsberichte der Gesellschaft Naturforschender Freunde zu Berlin*, 1914(9), 395–398.
 
-Ye, S., Badhiwala, K. N., Robinson, J. T., Cho, W. H., & Siemann, E. (2019). Thermal plasticity of a freshwater cnidarian holobiont: detection of trans-generational effects in asexually reproducing hosts and symbionts. *The ISME Journal*, **13**(8), 2058–2067. [https://doi.org/10.1038/s41396-019-0413-0](https://doi.org/10.1038/s41396-019-0413-0)
+Ye, S., Badhiwala, K. N., Robinson, J. T., Cho, W. H., & Siemann, E. (2019). Thermal plasticity of a freshwater cnidarian holobiont: detection of trans-generational effects in asexually reproducing hosts and symbionts. *The ISME Journal*, **13**(8), 2058–2067. [https://doi.org/10.1038/s41396-019-0413-0](https://doi.org/10.1038/s41396-019-0413-0){target="_blank"}
 
 ::: {.fragment}
 ::: {style="padding-left: 2rem; padding-right: 2rem; font-size: 0.9rem"}
