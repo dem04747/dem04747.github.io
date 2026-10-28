@@ -28,7 +28,7 @@ Arguably the most comprehensive molecular phylogeny of the genus *Hydra* to date
 
 ******
 
-![Maximum Likelihood Phylogram from Martinez et a. 2010. Please click on the image to enlarge it and inspect specific details](mpetree2.svg){.lightbox fig-alt="Clades" style="width: 100%; display: block; margin-left: auto; margin-right: 10; font-size: 0.9rem"}
+![Maximum Likelihood Phylogram from Martinez et al. 2010. Please click on the image to enlarge it and inspect specific details](mpetree2.svg){.lightbox fig-alt="Clades" style="width: 100%; display: block; margin-left: auto; margin-right: 10; font-size: 0.9rem"}
 
 
 *****
