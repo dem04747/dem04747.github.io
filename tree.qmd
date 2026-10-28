@@ -21,13 +21,13 @@ Arguably the most comprehensive molecular phylogeny of the genus *Hydra* to date
 5. The **Viridissima Group** includes all green hydra,  *H. viridissima* The **Braueri group** includes *H. hymanae, H. utahensis,* and *H. circumcincta*. The **Oligactis group** includes *H. oligactis, H. canadensis,* and *H. oxycnida*. And the **Vulgaris group** includes *H. vulgaris*.  Also included in this group are *H. carnea, H.littoralis,* and *H. magnipapillata strain 105*. These species are nested well inside the group and cannot be distinguished from other strains; nothing in the tree suggests that they should be considered a different species.
 6. Since its description by Schulze (1914), *H. circumcincta* has been considered a European hydra. However, its discovery in Alaska suggests that  *H. circumcincta* may have a circumpolar distribution.
 7. Only two of the nine species of hydras, *H. viridissima* and *H. vulgaris*,  occur on continents derived from Gondwana—landmasses that today contain large territories south of the Equator[^1]. 
-8. Based on that observation (7.), the authors suggest an important hypotheses: Hydras originated in Lauratia and the only two species capable of colonizing the Gondwana-derived continents were *H. viridissima* and *H. vulgaris* because of their higher tolerance to temperature (Bosch et al. 1988, Gellner et al. 1992, Ye el at. 2019). 
+8. Based on that observation (7.), the authors suggest an important hypotheses: Hydras originated in Laurasia and the only two species capable of colonizing the Gondwana-derived continents were *H. viridissima* and *H. vulgaris* because of their higher tolerance to temperature (Bosch et al. 1988, Gellner et al. 1992, Ye el at. 2019). 
 8. 
 
 
 
 ******
-![Maxiumn Likelihood Phylogram from Martinez et a. 2010. Please click on the phyologram to enlarge it and inspect specific details](mpetree.png){.lightbox fig-alt="Clades" style="width: 100%; display: block; margin-left: auto; margin-right: 10; font-size: 0.9rem"}
+![Maximum Likelihood Phylogram from Martinez et a. 2010. Please click on the image to enlarge it and inspect specific details](mpetree.png){.lightbox fig-alt="Clades" style="width: 100%; display: block; margin-left: auto; margin-right: 10; font-size: 0.9rem"}
 
 
 *****

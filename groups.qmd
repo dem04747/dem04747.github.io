@@ -16,7 +16,7 @@ Building on Schulze's (1917) idea that hydra can be clustered into morphological
 
 Although Campbell placed *H. lirosoma* in the Braueri group due to the broad shape of its holotrichous isorhiza nematocysts, he noted that it differs from other group members *"by virtue of its spherical embryotheca, other species usually have flattened embryothecae that adhere to the substratum."*  Subsequent genomic characterization indicates that *H. lirosoma* actually represents an entirely distinct group of hydra. The identification key below has been modified from Campbell (1987) to reflect this updated taxonomic status.
 
-It is important to note that **Campbell's groups** were comfirmed to correspond to monophyletic groups (clades) of hydra (Martínez et al. 2010). 
+It is important to note that **Campbell's groups** were confirmed to correspond to monophyletic groups (clades) of hydra (Martínez et al. 2010). 
 
 ## Key to hydra clades
 

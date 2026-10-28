@@ -12,9 +12,9 @@ execute:
 ***
 ## Species distribution
 
-The map below displays the locations of hydra collected throughtout the world.  These **hydras were identified by sequencing** the Internal Transcribed Spacers (ITS-1 and ITS-2) of ribosomal DNA. This marker is very effective to distinguish between different species because the sequences are quite distinct (Martínez et al, 2010). When possible the identification was corrobotated by looking at morphological traits like nematocytes (mainly stenoteles and holotrychous isorhizas), embryothecae, and tentacle emergence in buds (see the [key to identify clades](groups.qmd) for additional details).
+The map below displays the locations of hydra collected throughout the world.  These **hydras were identified by sequencing** the Internal Transcribed Spacers (ITS-1 and ITS-2) of ribosomal DNA. This marker is very effective to distinguish between different species because the sequences are quite distinct (Martínez et al, 2010). When possible the identification was corroborated by looking at morphological traits like nematocysts (mainly stenoteles and holotrychous isorhizas), embryothecae, and tentacle emergence in buds (see the [key to identify clades](groups.qmd) for additional details).
 
-Please use your computer pad to enlarge the zone you want to observe. There is little we can do about the map projection which distorts the true areas of the world exagerating lands at higher latitudes. 
+Please use your computer pad to enlarge the zone you want to observe. There is little we can do about the map projection which distorts the true areas of the world exaggerating lands at higher latitudes. 
 
 
 ```{r}

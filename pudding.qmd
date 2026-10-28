@@ -51,13 +51,13 @@ total_letters <- summarize(letters_year, comma(sum(count)))
 
 # Where do you get intimate advice?
 
-Seeking advice from friends is not always easy. Not everyone is a good confidant and sometimes our secrets are too embarrasing or too delicate to reveal outloud. For centuries, the truthwordy confidants of people with power were individuals bound by a vow of secrecy, priest for example.  With the development of the printed press and later the radio, people found a chance to anonimously shared their stories and ask for advice. 
+Seeking advice from friends is not always easy. Not everyone is a good confidant and sometimes our secrets are too embarrassing or too delicate to reveal out loud. For centuries, the truth wordy confidants of people with power were individuals bound by a vow of secrecy, priest for example.  With the development of the printed press and later the radio, people found a chance to anonymously shared their stories and ask for advice. 
 
 In Spain the most famous radio advice show, *El Consultorio de Elena Francis*, run continuously from 1947 to 1984. For nearly four decades, millions of Spanish women tuned in or wrote letters to *Señora Francis* seeking guidance on personal issues, relationship struggles, family drama, and domestic problems. Interestingly, the show became the moral watchdog of the Franco regime.  The responses broadcasted reflected the conservative, patriarchal, and Catholic values endorsed by the Francoist regime. Advice frequently encouraged women to endure infidelity, domestic hardship, or mistreatment, emphasizing patience, devotion, and submission to preserve the family structure.  
 
-The *Señora Francis* of the USA is *Dear Abby*, a column that has been runnng countiously since 1956 and has been sindycated in more than 1,200 newspapers. The letters sent to Dear Abby have been compilated by **The Pudding**, an award-winning digital publication that creates visual essays and interactive data visualizations to explain culturally debated topics and complex ideas. 
+The *Señora Francis* of the USA is *Dear Abby*, a column that has been running continuously since 1956 and has been syndicated in more than 1,200 newspapers. The letters sent to Dear Abby have been compiled by **The Pudding**, an award-winning digital publication that creates visual essays and interactive data visualizations to explain culturally debated topics and complex ideas. 
 
-In the The Putting article, [30 Years of American Anxietis](https://pudding.cool/2018/11/dearabby/#histogram__category--religion), authors Ilia Blinderman, Caitlyn Ralph, and Russell Samora (with illustrations by Thoka Maer) identify *the most debated topics* by Dear Abby readers:  sex, religion, and LGBTQ issues. The articule includes many of the letters that are worth reading! 
+In the The Putting article, [30 Years of American Anxietis](https://pudding.cool/2018/11/dearabby/#histogram__category--religion), authors Ilia Blinderman, Caitlyn Ralph, and Russell Samora (with illustrations by Thoka Maer) identify *the most debated topics* by Dear Abby readers:  sex, religion, and LGBTQ issues. The article includes many of the letters that are worth reading! 
 
 Here, I do my own analysis of `r total_letters` *Dear Abby* letters from 1985 to 2017 from an archive which can be found in the [The Pudding Github site](https://github.com/the-pudding/data/tree/master/dearabby). 
 
@@ -535,7 +535,7 @@ for (i in seq_along(random_sample)) {
 
 Although **Dear Abby** was first published in *The San Francisco Chronicle* on January 9, 1956, the data analyzed here ranges from 1985 to 2017. The AIDS (Acquired Immune Deficiency Syndrome) pandemic officially began on June 5, 1981, when the U.S. Centers for Disease Control and Prevention (CDC) published a report detailing a rare form of pneumonia (*Pneumocystis carinii*) in five young gay men in Los Angeles. In 1985, the U.S. Food and Drug Administration (FDA) approved the first commercial blood test for HIV (Human Immunodeficiency Virus), allowing blood banks to screen donations. Public fear peaked following high-profile diagnoses, such as actor Rock Hudson publicizing his illness before dying in October 1985.
 
-Did the Dear Abby letters reflect the public preocupation for the AIDS pandemic in the 1980s? Below are plots showing the number of letters that included the words *AIDS* and *gay* or *homosexual*. For comparison, letters containing the word *cat* are also displayed. 
+Did the Dear Abby letters reflect the public preoccupation for the AIDS pandemic in the 1980s? Below are plots showing the number of letters that included the words *AIDS* and *gay* or *homosexual*. For comparison, letters containing the word *cat* are also displayed. 
 
 ```{r}
 #1. Make list of words of ineterest 
