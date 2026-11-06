@@ -61,8 +61,9 @@ leaflet(hydra_clean) %>%
       "<b>Strain:</b> ", strain, "<br>",
       "<b>Locality:</b> ", col_locality, "<br>",
       "<b>Collector:</b> ", col_name, "<br>",
-      "<b>Photo:</b> <a href='", photo_url, "' target='_blank'>View Location Photo</a>"
-    )
+      # "<b>Photo:</b> <a href='", photo_url, "' target='_blank'>View Location Photo</a>",
+      "<b>Photo:</b><br>",
+      "<img src='", photo_url, "' style='max-width:200px; height:auto; border-radius:4px; margin-top:5px;'>"    )
   ) %>%
   addLegend(
     "bottomright", 
