@@ -42,6 +42,7 @@ hydra_clean <- hydra_sw %>%
 
 
 ```{r}
+#| echo: false
 # Create a color palette matching your species
 pal <- colorFactor(
   palette = c("red", "darkorange", "pink", "purple", "blue", "gold", "forestgreen", "sienna"),
