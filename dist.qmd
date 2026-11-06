@@ -40,8 +40,8 @@ hydra_clean <- hydra_sw %>%
   filter(!is.na(lat2), !is.na(long2))
 ```
 
+
 ```{r}
-#| echo: false
 # Create a color palette matching your species
 pal <- colorFactor(
   palette = c("red", "darkorange", "pink", "purple", "blue", "gold", "forestgreen", "sienna"),
@@ -55,7 +55,13 @@ leaflet(hydra_clean) %>%
     color = ~pal(species),
     radius = 5,
     stroke = FALSE, fillOpacity = 0.8,
-    popup = ~paste0("<b>Species:</b> ", species, "<br><b>Strain:</b> ", strain, "<br><b>Locality:</b> ", col_locality, "<br><b>Collector:</b> ", col_name, "<b>Photo:</b> <a href='", photo_url, "' target='_blank'>View Location Photo</a>")
+    popup = ~paste0(
+      "<b>Species:</b> ", species, "<br>",
+      "<b>Strain:</b> ", strain, "<br>",
+      "<b>Locality:</b> ", col_locality, "<br>",
+      "<b>Collector:</b> ", col_name, "<br>",
+      "<b>Photo:</b> <a href='", photo_url, "' target='_blank'>View Location Photo</a>"
+    )
   ) %>%
   addLegend(
     "bottomright", 
@@ -64,7 +70,8 @@ leaflet(hydra_clean) %>%
     title = "Species", 
     opacity = 1
   ) %>%
-  # This custom HTML/CSS snippet rounds the legend color boxes into circles
+
+# This custom HTML/CSS snippet rounds the legend color boxes into circles
   htmlwidgets::onRender("
     function(el, x) {
       var d = document.querySelectorAll('.info.legend i');
@@ -76,5 +83,4 @@ leaflet(hydra_clean) %>%
       }
     }
   ")
-  
 ```
