@@ -19,6 +19,7 @@ Please use your computer pad to enlarge the zone you want to observe. There is l
 
 ```{r}
 #| echo: false
+#| eval: false
 # 1. Load libraries and copy data
 library(dplyr)
 library(sf)
@@ -29,14 +30,39 @@ hydra_sw <- read.csv("https://raw.githubusercontent.com/dem04747/Data2/main/hydr
 
 ```
 
+
+```{r}
+#| echo: false
+# 1. Load libraries and copy data
+library(tidyverse)
+library(dplyr)
+library(sf)
+library(readr)
+library(leaflet)
+
+hydra_sw <- read.csv("https://raw.githubusercontent.com/dem04747/Data2/main/strains_nov26.csv")
+
+```
+
+```{r}
+hydra_redux <- hydra_sw |>
+  select(local_name,strain,species,lat2,long2,col_locality,col_name,url)|>
+  # filter(col_name != "Richard Campbell") |>
+  filter(
+    !is.na(lat2) & lat2 != "" & str_trim(lat2) != "",
+    !is.na(long2) & long2 != "" & str_trim(long2) != ""
+  )
+
+```
+
 ```{r}
 #| echo: false
 # Ensure your coordinates are numeric
-hydra_clean <- hydra_sw %>% 
+hydra_clean <- hydra_redux |> 
   mutate(
     lat2 = parse_number(as.character(lat2)),
     long2 = parse_number(as.character(long2))
-  ) %>%
+  ) |>
   filter(!is.na(lat2), !is.na(long2))
 ```
 
@@ -63,7 +89,7 @@ leaflet(hydra_clean) %>%
       "<b>Collector:</b> ", col_name, "<br>",
       # "<b>Photo:</b> <a href='", photo_url, "' target='_blank'>View Location Photo</a>",
       # "<b>Photo:</b><br>",
-      "<img src='", photo_url, "' style='max-width:200px; height:auto; border-radius:4px; margin-top:5px;'>"    )
+      "<img src='", url, "' style='max-width:200px; height:auto; border-radius:4px; margin-top:5px;'>"    )
   ) %>%
   addLegend(
     "bottomright", 
