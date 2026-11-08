@@ -116,3 +116,12 @@ leaflet(hydra_clean) %>%
     }
   ")
 ```
+
+```{r}
+#| echo: false
+#| eval: false
+paste0("<a href='", photo_url, "' target='_blank'>",
+       "<img src='", photo_url, "' style='max-width:500px; height:auto; border-radius:4px; margin-top:5px;'>",
+       "</a>")
+```
+
