@@ -84,7 +84,7 @@ species_colors <- c(
   "lirosoma"       = "pink",
   "oligactis"      = "darkorange",
   "oxycnida"       = "#e7298a",
-  "unknown"        = "gray",
+  "unknown"        = "#4393c3",
   "utahensis"      = "blue",
   "viridissima"    = "#08a90e",
   "vulgaris"       = "#342626",
