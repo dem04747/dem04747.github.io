@@ -99,7 +99,7 @@ leaflet(hydra_clean) %>%
     radius = 5,
     stroke = FALSE, fillOpacity = 0.8,
     popup = ~paste0(
-      "<b>Species:</b> ", species, "<br>",
+      "<b>Species:</b> H. ", species, "<br>",
       "<b>Strain:</b> ", strain, "<br>",
       "<b>Locality:</b> ", col_locality, "<br>",
       "<b>Collector:</b> ", col_name, "<br>",
