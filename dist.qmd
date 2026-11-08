@@ -95,7 +95,7 @@ leaflet(hydra_clean) %>%
   "<b>Locality:</b> ", col_locality, "<br>",
   "<b>Collector:</b> ", col_name, "<br>",
   "<b>Google Maps:</b> <a href='https://www.google.com/maps/search/?api=1&query=", lat2, ",", long2, "' target='_blank'>Open in Google Maps</a><br>",
-  "<img src='", photo_url, "' style='max-width:300px; height:auto; border-radius:4px; margin-top:5px;'>" )
+  "<img src='", photo_url, "' style='max-width:400px; height:auto; border-radius:4px; margin-top:5px;'>" )
 ) %>%
   addLegend(
     "bottomright", 
