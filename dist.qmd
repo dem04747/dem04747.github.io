@@ -80,15 +80,14 @@ library(leaflet)
 species_colors <- c(
   "canadensis"     = "gold",
   "circumcincta"   = "purple",
-  "hymanae"        = "lightblue",
-  "lirosoma"       = "pink",
+  "hymanae"        = "#2bdff6",
+  "lirosoma"       = "#f07cb8",
   "oligactis"      = "darkorange",
   "oxycnida"       = "#e7298a",
   "unknown"        = "#4393c3",
   "utahensis"      = "blue",
   "viridissima"    = "#08a90e",
-  "vulgaris"       = "#342626",
-  "vulgaris (green)" = "olivedrab"
+  "vulgaris"       = "#342626"
 )
 
 # 2. Create the color factor mapping using the named vector
