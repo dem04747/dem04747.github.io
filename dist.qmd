@@ -45,6 +45,9 @@ hydra_sw <- read.csv("https://raw.githubusercontent.com/dem04747/Data2/main/stra
 ```
 
 ```{r}
+#| echo: false
+# Filter empty cells for species, lat2, and long2
+# Select relevant columns
 hydra_redux <- hydra_sw |>
   select(local_name,strain,species,lat2,long2,col_locality,col_name,photo_url)|>
   # filter(col_name != "Richard Campbell") |>
@@ -69,6 +72,9 @@ hydra_clean <- hydra_redux |>
 
 ```{r}
 #| echo: false
+
+library(RColorBrewer)
+library(leaflet)
 
 # 1. Define your specific species and their exact colors
 species_colors <- c(
@@ -99,13 +105,13 @@ leaflet(hydra_clean) %>%
     radius = 5,
     stroke = FALSE, fillOpacity = 0.8,
     popup = ~paste0(
-      "<b>Species:</b> H. ", species, "<br>",
-      "<b>Strain:</b> ", strain, "<br>",
-      "<b>Locality:</b> ", col_locality, "<br>",
-      "<b>Collector:</b> ", col_name, "<br>",
-      "<img src='", photo_url, "' style='max-width:200px; height:auto; border-radius:4px; margin-top:5px;'>"
-    )
-  ) %>%
+  "<b>Species:</b> H. ", species, "<br>",
+  "<b>Strain:</b> ", strain, "<br>",
+  "<b>Locality:</b> ", col_locality, "<br>",
+  "<b>Collector:</b> ", col_name, "<br>",
+  "<b>Google Maps:</b> <a href='https://www.google.com/maps/search/?api=1&query=", lat2, ",", long2, "' target='_blank'>Open in Google Maps</a><br>",
+  "<img src='", photo_url, "' style='max-width:200px; height:auto; border-radius:4px; margin-top:5px;'>" )
+) %>%
   addLegend(
     "bottomright", 
     pal = pal, 
