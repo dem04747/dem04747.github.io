@@ -46,13 +46,13 @@ hydra_sw <- read.csv("https://raw.githubusercontent.com/dem04747/Data2/main/stra
 
 ```{r}
 hydra_redux <- hydra_sw |>
-  select(local_name,strain,species,lat2,long2,col_locality,col_name,url)|>
+  select(local_name,strain,species,lat2,long2,col_locality,col_name,photo_url)|>
   # filter(col_name != "Richard Campbell") |>
+  filter(!is.na(species) & species != "" & str_trim(species) != "") |>
   filter(
     !is.na(lat2) & lat2 != "" & str_trim(lat2) != "",
     !is.na(long2) & long2 != "" & str_trim(long2) != ""
   )
-
 ```
 
 ```{r}
@@ -69,10 +69,26 @@ hydra_clean <- hydra_redux |>
 
 ```{r}
 #| echo: false
-# Create a color palette matching your species
+
+# 1. Define your specific species and their exact colors
+species_colors <- c(
+  "canadensis"     = "gold",
+  "circumcincta"   = "purple",
+  "hymanae"        = "lightblue",
+  "lirosoma"       = "pink",
+  "oligactis"      = "darkorange",
+  "oxycnida"       = "#e7298a",
+  "unknown"        = "gray",
+  "utahensis"      = "blue",
+  "viridissima"    = "#74c476",
+  "vulgaris"       = "#d7301f",
+  "vulgaris (green)" = "olivedrab"
+)
+
+# 2. Create the color factor mapping using the named vector
 pal <- colorFactor(
-  palette = c("red", "darkorange", "pink", "purple", "blue", "gold", "forestgreen", "sienna"),
-  domain = hydra_clean$species
+  palette = species_colors,
+  domain = names(species_colors) # or hydra_clean$species
 )
 
 leaflet(hydra_clean) %>%
@@ -87,9 +103,8 @@ leaflet(hydra_clean) %>%
       "<b>Strain:</b> ", strain, "<br>",
       "<b>Locality:</b> ", col_locality, "<br>",
       "<b>Collector:</b> ", col_name, "<br>",
-      # "<b>Photo:</b> <a href='", photo_url, "' target='_blank'>View Location Photo</a>",
-      # "<b>Photo:</b><br>",
-      "<img src='", url, "' style='max-width:200px; height:auto; border-radius:4px; margin-top:5px;'>"    )
+      "<img src='", photo_url, "' style='max-width:200px; height:auto; border-radius:4px; margin-top:5px;'>"
+    )
   ) %>%
   addLegend(
     "bottomright", 
@@ -98,8 +113,6 @@ leaflet(hydra_clean) %>%
     title = "Species", 
     opacity = 1
   ) %>%
-
-# This custom HTML/CSS snippet rounds the legend color boxes into circles
   htmlwidgets::onRender("
     function(el, x) {
       var d = document.querySelectorAll('.info.legend i');
