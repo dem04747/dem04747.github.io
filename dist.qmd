@@ -80,8 +80,8 @@ species_colors <- c(
   "oxycnida"       = "#e7298a",
   "unknown"        = "gray",
   "utahensis"      = "blue",
-  "viridissima"    = "#74c476",
-  "vulgaris"       = "#d7301f",
+  "viridissima"    = "#08a90e",
+  "vulgaris"       = "#342626",
   "vulgaris (green)" = "olivedrab"
 )
 
