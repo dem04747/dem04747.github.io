@@ -120,6 +120,8 @@ leaflet(hydra_clean) %>%
 ```
 
 ```{r}
+#| echo: false
+#| 
 library(RColorBrewer)
 library(leaflet)
 
@@ -158,7 +160,7 @@ leaflet(hydra_clean) %>%
       "<b>Google Maps:</b> <a href='[https://www.google.com/maps/search/?api=1&query=](https://www.google.com/maps/search/?api=1&query=)", lat2, ",", long2, "' target='_blank'>Open in Google Maps</a><br>",
       
       # Thumbnail with an onclick event to open an on-page overlay
-      "<img src='", photo_url, "' style='width:100%; max-width:250px; height:auto; border-radius:4px; margin-top:5px; cursor:pointer;' onclick='document.getElementById(\"modal_", strain, "\").style.display=\"flex\"'>",
+      "<img src='", photo_url, "' style='width:100%; max-width:400px; height:auto; border-radius:4px; margin-top:5px; cursor:pointer;' onclick='document.getElementById(\"modal_", strain, "\").style.display=\"flex\"'>",
       
       # Hidden overlay container on the same page
       "<div id='modal_", strain, "' style='display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;' onclick='this.style.display=\"none\"'>",
