@@ -157,8 +157,8 @@ leaflet(hydra_clean) %>%
       "<b>Strain:</b> ", strain, "<br>",
       "<b>Locality:</b> ", col_locality, "<br>",
       "<b>Collector:</b> ", col_name, "<br>",
-      "<b>Google Maps:</b> <a href='[https://www.google.com/maps/search/?api=1&query=](https://www.google.com/maps/search/?api=1&query=)", lat2, ",", long2, "' target='_blank'>Open in Google Maps</a><br>",
-      
+      "<b>Google Maps:</b> <a href='https://www.google.com/maps/search/?api=1&query=", lat2, ",", long2, "' target='_blank'>Open in Google Maps</a><br>",
+
       # Thumbnail with an onclick event to open an on-page overlay
       "<img src='", photo_url, "' style='width:100%; max-width:400px; height:auto; border-radius:4px; margin-top:5px; cursor:pointer;' onclick='document.getElementById(\"modal_", strain, "\").style.display=\"flex\"'>",
       
