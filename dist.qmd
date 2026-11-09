@@ -162,9 +162,10 @@ leaflet(hydra_clean) %>%
       # Thumbnail with an onclick event to open an on-page overlay
       "<img src='", photo_url, "' style='width:100%; max-width:400px; height:auto; border-radius:4px; margin-top:5px; cursor:pointer;' onclick='document.getElementById(\"modal_", strain, "\").style.display=\"flex\"'>",
       
-      # Hidden overlay container on the same page
-      "<div id='modal_", strain, "' style='display:none; position:fixed; top:0; left:0; width:66%; height:66%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;' onclick='this.style.display=\"none\"'>",
-      "<img src='", photo_url, "' style='max-width:56vw; max-height:56vh; width:auto; height:auto; object-fit:contain; border-radius:8px; box-shadow: 0 0 25px rgba(0,0,0,0.8);'>",
+
+# Hidden overlay container without the black box frame
+      "<div id='modal_", strain, "' style='display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:9999; cursor:pointer;' onclick='this.style.display=\"none\"'>",
+      "<img src='", photo_url, "' style='max-width:70vw; max-height:70vh; width:auto; height:auto; object-fit:contain; border-radius:6px; box-shadow: 0 0 30px rgba(0,0,0,0.7);'>",
       "</div>"
 
     ) # Closes paste0()
@@ -187,4 +188,23 @@ leaflet(hydra_clean) %>%
       }
     }
   ")
+```
+
+
+
+
+```{r}
+#| echo: false
+#| eval: false
+#| 
+# Hidden overlay container on the same page
+      "<div id='modal_", strain, "' style='display:none; position:fixed; top:0; left:0; width:66%; height:66%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;' onclick='this.style.display=\"none\"'>",
+      "<img src='", photo_url, "' style='max-width:56vw; max-height:56vh; width:auto; height:auto; object-fit:contain; border-radius:8px; box-shadow: 0 0 25px rgba(0,0,0,0.8);'>",
+      "</div>"
+
+
+      # Overlay container centered relative to the Leaflet map container
+      "<div id='modal_", strain, "' style='display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:90%; height:85%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center; border-radius:8px;' onclick='this.style.display=\"none\"'>",
+      "<img src='", photo_url, "' style='max-width:95%; max-height:95%; width:auto; height:auto; object-fit:contain; border-radius:6px; box-shadow: 0 0 25px rgba(0,0,0,0.8);'>",
+      "</div>"
 ```
