@@ -121,7 +121,7 @@ leaflet(hydra_clean) %>%
 
 ```{r}
 #| echo: false
-#| 
+#| eval: false
 library(RColorBrewer)
 library(leaflet)
 
@@ -191,7 +191,115 @@ leaflet(hydra_clean) %>%
 ```
 
 
+```{r}
+#| echo: false
+#| 
+library(RColorBrewer)
+library(leaflet)
 
+# 1. Define your specific species and their exact colors
+species_colors <- c(
+  "canadensis"     = "gold",
+  "circumcincta"   = "purple",
+  "hymanae"        = "#2bdff6",
+  "lirosoma"       = "#f07cb8",
+  "oligactis"      = "darkorange",
+  "oxycnida"       = "#e7298a",
+  "unknown"        = "#4393c3",
+  "utahensis"      = "blue",
+  "viridissima"    = "#08a90e",
+  "vulgaris"       = "#342626"
+)
+
+# 2. Create the color factor mapping using the named vector
+pal <- colorFactor(
+  palette = species_colors,
+  domain = names(species_colors) # or hydra_clean$species
+)
+
+leaflet(hydra_clean) %>%
+  addProviderTiles(providers$OpenStreetMap.Mapnik) %>%
+  addCircleMarkers(
+    lng = ~long2, lat = ~lat2,
+    color = ~pal(species),
+    radius = 5,
+    stroke = FALSE, fillOpacity = 0.8,
+    popup = ~paste0(
+      "<b>Species:</b> H. ", species, "<br>",
+      "<b>Strain:</b> ", strain, "<br>",
+      "<b>Locality:</b> ", col_locality, "<br>",
+      "<b>Collector:</b> ", col_name, "<br>",
+      "<b>Google Maps:</b> <a href='https://www.google.com/maps/search/?api=1&query=", lat2, ",", long2, "' target='_blank'>Open in Google Maps</a><br>",
+      
+      # Thumbnail image with JavaScript function call
+      "<img src='", photo_url, "' style='width:100%; max-width:250px; height:auto; border-radius:4px; margin-top:5px; cursor:pointer;' onclick='showMapModal(\"", photo_url, "\", this)'>"
+    )
+  ) %>%
+  addLegend(
+    "bottomright", 
+    pal = pal, 
+    values = ~species, 
+    title = "Species", 
+    opacity = 1
+  ) %>%
+  htmlwidgets::onRender("
+    function(el, x) {
+      // Create a global or attached function to handle the centered floating image
+      window.showMapModal = function(url, imgElement) {
+        // Find the map container element
+        var mapContainer = el;
+        
+        // Check if a modal already exists inside this map, if so remove it
+        var existingModal = mapContainer.querySelector('.map-photo-modal');
+        if (existingModal) {
+          existingModal.remove();
+        }
+        
+        // Create the overlay container
+        var modal = document.createElement('div');
+        modal.className = 'map-photo-modal';
+        modal.style.position = 'absolute';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.backgroundColor = 'rgba(0, 0, 0, 0.75)';
+        modal.style.zIndex = '10000';
+        modal.style.display = 'flex';
+        modal.style.justifyContent = 'center';
+        modal.style.alignItems = 'center';
+        modal.style.cursor = 'pointer';
+        
+        // Create the enlarged image
+        var bigImg = document.createElement('img');
+        bigImg.src = url;
+        bigImg.style.maxWidth = '80%';
+        bigImg.style.maxHeight = '80%';
+        bigImg.style.borderRadius = '8px';
+        bigImg.style.boxShadow = '0 0 30px rgba(0,0,0,0.8)';
+        bigImg.style.objectFit = 'contain';
+        
+        modal.appendChild(bigImg);
+        
+        // Click anywhere on the overlay to close it
+        modal.onclick = function() {
+          modal.remove();
+        };
+        
+        mapContainer.appendChild(modal);
+      };
+      
+      // Legend circle styling fixes
+      var d = document.querySelectorAll('.info.legend i');
+      for (var i = 0; i < d.length; i++) {
+        d[i].style.borderRadius = '50%';
+        d[i].style.width = '12px';
+        d[i].style.height = '12px';
+        d[i].style.marginTop = '3px';
+      }
+    }
+  ")
+```
 
 ```{r}
 #| echo: false
