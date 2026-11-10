@@ -273,8 +273,8 @@ leaflet(hydra_clean) %>%
         // Create the enlarged image
         var bigImg = document.createElement('img');
         bigImg.src = url;
-        bigImg.style.maxWidth = '80%';
-        bigImg.style.maxHeight = '80%';
+        bigImg.style.maxWidth = '95%';
+        bigImg.style.maxHeight = '95%';
         bigImg.style.borderRadius = '8px';
         bigImg.style.boxShadow = '0 0 30px rgba(0,0,0,0.8)';
         bigImg.style.objectFit = 'contain';
