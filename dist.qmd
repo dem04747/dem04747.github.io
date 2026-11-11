@@ -18,7 +18,7 @@ Please enlarge map to see all the collection locations (some points are not visi
 
 Select maps for individual species below.
 
-| [**Hydra viridissima**](viridissima.qmd) | [**Hydra vulgaris**](vulgaris.qmd) | [**Hydra oligactis**](oligactis.qmd) | [**Hydra circumcincta**](circumcincta.qmd)
+| [**Hydra viridissima**](viridissima.qmd) | [**Hydra vulgaris**](vulgaris.qmd) | [**Hydra oligactis**](oligactis.qmd) | [**Hydra circumcincta**](circumcincta.qmd) 
 
 | [**Hydra hymanae**](hymanae.qmd) | [**Hydra utahensis**](utahensis.qmd) | [**Hydra canadensis**](canadensis.qmd) | [**Hydra oxycnida**](oxycnida.qmd)
 
@@ -201,7 +201,6 @@ leaflet(hydra_clean) %>%
 
 ```{r}
 #| echo: false
-#| 
 library(RColorBrewer)
 library(leaflet)
 
@@ -308,20 +307,4 @@ leaflet(hydra_clean) %>%
       }
     }
   ")
-```
-
-```{r}
-#| echo: false
-#| eval: false
-#| 
-# Hidden overlay container on the same page
-      "<div id='modal_", strain, "' style='display:none; position:fixed; top:0; left:0; width:66%; height:66%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;' onclick='this.style.display=\"none\"'>",
-      "<img src='", photo_url, "' style='max-width:56vw; max-height:56vh; width:auto; height:auto; object-fit:contain; border-radius:8px; box-shadow: 0 0 25px rgba(0,0,0,0.8);'>",
-      "</div>"
-
-
-      # Overlay container centered relative to the Leaflet map container
-      "<div id='modal_", strain, "' style='display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:90%; height:85%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center; border-radius:8px;' onclick='this.style.display=\"none\"'>",
-      "<img src='", photo_url, "' style='max-width:95%; max-height:95%; width:auto; height:auto; object-fit:contain; border-radius:6px; box-shadow: 0 0 25px rgba(0,0,0,0.8);'>",
-      "</div>"
 ```
