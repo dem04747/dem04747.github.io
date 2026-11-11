@@ -13,7 +13,8 @@ execute:
 
 ## *Hydra vulgaris* distribution
 
----
+ Back to all species [distribution](dist.qmd)
+
 
  
 ```{r}
