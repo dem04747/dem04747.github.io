@@ -13,8 +13,9 @@ execute:
 
 ## *Hydra circumcincta* distribution
 
- Back to all species [distribution](dist.qmd)
+ Select maps for individual species below.
 
+[**All**](dist.qmd) | [***H. viridissima***](viridissima.qmd) | [***H. vulgaris***](vulgaris.qmd) | [***H. oligactis***](oligactis.qmd) | [***H. circumcincta***](circumcincta.qmd) | [***H. hymanae***](hymanae.qmd) | [***H. utahensis***](utahensis.qmd) | [***H. canadensis***](canadensis.qmd) | [***H. oxycnida***](oxycnida.qmd)
  
 ```{r}
 #| echo: false
