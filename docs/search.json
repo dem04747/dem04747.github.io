@@ -35,32 +35,39 @@
     "text": "Footnotes\n\n\nLaurasia and Gondwana are the two giant landmasses that formed when the ancient supercontinent Pangaea split apart roughly 200 million years ago.↩︎"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About these visualizations",
+    "objectID": "orcas.html",
+    "href": "orcas.html",
+    "title": "Orca Encounters",
     "section": "",
-    "text": "This website and the visualizations here were created as assignments for the Foundations of Data Science in R course taught by Professor Jo Hardin at Pomona College.\nI audited the class in the fall of 2026 and I absolutely loved the course. I am indebted to Professor Hardin, who gracefully allowed my unusual presence in her classroom. I am also grateful to my students Ava Santos-Volpe and Ryan (bRyan) Mooney who insisted that I take this class; they knew I would love it.\nThe visualizations presented here represent assignments designed for students to learn various data science concepts. Students were free to select TidyTuesday datasets to analyze and display. I chose datasets on Orca Encounters in Puget Sound, Dear Abby letters, and Palmtrees to practice different types of graphs."
+    "text": "Orcas are nasty fish that enjoy munching on people!\nNope! There are several things that are wrong with that picture. Orcas are cetaceans related to dolphins that live in all of the world oceans. They are higly intelligent predators that hunt in coordinated family pods using very elaborate strategies. Their varied diet includes fish, sharks, smaller marine mammals (e.g. see lions), and even whales. But not humans!"
   },
   {
-    "objectID": "about.html#tidytuesday",
-    "href": "about.html#tidytuesday",
-    "title": "About these visualizations",
-    "section": "TidyTuesday",
-    "text": "TidyTuesday\nWhat is TidyTuesday? A response from AI (Gemini)\nTidyTuesday is a weekly data project aimed at the R community, hosted by the R4DS Online Learning Community (Data Science in a Box / R for Data Science).\nEvery Tuesday, a new dataset is posted on GitHub, usually accompanied by a brief article or chart exploring it. Participants from around the world download the data, analyze it, create data visualizations (most commonly using ggplot2), and share their code and plots on social media (primarily on X/Twitter and LinkedIn) using the hashtag #TidyTuesday.\n\nKey Features of TidyTuesday\n\nFocus on the “Tidyverse”: The project encourages the use of tidy data principles and packages from the tidyverse ecosystem (like dplyr, tidyr, and ggplot2), though participants are free to use any tools or programming languages they prefer.\nReal-World Data: The datasets cover a wide variety of engaging, often quirky topics—ranging from historical events and scientific discoveries to pop culture, sports, and environmental statistics.\nLearning and Community: It serves as a low-stakes, supportive environment for beginners and experienced data scientists alike to practice data wrangling, sharpen data visualization skills, and learn from how others approach the same dataset."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Daniel Martínez Scavino",
-    "section": "",
-    "text": "Hola! I am Daniel Martínez Scavino, a biology professor at Pomona College. My research centers on Hydra—the remarkable, biologically immortal organism that somehow missed the memo on aging. When I am not in the lab or teaching Introductory Genetics or Genomics & Transcriptomics, you can usually find me exploring mountain trails, traveling, cooking, or diving into new languages. I was born in Argentina so my native language is Spanish.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
-  },
-  {
-    "objectID": "dist.html#species-distribution",
-    "href": "dist.html#species-distribution",
+    "objectID": "groups.html#campbells-groups",
+    "href": "groups.html#campbells-groups",
     "title": "Hydras of the World",
-    "section": "Species distribution",
-    "text": "Species distribution\nThe map below displays the locations of hydra collected throughout the world. These hydras were identified by sequencing the Internal Transcribed Spacers (ITS-1 and ITS-2) of ribosomal DNA. This marker is very effective to distinguish between different species because the sequences are quite distinct (Martínez et al, 2010). When possible the identification was corroborated by looking at morphological traits like nematocysts (mainly stenoteles and holotrychous isorhizas), embryothecae, and tentacle emergence in buds (see the key to identify clades for additional details).\nPlease enlarge map to see all the collection locations (some points are not visible at this scale). There is little we can do about the map projection which distorts the true areas of the world exaggerating lands at higher latitudes."
+    "section": "Campbell’s groups",
+    "text": "Campbell’s groups\nBuilding on Schulze’s (1917) idea that hydra can be clustered into morphological types, Campbell (1987) established four groups of hydra: the Viridissima group (green hydras), the Braueri group (gracile hydras), the Oligactis group (stalked hydras) and the Vulgaris group (common hydras). Campbell summarized the distinct morphological traits of these groups into an identification key. In the same paper, Campbell described a new species, H. lirosoma, collected from a creek near the Okefenokee Swamp in southern Georgia, USA.\nAlthough Campbell placed H. lirosoma in the Braueri group due to the broad shape of its holotrichous isorhiza nematocysts, he noted that it differs from other group members “by virtue of its spherical embryotheca, other species usually have flattened embryothecae that adhere to the substratum.” Subsequent genomic characterization indicates that H. lirosoma actually represents an entirely distinct group of hydra. The identification key below has been modified from Campbell (1987) to reflect this updated taxonomic status.\nIt is important to note that Campbell’s groups were confirmed to correspond to monophyletic groups (clades) of hydra (Martínez et al. 2010)."
+  },
+  {
+    "objectID": "groups.html#key-to-hydra-clades",
+    "href": "groups.html#key-to-hydra-clades",
+    "title": "Hydras of the World",
+    "section": "Key to hydra clades",
+    "text": "Key to hydra clades\n\n\n\n\n1a.\n\n\nHydra green due to intracellular algal symbionts;  stenotele nematocysts not longer than 11 µm …………………………………. Viridissima group\n\n\n1b.\n\n\nHydra not green; stenotele nematocysts longer than 11 µm\n\n\n\n\n2a.\n\n\nHolotrichous isorhiza nematocysts plump (at half as broad as long)\n\n\n\n\n3a.\n\n\nFlatten embryotheca without spines …………………………. Braueri group\n\n\n3b.\n\n\nRound embryotheca with spines ……………………………… Lirosoma group\n\n\n\n\n2b.\n\n\nHolotrichous isorhiza slender, or if plump then embryotheca with spines\n\n\n\n\n4a.\n\n\nBuds acquire 2 lateral tentacles before other tentacles appear; otherwise, stenoteles at least 1.5 times as long as broad  smooth, spherical embryotheca ………………………………. Oligactis group\n\n\n4b.\n\n\nBuds acquire tentacles in some other order; otherwise,  stenoteles less than 1.5 times as long as broad  spherical embryotheca with spines……………………………. Vulgaris group\n\n\n\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263.\nMartínez D.E. , A.R. Iñiguez; K.M. Percell; J.B. Willner; J. Signorovitch; R.D. Campbell, 2010. Phylogeny and biogeography of Hydra (Cnidaria: Hydridae) using mitochondrial and nuclear DNA sequences. Molecular Phylogenetics and Evolution 57(20): 403-410.\nSchulze, P. (1917). Neue Beiträge zu einer Monographie der Gattung Hydra. Archiv für Biontologie, 4(1), 29–119."
+  },
+  {
+    "objectID": "palmtrees.html",
+    "href": "palmtrees.html",
+    "title": "Palm Trees of the World",
+    "section": "",
+    "text": "Palm trees can be tall! Or very short…\nPalm trees are quite variable in height ranging from 0 to 170 meters. Palm tress can be grouped by Tribes (a taxonomic rank between family and genus). Members of some tribes are taller than trees in other tribes. Calameae and Lepidocaryeae are two tribes with particularly tall trees.\n\n\n\n\n\n\n\n\n\nThe tibble below shows the top and the bottom 5 tribes according to mean height.\n\n\n# A tibble: 10 × 4\n   palm_tribe     mean_height min_height max_height\n   &lt;chr&gt;                &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n 1 Lepidocaryeae       25.2            0        150\n 2 Corypheae           22.1            5         45\n 3 Roystoneeae         21.5           15         40\n 4 Calameae            20.0            0        170\n 5 Borasseae           18.7            0         34\n 6 Chamaedoreeae        3.63           0         20\n 7 Eugeissoneae         2.22           0          8\n 8 Podococceae          1              0          2\n 9 Sclerospermeae       0.667          0          2\n10 Nypoideae            0              0          0"
+  },
+  {
+    "objectID": "viridissima.html#hydra-viridissima-distribution",
+    "href": "viridissima.html#hydra-viridissima-distribution",
+    "title": "Hydras of the World",
+    "section": "Hydra viridissima distribution",
+    "text": "Hydra viridissima distribution"
   },
   {
     "objectID": "pudding.html",
@@ -91,32 +98,39 @@
     "text": "Hydra species lists\nMany new species of hydra have been proposed since the first hydra, Hydra oligactis, was described by Antonie Philips van Leeuwenhoek in a letter sent to the Royal Society of London in 1702 (The letter was published in the Philosophical Transactions of the Royal Society of London a year later–Van Leeuwenhoek, 1703). The few distinct morphological traits of hydra make it difficult to distinguish between species and consequently to describe new ones. While reading descriptions of many new species, one is tempted to assume that these new species were proposed simply based on their geographical origin. The figure below shows three lists of species from papers by Ewer (1948), Grayson (1971), and Campbell (1987). The number of “valid” species included in these lists varies significantly. One of the best analysis of the validity of hydra species is the paper by Campbell (1987). Anyone with interest on hydra taxonomy is encourage to read that paper. A phylogenetic study using molecular markers and including more than 102 strains collected from around the world (Martínez et al. 2010), suggests that the number of species maybe much smaller. There seem to be 9 distinct “molecular” clades (monophyletic groups) of hydra which correspond to 9 previously described morphological species.\n  \nPeter Simon Pallas (1741–1811) was a prominent German zoologist and botanist who spent a large portion of his career working in the Russian Empire. He is widely recognized as one of the great naturalists and explorers of the 18th and early 19th centuries.\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263.\nEwer, R. F. (1948). A review of the Hydridae and two new species of Hydra from Natal. Proceedings of the Zoological Society of London, 118(1), 226–244.\nGrayson, R. F. (1971). The freshwater hydras of Europe. I. A review of the European species. Archiv für Hydrobiologie, 68, 436–449.\nVan Leeuwenhoek, A. (1703). Part of a Letter from Mr Antony van Leeuwenhoek, F. R. S. concerning Green Weeds Growing in Water, and Some Animalcula Found about Them. Philosophical Transactions of the Royal Society of London, 23(283), 1304–1311."
   },
   {
-    "objectID": "palmtrees.html",
-    "href": "palmtrees.html",
-    "title": "Palm Trees of the World",
-    "section": "",
-    "text": "Palm trees can be tall! Or very short…\nPalm trees are quite variable in height ranging from 0 to 170 meters. Palm tress can be grouped by Tribes (a taxonomic rank between family and genus). Members of some tribes are taller than trees in other tribes. Calameae and Lepidocaryeae are two tribes with particularly tall trees.\n\n\n\n\n\n\n\n\n\nThe tibble below shows the top and the bottom 5 tribes according to mean height.\n\n\n# A tibble: 10 × 4\n   palm_tribe     mean_height min_height max_height\n   &lt;chr&gt;                &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n 1 Lepidocaryeae       25.2            0        150\n 2 Corypheae           22.1            5         45\n 3 Roystoneeae         21.5           15         40\n 4 Calameae            20.0            0        170\n 5 Borasseae           18.7            0         34\n 6 Chamaedoreeae        3.63           0         20\n 7 Eugeissoneae         2.22           0          8\n 8 Podococceae          1              0          2\n 9 Sclerospermeae       0.667          0          2\n10 Nypoideae            0              0          0"
-  },
-  {
-    "objectID": "groups.html#campbells-groups",
-    "href": "groups.html#campbells-groups",
+    "objectID": "dist.html#species-distribution",
+    "href": "dist.html#species-distribution",
     "title": "Hydras of the World",
-    "section": "Campbell’s groups",
-    "text": "Campbell’s groups\nBuilding on Schulze’s (1917) idea that hydra can be clustered into morphological types, Campbell (1987) established four groups of hydra: the Viridissima group (green hydras), the Braueri group (gracile hydras), the Oligactis group (stalked hydras) and the Vulgaris group (common hydras). Campbell summarized the distinct morphological traits of these groups into an identification key. In the same paper, Campbell described a new species, H. lirosoma, collected from a creek near the Okefenokee Swamp in southern Georgia, USA.\nAlthough Campbell placed H. lirosoma in the Braueri group due to the broad shape of its holotrichous isorhiza nematocysts, he noted that it differs from other group members “by virtue of its spherical embryotheca, other species usually have flattened embryothecae that adhere to the substratum.” Subsequent genomic characterization indicates that H. lirosoma actually represents an entirely distinct group of hydra. The identification key below has been modified from Campbell (1987) to reflect this updated taxonomic status.\nIt is important to note that Campbell’s groups were confirmed to correspond to monophyletic groups (clades) of hydra (Martínez et al. 2010)."
+    "section": "Species distribution",
+    "text": "Species distribution\nThe map below displays the locations of hydra collected throughout the world. These hydras were identified by sequencing the Internal Transcribed Spacers (ITS-1 and ITS-2) of ribosomal DNA. This marker is very effective to distinguish between different species because the sequences are quite distinct (Martínez et al, 2010). When possible the identification was corroborated by looking at morphological traits like nematocysts (mainly stenoteles and holotrychous isorhizas), embryothecae, and tentacle emergence in buds (see the key to identify clades for additional details).\nPlease enlarge map to see all the collection locations (some points are not visible at this scale). There is little we can do about the map projection which distorts the true areas of the world exaggerating lands at higher latitudes.\nSelect maps for individual species here. * Hydra viridissima * Hydra vulgaris |"
   },
   {
-    "objectID": "groups.html#key-to-hydra-clades",
-    "href": "groups.html#key-to-hydra-clades",
-    "title": "Hydras of the World",
-    "section": "Key to hydra clades",
-    "text": "Key to hydra clades\n\n\n\n\n1a.\n\n\nHydra green due to intracellular algal symbionts;  stenotele nematocysts not longer than 11 µm …………………………………. Viridissima group\n\n\n1b.\n\n\nHydra not green; stenotele nematocysts longer than 11 µm\n\n\n\n\n2a.\n\n\nHolotrichous isorhiza nematocysts plump (at half as broad as long)\n\n\n\n\n3a.\n\n\nFlatten embryotheca without spines …………………………. Braueri group\n\n\n3b.\n\n\nRound embryotheca with spines ……………………………… Lirosoma group\n\n\n\n\n2b.\n\n\nHolotrichous isorhiza slender, or if plump then embryotheca with spines\n\n\n\n\n4a.\n\n\nBuds acquire 2 lateral tentacles before other tentacles appear; otherwise, stenoteles at least 1.5 times as long as broad  smooth, spherical embryotheca ………………………………. Oligactis group\n\n\n4b.\n\n\nBuds acquire tentacles in some other order; otherwise,  stenoteles less than 1.5 times as long as broad  spherical embryotheca with spines……………………………. Vulgaris group\n\n\n\n\nCampbell, R. D. (1987). A new species of Hydra (Cnidaria: Hydrozoa) from North America with comments on species clusters within the genus. Zoological Journal of the Linnean Society, 91, 253–263.\nMartínez D.E. , A.R. Iñiguez; K.M. Percell; J.B. Willner; J. Signorovitch; R.D. Campbell, 2010. Phylogeny and biogeography of Hydra (Cnidaria: Hydridae) using mitochondrial and nuclear DNA sequences. Molecular Phylogenetics and Evolution 57(20): 403-410.\nSchulze, P. (1917). Neue Beiträge zu einer Monographie der Gattung Hydra. Archiv für Biontologie, 4(1), 29–119."
-  },
-  {
-    "objectID": "orcas.html",
-    "href": "orcas.html",
-    "title": "Orca Encounters",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Daniel Martínez Scavino",
     "section": "",
-    "text": "Orcas are nasty fish that enjoy munching on people!\nNope! There are several things that are wrong with that picture. Orcas are cetaceans related to dolphins that live in all of the world oceans. They are higly intelligent predators that hunt in coordinated family pods using very elaborate strategies. Their varied diet includes fish, sharks, smaller marine mammals (e.g. see lions), and even whales. But not humans!"
+    "text": "Hola! I am Daniel Martínez Scavino, a biology professor at Pomona College. My research centers on Hydra—the remarkable, biologically immortal organism that somehow missed the memo on aging. When I am not in the lab or teaching Introductory Genetics or Genomics & Transcriptomics, you can usually find me exploring mountain trails, traveling, cooking, or diving into new languages. I was born in Argentina so my native language is Spanish.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About these visualizations",
+    "section": "",
+    "text": "This website and the visualizations here were created as assignments for the Foundations of Data Science in R course taught by Professor Jo Hardin at Pomona College.\nI audited the class in the fall of 2026 and I absolutely loved the course. I am indebted to Professor Hardin, who gracefully allowed my unusual presence in her classroom. I am also grateful to my students Ava Santos-Volpe and Ryan (bRyan) Mooney who insisted that I take this class; they knew I would love it.\nThe visualizations presented here represent assignments designed for students to learn various data science concepts. Students were free to select TidyTuesday datasets to analyze and display. I chose datasets on Orca Encounters in Puget Sound, Dear Abby letters, and Palmtrees to practice different types of graphs."
+  },
+  {
+    "objectID": "about.html#tidytuesday",
+    "href": "about.html#tidytuesday",
+    "title": "About these visualizations",
+    "section": "TidyTuesday",
+    "text": "TidyTuesday\nWhat is TidyTuesday? A response from AI (Gemini)\nTidyTuesday is a weekly data project aimed at the R community, hosted by the R4DS Online Learning Community (Data Science in a Box / R for Data Science).\nEvery Tuesday, a new dataset is posted on GitHub, usually accompanied by a brief article or chart exploring it. Participants from around the world download the data, analyze it, create data visualizations (most commonly using ggplot2), and share their code and plots on social media (primarily on X/Twitter and LinkedIn) using the hashtag #TidyTuesday.\n\nKey Features of TidyTuesday\n\nFocus on the “Tidyverse”: The project encourages the use of tidy data principles and packages from the tidyverse ecosystem (like dplyr, tidyr, and ggplot2), though participants are free to use any tools or programming languages they prefer.\nReal-World Data: The datasets cover a wide variety of engaging, often quirky topics—ranging from historical events and scientific discoveries to pop culture, sports, and environmental statistics.\nLearning and Community: It serves as a low-stakes, supportive environment for beginners and experienced data scientists alike to practice data wrangling, sharpen data visualization skills, and learn from how others approach the same dataset."
+  },
+  {
+    "objectID": "vulgaris.html#hydra-vulgaris-distribution",
+    "href": "vulgaris.html#hydra-vulgaris-distribution",
+    "title": "Hydras of the World",
+    "section": "Hydra vulgaris distribution",
+    "text": "Hydra vulgaris distribution"
   },
   {
     "objectID": "project.html",

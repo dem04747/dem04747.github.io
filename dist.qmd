@@ -16,7 +16,10 @@ The map below displays the locations of hydra collected throughout the world.  T
 
 Please enlarge map to see all the collection locations (some points are not visible at this scale). There is little we can do about the map projection which distorts the true areas of the world exaggerating lands at higher latitudes. 
 
-
+Select maps for individual species here.
+* [Hydra viridissima](viridissima.qmd)
+* [Hydra vulgaris](vulgaris.qmd) 
+| 
 ```{r}
 #| echo: false
 # 1. Load libraries and copy data
@@ -217,6 +220,7 @@ pal <- colorFactor(
   domain = names(species_colors) # or hydra_clean$species
 )
 
+# 3. Create map
 leaflet(hydra_clean) %>%
   addProviderTiles(providers$OpenStreetMap.Mapnik) %>%
   addCircleMarkers(
