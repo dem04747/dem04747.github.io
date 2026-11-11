@@ -18,10 +18,7 @@ Please enlarge map to see all the collection locations (some points are not visi
 
 Select maps for individual species below.
 
-| [**Hydra viridissima**](viridissima.qmd) | [**Hydra vulgaris**](vulgaris.qmd) | [**Hydra oligactis**](oligactis.qmd) | [**Hydra circumcincta**](circumcincta.qmd) 
-
-
-| [**Hydra hymanae**](hymanae.qmd) | [**Hydra utahensis**](utahensis.qmd) | [**Hydra canadensis**](canadensis.qmd) | [**Hydra oxycnida**](oxycnida.qmd)
+| [**H. viridissima**](viridissima.qmd) | [**H.vulgaris**](vulgaris.qmd) | [**H. oligactis**](oligactis.qmd) | [**H. circumcincta**](circumcincta.qmd) | [**H. hymanae**](hymanae.qmd) | [**H. utahensis**](utahensis.qmd) | [**H. canadensis**](canadensis.qmd) | [**H. oxycnida**](oxycnida.qmd)
 
 
 ***
